@@ -1,0 +1,28 @@
+.sencha/*
+build/*
+app/*
+.vs/ProjectSettings.json
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+classic/*
+ext/*
+extjs/*
+PSO2 Affixing Simulator_files/*
+sass/*
+resources/*
+modern/*
+app.js
+app.json
+bootstrap.css
+bootstrap.js
+classic.json
+classic.jsonp
+lzbase62.min.js
+modern.json
+modern.jsonp
+workspace.json
+PSO2 Affixing Simulator.html
+index.html
+css/default.css
+build.xml
+.vs/PSO2-Affix-Simulator/v15/.suo
