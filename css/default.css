@@ -170,12 +170,6 @@ table#ps td#low {
 .ef-soul .x-grid-cell, .ef-soul .x-grid-rowwrap-div {
 	background-color: #d0e2bc !important;
 }
-.astral-mat .x-grid-cell, .astral-mat .x-grid-rowwrap-div {
-	background-color: #9a74c1 !important;
-}
-.ether-mat .x-grid-cell, .ether-mat .x-grid-rowwrap-div {
-	background-color: #4ce0dd !important;
-}
 /* Slot Locked */
 .slot-grid-locked .x-panel-header-text-default {
 	color: #c90440;
