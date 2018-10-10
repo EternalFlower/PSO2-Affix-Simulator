@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=4" />
+<meta name="keywords" content="PSO2,dudu,affix,simulator,doodoo,sim,ability" />
+<meta name="description" content="Engine for simulating an affixing action for PSO2." />
+<title>PSO2 Affixing Simulator</title>
+<link rel="stylesheet" type="text/css" href="./extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="./css/default.css" />
+<script type="text/javascript" src="./extjs/ext-all-a.js"></script>
+<script type="text/javascript" src="./extjs/ext-all-b.js"></script>
+<script type="text/javascript" src="./extjs/ext-all-c.js"></script>
+<script type="text/javascript" src="./extjs/examples/ux/grid/FiltersFeature.js"></script>
+<script type="text/javascript" src="./extjs/examples/ux/TabCloseMenu.js"></script>
+<script type="text/javascript" src="./extjs/examples/ux/grid/menu/ListMenu.js"></script>
+<script type="text/javascript" src="./extjs/examples/ux/grid/menu/RangeMenu.js"></script>
+<script type="text/javascript" src="./extjs/examples/ux/grid/filter/Filter.js"></script>
+<script type="text/javascript" src="./extjs/examples/ux/grid/filter/StringFilter.js"></script>
+<script type="text/javascript" charset="utf-8" src="./lzbase62.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./dodo.min.js"></script>
+<script type="text/javascript">
+	Ext.Loader.setConfig({enabled: true});
+	Ext.require(['*']);
+	function ready() {
+		Ext.onReady(function() {
+			Ext.Ajax.request({ 
+				url: './params.min.json',
+				method: "GET", 
+				success: function(req, opt) {
+					if (req.status == 200) {
+						var fc2 = Ext.get('fc2_footer'),
+							noDD = false,
+							params = {
+								version: '1.80',
+								ajaxData: Ext.JSON.decode(req.responseText),
+								maxMaterial: 5
+							};
+						if (Ext.userAgent) {
+							var ua = Ext.userAgent.toLowerCase();
+							if (0 < ua.indexOf('iphone') || 0 < ua.indexOf('ipad')
+								 || 0 < ua.indexOf('ipod') || 0 < ua.indexOf('android')) {
+								noDD = true;
+							}
+						}
+						params.noDD = noDD;
+						if (noDD === false) {
+							Ext.getBody().dom.innerHTML = '';
+							Ext.tip.QuickTipManager.init();
+							params.items = {
+								region: 'south',
+								layout: 'fit',
+								style: {
+									textAlign: 'center'
+								},
+								frame: false,
+								border: 0,
+								html: fc2? fc2.dom.innerHTML: ''
+							};
+						} else {
+							fc2.dom.style['line-height'] = '8px';
+						}
+						Ext.create('PSO2.SynthesisComponent', params);
+					}
+				}
+			});
+		});
+	}
+</script>
+</head>
+<body onload="ready();">
+</body>
+</html>
