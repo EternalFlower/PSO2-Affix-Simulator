@@ -12,6 +12,14 @@ This file may be used under the terms of the GNU General Public License version 
 If you are unsure which license is appropriate for your use, please contact the sales department at http://www.sencha.com/contact.
 
 */
+function copy_inner(id) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    var d = document.getElementById(id).innerHTML
+    $temp.val(d).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
 Ext.ns("PSO2");
 Ext.define("PSO2.CookieModel", {
     extend: "Ext.data.Model",
