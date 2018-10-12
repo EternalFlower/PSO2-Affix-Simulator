@@ -92,7 +92,7 @@ Ext.define("PSO2.GridGrouping", {
 });
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
-    version: "1.80",
+    version: "1.81",
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
     outputViewport: false,
@@ -524,16 +524,29 @@ Ext.define("PSO2.SynthesisComponent", {
         // Share button
         if (synComp.noDD !== true) {
             buttons.push("-");
+            var access_token = null, api_url = null;
+            Ext.Ajax.request({ 
+                url: './api_key_include.js',
+                method: "GET", 
+                success: function(req, opt) {
+                    if (req.status == 200) {
+                        var json = Ext.JSON.decode(req.responseText)
+                        access_token = json.access_token
+                        api_url = json.api_url
+                    }
+                }
+            });
             buttons.push({
                 iconCls: "x-share-icon",
                 handler: function() {
                     var site = location,
                         link = site.protocol + "//" + site.host + site.pathname + "#!" + lzbase62.compress(site.hash.substring(3));
+
                     Ext.create("widget.window", {
                         title: "Share",
                         modal: true,
                         width: synComp.noDD === true ? Ext.getBody().getWidth() : 700,
-                        height: 500,
+                        height: 200,
                         layout: "fit",
                         autoDestroy: true,
                         closable: true,
@@ -544,11 +557,11 @@ Ext.define("PSO2.SynthesisComponent", {
                                 padding: "5px"
                             },
                             height: 32,
-                            html: 'Your long link is: <A HREF="' + link + '">' + link + 
-                            '</a><br><A HREF="http://api.bit.ly/v3/shorten?login=aidaenna&format=txt&apiKey=R_939fc6c1e5a540f9aa4e710bc4512154&longUrl=' + 
-                            link.replace("#!","%23%21") + 
-                            '">You can share a short version of this URL by clicking here.</A>'
-                            +'<br>Copy the URL it provides in the new window.<br>You can share via Twitter here:'+
+                            html: '<br>Your long link is: <a href="' + link + '" id=long_link>' + link +
+                            '</a> <button onclick=copy_inner("long_link")>Copy</button>'+
+                            '<br><br>Your short link is:<a href="" id=short_link></a>'+
+                            ' <button onclick=copy_inner("short_link")>Copy</button>'+ 
+                            '<br><br>  You can share via Twitter here:'+
                             ' <a href="https://twitter.com/share" class="twitter-share-button" data-url="' + 
                             link + '" data-text="PSO2 Affix Simulation"></a><br><center>',
 							//html: '<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + h + '" data-text="PSO2 Skill Simulation"></a>',
@@ -567,6 +580,20 @@ Ext.define("PSO2.SynthesisComponent", {
                                             l.parentNode.insertBefore(n, l)
                                         }
                                     }(document, "script", "twitter-wjs")
+                                    $.getJSON(
+                                        api_url + '/v3/shorten?access_token=' + access_token + '&longUrl=' + encodeURIComponent(link),
+                                        {},
+                                        function(response)
+                                        {
+                                            if(response.status_code == 200){
+                                                document.getElementById("short_link").innerHTML = response.data.url;
+                                                document.getElementById("short_link").href = response.data.url;
+                                            }
+                                            else{
+                                                document.getElementById("short_link").innerHTML = "Error: " + response.status_code
+                                            }
+                                        }
+                                    );
                                 }
                             }
                         }, /*{
@@ -618,7 +645,11 @@ Ext.define("PSO2.SynthesisComponent", {
                             },
                             height: 32,
                             html: '<b><u>Changelog</b></u></center><br>' +
-                            '<b>10/10/2018:</b>'+
+                            '<b>10/11/2018 (version 1.81):</b>'+
+                            '<ul>'+
+                            '<li>- Implement Short Link and copy buttons</li>'+
+                            '<li>- Added -(Doom Break 2) and -(Omega Memoria) to ability list</li>'+
+                            '<b>10/10/2018 (version 1.80):</b>'+
                             '<ul>' +
                             '<li>- Add New Abilities (Double Reverie, Mark Receptor, SSA)</li>' +
                             '<li>- Remove Abilities add via items since they are not inheritable and reduce clutter</li>' +
@@ -627,6 +658,7 @@ Ext.define("PSO2.SynthesisComponent", {
                             '<li>- Add Boost Day System</li>'+
                             '<li>- Create Receptor Tab</li>'+
                             '<li>- Add Whale Item (+50% Booster, Mark Receptor)</li>'+
+                            '<li>- Split the changelog/share button</li>'+
                             '<li>- Tons of under the hood stuff</li>'+
                             '</ul>'+
                             '<br><b>4/12/2018:</b>'+
