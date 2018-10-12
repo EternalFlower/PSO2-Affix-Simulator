@@ -525,16 +525,17 @@ Ext.define("PSO2.SynthesisComponent", {
         if (synComp.noDD !== true) {
             buttons.push("-");
             var access_token = null, api_url = null;
-                $.ajax({
-                url: "api_key_include.js",
-                success: function(data) {
-                    access_token = data.access_token;
-                    api_url      = data.api_url;
-                    },
-                    data: {},
-                    type: "POST",
-                    dataType:"json"
-                });
+            Ext.Ajax.request({ 
+                url: './api_key_include.js',
+                method: "GET", 
+                success: function(req, opt) {
+                    if (req.status == 200) {
+                        var json = Ext.JSON.decode(req.responseText)
+                        access_token = json.access_token
+                        api_url = json.api_url
+                    }
+                }
+            });
             buttons.push({
                 iconCls: "x-share-icon",
                 handler: function() {
