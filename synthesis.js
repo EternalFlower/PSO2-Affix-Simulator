@@ -537,6 +537,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             });
             buttons.push({
+                text: " Share",
                 iconCls: "x-share-icon",
                 handler: function() {
                     var site = location,
@@ -645,10 +646,15 @@ Ext.define("PSO2.SynthesisComponent", {
                             },
                             height: 32,
                             html: '<b><u>Changelog</b></u></center><br>' +
+                            '<b>11/12/2018 (minor update):</b>'+
+                            '<ul>'+
+                            '<li>- Added Persona, Mana Reverie and Reverie Catalyst to ability list</li>'+
+                            '</ul>'+
                             '<b>10/11/2018 (version 1.81):</b>'+
                             '<ul>'+
                             '<li>- Implement Short Link and copy buttons</li>'+
-                            '<li>- Added -(Doom Break 2) and -(Omega Memoria) to ability list</li>'+
+                            '<li>- Added Doom Break 2 and Omega Memoria to ability list</li>'+
+                            '</ul>'+
                             '<b>10/10/2018 (version 1.80):</b>'+
                             '<ul>' +
                             '<li>- Add New Abilities (Double Reverie, Mark Receptor, SSA)</li>' +
@@ -660,17 +666,14 @@ Ext.define("PSO2.SynthesisComponent", {
                             '<li>- Add Whale Item (+50% Booster, Mark Receptor)</li>'+
                             '<li>- Split the changelog/share button</li>'+
                             '<li>- Tons of under the hood stuff</li>'+
-                            '</ul>'+
-                            '<br><b>4/12/2018:</b>'+
-                            '<br><br><b>4/12/2018:</b>'+
-                            '<br>- Added Loser Reverie<br>'+
-                            '<br><b>4/5/2018:</b>'+
-                            '<br>- Added the changelog<br>'+
-                            '- Added shortlinking via bitly (can\'t do it in the javascript because fuck you java)'+
-                            '<br>- Fixed errors with Historia/Fabula tooltips'+
-                            '<br>- Fixed Offensive/Defensive Boost stats not showing correctly<br>- Fixed Mark Angar, Sim, and Couragena issues<br>'+
-                            '<br><b>6/7/2018:</b>'+
-                            '<br>- Added Lesser/EV<br>- Added new SSAs<br>- Fixed some bugs',
+                            '</ul>',//+
+                            //'<br><b>4/12/2018:</b>'+
+                            //'<br><b>4/5/2018:</b>'+
+                            //'<br>- Added the changelog<br>'+
+                            //'<br>- Fixed errors with Historia/Fabula tooltips'+
+                            //'<br>- Fixed Offensive/Defensive Boost stats not showing correctly<br>- Fixed Mark Angar, Sim, and Couragena issues<br>'+
+                            //'<br><b>6/7/2018:</b>'+
+                            //'<br>- Added Lesser/EV<br>- Added new SSAs<br>- Fixed some bugs',
                             listeners: {
                                 single: true,
                                 afterrender: function() {

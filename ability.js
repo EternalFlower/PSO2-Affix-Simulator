@@ -725,6 +725,7 @@ Ext.define("PSO2.AbilityComponent", {
                 }
                 result.push({
                     name: affixEntry.get("name"),
+                    code: affixEntry.get("code"),
                     success: rate
                 })
             }
