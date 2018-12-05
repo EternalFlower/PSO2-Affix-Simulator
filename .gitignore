@@ -1,9 +1,6 @@
-.sencha/*
 build/*
 app/*
-.vs/ProjectSettings.json
-.vs/VSWorkspaceState.json
-.vs/slnx.sqlite
+.vs/*
 classic/*
 ext/*
 extjs/*
@@ -22,13 +19,9 @@ modern.json
 modern.jsonp
 workspace.json
 build.xml
-.vs/PSO2-Affix-Simulator/v15/.suo
 Split Special Tab Proposal.txt
 PSO2 Affixing Simulator.html
 update.zip
-update/api_key_include.js
-update/utils.js
-update/synthesis.js
-update/params.min.json
-update/index.html
+update/*
 api_key_include.js
+.gitignore

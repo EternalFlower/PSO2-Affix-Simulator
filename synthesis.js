@@ -668,6 +668,7 @@ Ext.define("PSO2.SynthesisComponent", {
                             '<li>- Tons of under the hood stuff</li>'+
                             '</ul>',//+
                             //'<br><b>4/12/2018:</b>'+
+                            //'<br>- Added Loser Reverie<br>'+
                             //'<br><b>4/5/2018:</b>'+
                             //'<br>- Added the changelog<br>'+
                             //'<br>- Fixed errors with Historia/Fabula tooltips'+
