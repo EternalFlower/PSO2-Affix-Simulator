@@ -92,7 +92,7 @@ Ext.define("PSO2.GridGrouping", {
 });
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
-    version: "1.81",
+    version: "1.82",
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
     outputViewport: false,
@@ -148,9 +148,10 @@ Ext.define("PSO2.SynthesisComponent", {
             "&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"'+
             ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;', 
             '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
-            ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida</a>'+
-            ' (Updated 10-10-18)<br>Message Aida Enna#0001 on Discord or'+
-            ' <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a> to report bugs/issues/suggestions.', "</span>", "</div>"].join("")
+            ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>'+
+            ' (Updated 01-05-19)<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord'+
+            ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>'+
+            ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"].join("")
         });
         synComp.panelNames = ["Fodder"];
         for (var d = 1; d <= synComp.maxMaterial; d++) {
@@ -597,15 +598,8 @@ Ext.define("PSO2.SynthesisComponent", {
                                     );
                                 }
                             }
-                        }, /*{
-                            xtype: "textarea",
-                            anchor: "100%",
-                            layout: "fit",
-                            value: h,
-                            style: {
-                                margin: "5px"
-                            }
-                        }*/],
+                        },
+                    ],
                         dockedItems: [{
                             xtype: "toolbar",
                             ui: "footer",
@@ -634,7 +628,7 @@ Ext.define("PSO2.SynthesisComponent", {
                         title: "Changelog",
                         modal: true,
                         width: synComp.noDD === true ? Ext.getBody().getWidth() : 700,
-                        height: 500,
+                        height: 400,
                         layout: "fit",
                         autoDestroy: true,
                         closable: true,
@@ -645,36 +639,8 @@ Ext.define("PSO2.SynthesisComponent", {
                                 padding: "5px"
                             },
                             height: 32,
-                            html: '<b><u>Changelog</b></u></center><br>' +
-                            '<b>11/12/2018 (minor update):</b>'+
-                            '<ul>'+
-                            '<li>- Added Persona, Mana Reverie and Reverie Catalyst to ability list</li>'+
-                            '</ul>'+
-                            '<b>10/11/2018 (version 1.81):</b>'+
-                            '<ul>'+
-                            '<li>- Implement Short Link and copy buttons</li>'+
-                            '<li>- Added Doom Break 2 and Omega Memoria to ability list</li>'+
-                            '</ul>'+
-                            '<b>10/10/2018 (version 1.80):</b>'+
-                            '<ul>' +
-                            '<li>- Add New Abilities (Double Reverie, Mark Receptor, SSA)</li>' +
-                            '<li>- Remove Abilities add via items since they are not inheritable and reduce clutter</li>' +
-                            '<li>- Fix Fabula/Historia not boosting Apprenzina</li>'+
-                            '<li>- Fix SSA taking upslot penalty</li>'+
-                            '<li>- Add Boost Day System</li>'+
-                            '<li>- Create Receptor Tab</li>'+
-                            '<li>- Add Whale Item (+50% Booster, Mark Receptor)</li>'+
-                            '<li>- Split the changelog/share button</li>'+
-                            '<li>- Tons of under the hood stuff</li>'+
-                            '</ul>',//+
-                            //'<br><b>4/12/2018:</b>'+
-                            //'<br>- Added Loser Reverie<br>'+
-                            //'<br><b>4/5/2018:</b>'+
-                            //'<br>- Added the changelog<br>'+
-                            //'<br>- Fixed errors with Historia/Fabula tooltips'+
-                            //'<br>- Fixed Offensive/Defensive Boost stats not showing correctly<br>- Fixed Mark Angar, Sim, and Couragena issues<br>'+
-                            //'<br><b>6/7/2018:</b>'+
-                            //'<br>- Added Lesser/EV<br>- Added new SSAs<br>- Fixed some bugs',
+                            autoScroll:true,
+                            html: patch_notes,
                             listeners: {
                                 single: true,
                                 afterrender: function() {
@@ -1458,7 +1424,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     return true
                 }
                 if (this.id == gridView.gridId) {
-                    inGridView.getStore().swapAbility(gridView.sourceEl.viewIndex, event.getTarget(gridView.itemSelector).viewIndex);
+                    inGridView.getStore().swapAbility(gridView.sourceEl.viewIndex, event.getTarget(inGridView.itemSelector).viewIndex);
                     inGridView.refresh();
                     synComp.onChangeAbility()
                 } else {

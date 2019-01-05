@@ -24,4 +24,5 @@ PSO2 Affixing Simulator.html
 update.zip
 update/*
 api_key_include.js
-.gitignore
+*.gitignore
+update*
