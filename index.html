@@ -34,10 +34,9 @@
 				method: "GET", 
 				success: function(req, opt) {
 					if (req.status == 200) {
-						var fc2 = Ext.get('fc2_footer'),
-							noDD = false,
+						var noDD = false,
 							params = {
-								version: '1.82',
+								version: '1.83',
 								ajaxData: Ext.JSON.decode(req.responseText),
 								maxMaterial: 5
 							};
@@ -60,11 +59,9 @@
 								},
 								frame: false,
 								border: 0,
-								html: fc2? fc2.dom.innerHTML: ''
+								html:  ''
 							};
-						} else {
-							fc2.dom.style['line-height'] = '8px';
-						}
+						} 
 						Ext.create('PSO2.SynthesisComponent', params);
 					}
 				}

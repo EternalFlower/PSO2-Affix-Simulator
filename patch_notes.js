@@ -1,4 +1,14 @@
 var patch_notes = 
+  '<b><u>Changelog</b></u></center><br>' +
+  '<b>01/23/2019 (version 1.83):</b>'+
+  '<ul>'+
+  '<li>- Added more SSA from Limited Quest New Year 2019</li>'+
+  '<li>- Changed some descriptions</li>'+
+  '<li>- Change Fodder to Base</li>'+
+  '<li>- Added Guidance Trainer</li>'+
+  '<li>- Added 100% Booster</li>' +
+  '<li>- Get the simulator to load on mobile. Does it work well? :shrug:</li>'+
+  '</ul>'+
   '<b>01/05/2019 (version 1.82):</b>'+
   '<ul>'+
   '<li>- Added more SSA</li>'+
@@ -6,7 +16,6 @@ var patch_notes =
   '<li>- Provide link to github if you want to report on that instead</li>'+
   '<li>- Change in the background on how patch notes are loaded</li>'+
   '</ul>'+
-  '<b><u>Changelog</b></u></center><br>' +
   '<b>12/08/2018 (minor update):</b>'+
   '<ul>'+
   '<li>- Added Persona, Mana Reverie and Reverie Catalyst to ability list</li>'+

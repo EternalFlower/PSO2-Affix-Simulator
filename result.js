@@ -221,29 +221,37 @@ Ext.define("PSO2.ResultPanel", {
             comboBox.select(ddItem)
         }
     },
+    boostRate: function(successItem){
+        var resultPanel = this,
+        itemBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt1).get("fn"),
+        potBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt3).get("fn"),
+        sameItemCount = resultPanel.chkOpt1.getSameCount(),        
+        haveGuid = resultPanel.abilitySet.isGuidanceTrainer();
+
+        successRate = resultPanel.calcSameBonus(successItem, sameItemCount);
+        successRate = itemBoostFn(successRate);
+        successRate = potBoostFn(successRate);
+        if (resultPanel.boostFunction) {
+            successRate = resultPanel.boostFunction(successRate)
+        }
+        if (resultPanel.boostDayFunction) {
+            successRate = resultPanel.boostDayFunction(successRate, resultPanel.successItems[itemCount].name)
+        }
+        if(haveGuid) successRate = Math.min(successRate + 5, 100);
+        return successRate;
+    },
     refresh: function() {
         var resultPanel = this,
             dataView = resultPanel.viewPanel,
             successPanel = resultPanel.successPanel,
             // Functions of the options selected in the menu (refer to json)
-            itemBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt1).get("fn"),
-            potBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt3).get("fn"),
-            sameItemCount = resultPanel.chkOpt1.getSameCount(),
             itemCount, overallRate = 100,
             m = [],
             successRate;
         resultPanel.successStore.loadData(m);
         resultPanel.successItems = resultPanel.abilityComponent.getSuccessList(resultPanel.abilitySet, resultPanel.resultItems, resultPanel.optionItems);
         for (itemCount = 0; itemCount < resultPanel.successItems.length; itemCount++) {
-            successRate = resultPanel.calcSameBonus(resultPanel.successItems[itemCount], sameItemCount);
-            successRate = itemBoostFn(successRate);
-            successRate = potBoostFn(successRate);
-            if (resultPanel.boostFunction) {
-                successRate = resultPanel.boostFunction(successRate)
-            }
-            if (resultPanel.boostDayFunction) {
-                successRate = resultPanel.boostDayFunction(successRate, resultPanel.successItems[itemCount].name)
-            }
+            successRate = resultPanel.boostRate(resultPanel.successItems[itemCount]);
             m.push([resultPanel.successItems[itemCount]["name"], successRate]);
             overallRate *= successRate
         }
@@ -446,23 +454,12 @@ Ext.define("PSO2.ResultPanel", {
     // The Dudu button. Return true is all affix pass, else false. Array pass in are modified
     doDo: function(success, fail) {
         var resultPanel = this,
-            itemBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt1).get("fn"),
-            potBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt3).get("fn"),
-            sameItemCount = resultPanel.chkOpt1.getSameCount(),
             selAffixList = resultPanel.successItems,
             selAffixLen = selAffixList.length,
             affixRate;
         if (0 < selAffixLen) {
             for (var index = 0; index < selAffixLen; index++) {
-                affixRate = resultPanel.calcSameBonus(selAffixList[index], sameItemCount);
-                affixRate = itemBoostFn(affixRate);
-                affixRate = potBoostFn(affixRate);
-                if (resultPanel.boostFunction) {
-                    affixRate = resultPanel.boostFunction(affixRate)
-                }
-                if (resultPanel.boostDayFunction) {
-                    affixRate = resultPanel.boostDayFunction(affixRate, selAffixList[index].name)
-                }
+                affixRate = resultPanel.boostRate(selAffixList[index]);
                 if (100 <= affixRate || Math.floor(Math.random() * 100) < affixRate) {
                     success.push({
                         fieldLabel: selAffixList[index].name,

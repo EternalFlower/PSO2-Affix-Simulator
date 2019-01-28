@@ -153,7 +153,7 @@ Ext.define("PSO2.SynthesisComponent", {
             ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>'+
             ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"].join("")
         });
-        synComp.panelNames = ["Fodder"];
+        synComp.panelNames = ["Base"];
         for (var d = 1; d <= synComp.maxMaterial; d++) {
             synComp.panelNames.push("Fodder " + d)
         }

@@ -102,6 +102,16 @@ Ext.define("PSO2.AbilitySet", {
         var abilitySet = this;
         return 0 < abilitySet.hashStack[abilitySet.photonCd]
     },
+    isGuidanceTrainer: function() {
+        var abilitySet = this;
+        var baseItem = abilitySet.stores[0].data.items;
+        for(var i = 0; i < 10; i++){
+            var slot = baseItem[i].data.slot;
+            if(slot == null) break;
+            if(slot.code == "VO01") return true;
+        }
+        return false;
+    },
 	// Number of material being used
     enableMaterial: function() {
         var abilitySet = this,
@@ -579,7 +589,7 @@ Ext.define("PSO2.AbilityComponent", {
             exBoost = affix.get("exboost"),
             code = affix.get("code"),
             haveMut1 = abSet.isMutationI(),
-            haveMut2 = abSet.isMutationII(),
+            haveMut2 = abSet.isMutationII(),            
             havePhotCol = abSet.isPhotonCollect(),
             level = abComp.getLevel(affix.get("name")),
             refRate = 0,
