@@ -1,5 +1,9 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>02/01/2019 </b>'+
+  '<ul>'+
+  '<li>- Fix bug regarding to Guidance Trainer (yes, it was a pain)</li>'+
+  '<li>- Remove 100% Booster (because Sega ain\'t giving it)</li>' +
   '<b>01/23/2019 (version 1.83):</b>'+
   '<ul>'+
   '<li>- Added more SSA from Limited Quest New Year 2019</li>'+

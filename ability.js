@@ -105,7 +105,7 @@ Ext.define("PSO2.AbilitySet", {
     isGuidanceTrainer: function() {
         var abilitySet = this;
         var baseItem = abilitySet.stores[0].data.items;
-        for(var i = 0; i < 10; i++){
+        for(var i = 0; i < 9; i++){
             var slot = baseItem[i].data.slot;
             if(slot == null) break;
             if(slot.code == "VO01") return true;
