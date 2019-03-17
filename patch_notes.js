@@ -1,9 +1,18 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>03/16/2019 (version 1.84):</b>'+
+  '<ul>'+
+  '<li>- Added more S-Class Special Ability</li>'+
+  '<li>- Add more recipes in the tooltips (EV)</li>' +
+  '<li>- Add in the tooltips for which souls can be used in ___ the Soul</li>' +
+  '<li>- Added the ability to rename current active tab</li>' +
+  '<li>  Note: You know there is a search function for ability list? It is in the dropdown menu in the column header</li>' +
+  '</ul>'+
   '<b>02/01/2019 </b>'+
   '<ul>'+
   '<li>- Fix bug regarding to Guidance Trainer (yes, it was a pain)</li>'+
   '<li>- Remove 100% Booster (because Sega ain\'t giving it)</li>' +
+  '</ul>'+
   '<b>01/23/2019 (version 1.83):</b>'+
   '<ul>'+
   '<li>- Added more SSA from Limited Quest New Year 2019</li>'+

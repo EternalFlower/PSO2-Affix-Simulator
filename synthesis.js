@@ -86,6 +86,8 @@ Ext.define("PSO2.GridGrouping", {
             return "S-Class Special Abilities 3"
         } else if (affixGroup.name == "L4") {
             return "S-Class Special Abilities 4"
+        } else if (affixGroup.name == "LSAF") {
+            return "S-Class Special Ability Factor"
         }
         return "Other"
     }
@@ -357,6 +359,11 @@ Ext.define("PSO2.SynthesisComponent", {
                 this.tabPanel.setActiveTab(this.addTab())
             }
         }), Ext.create("Ext.Action", {
+            iconCls: "x-rename-icon",
+            text: "Rename",
+            scope: synComp,
+            handler: synComp.renamePanel
+        }), Ext.create("Ext.Action", {
             iconCls: "x-save-icon",
             text: "Save",
             scope: synComp,
@@ -620,7 +627,8 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             })
             buttons.push({                
-				text: " Changelog",
+                text: "Changelog",
+                iconCls: "x-changelog-icon",
                 handler: function() {
                     var site = location,
                         link = site.protocol + "//" + site.host + site.pathname + "#!" + lzbase62.compress(site.hash.substring(3));
@@ -995,6 +1003,24 @@ Ext.define("PSO2.SynthesisComponent", {
             synComp.updateLocationHash()
         }
         return synPanel
+    },
+    renamePanel: function(){
+        var synComp = this,
+        active = synComp.tabPanel.activeTab;
+        if (active) {
+            var tabIndex = synComp.findLocationHashBy(synComp.tabPanel.activeTab);
+            if (0 <= tabIndex) {
+                var tabData = synComp.locationHash[tabIndex];
+                if (synComp.urlHashValidate(tabData)) {
+                    return Ext.Msg.prompt("Rename Panel", "Rename current panel.<br/>Input a name?", function(okButton, textfield) {
+                        if (okButton == "ok") {
+                            active.setTitle(textfield);
+                        }
+                    }, synComp)
+                }
+            }
+        }
+        x = 1;
     },
     // Save data onto a cookie
     saveData: function() {

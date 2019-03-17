@@ -235,7 +235,7 @@ Ext.define("PSO2.ResultPanel", {
             successRate = resultPanel.boostFunction(successRate)
         }
         if (resultPanel.boostDayFunction) {
-            successRate = resultPanel.boostDayFunction(successRate, resultPanel.successItems[itemCount].name)
+            successRate = resultPanel.boostDayFunction(successRate, successItem.name)
         }
         if(haveGuid) successRate = Math.min(successRate + 5, 100);
         return successRate;
