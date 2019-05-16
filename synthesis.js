@@ -151,7 +151,7 @@ Ext.define("PSO2.SynthesisComponent", {
             ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;', 
             '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
             ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>'+
-            ' (Updated 03-16-19)<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord'+
+            ' (Updated 05-16-19)<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord'+
             ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>'+
             ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"].join("")
         });
@@ -190,10 +190,23 @@ Ext.define("PSO2.SynthesisComponent", {
                         if (affixEntry.get("extup")) {
                             var l = [];
                             Ext.Array.forEach(affixEntry.get("extup"), function(m) {
-                                var n = this.ability.findAbilityName(m.length == 2 ? m + "01" : m);
-                                if (n) {
-                                    l.push(m.length == 2 ? n.get("name").replace(/[IV]+$/, "").replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "") : n.get("name"))
+                                var n;
+                                if (m.length == 2){
+                                    n = this.ability.findAbilityName(m + "01");
+                                    l.push(n.get("name").replace(/[IV]+$/, "").replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ""))
+                                } else if (m.length == 3){
+                                    var i = 1;
+                                    while (true) {
+                                        n = this.ability.findAbilityName(m + i);
+                                        if (n == null) break;
+                                        l.push(n.get("name"));
+                                        i++;
+                                    } 
+                                } else {
+                                    n = this.ability.findAbilityName(m);
+                                    l.push(n.get("name"));
                                 }
+
                             }, synComp);
                             k.tdAttr = 'data-qtip="' + l.join(", ") + ' Affix Bonus'
                         }
@@ -219,7 +232,8 @@ Ext.define("PSO2.SynthesisComponent", {
                         type: "string",
                         dataIndex: "effect"
                     }]
-                }, Ext.create("PSO2.GridGrouping")],
+                }, 
+                Ext.create("PSO2.GridGrouping")],
                 viewConfig: {
                     altRowCls: "x-grid-row-group",
                     style: {
