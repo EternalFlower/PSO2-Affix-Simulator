@@ -190,10 +190,23 @@ Ext.define("PSO2.SynthesisComponent", {
                         if (affixEntry.get("extup")) {
                             var l = [];
                             Ext.Array.forEach(affixEntry.get("extup"), function(m) {
-                                var n = this.ability.findAbilityName(m.length == 2 ? m + "01" : m);
-                                if (n) {
-                                    l.push(m.length == 2 ? n.get("name").replace(/[IV]+$/, "").replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "") : n.get("name"))
+                                var n;
+                                if (m.length == 2){
+                                    n = this.ability.findAbilityName(m + "01");
+                                    l.push(n.get("name").replace(/[IV]+$/, "").replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ""))
+                                } else if (m.length == 3){
+                                    var i = 1;
+                                    while (true) {
+                                        n = this.ability.findAbilityName(m + i);
+                                        if (n == null) break;
+                                        l.push(n.get("name"));
+                                        i++;
+                                    } 
+                                } else {
+                                    n = this.ability.findAbilityName(m);
+                                    l.push(n.get("name"));
                                 }
+
                             }, synComp);
                             k.tdAttr = 'data-qtip="' + l.join(", ") + ' Affix Bonus'
                         }
@@ -219,7 +232,8 @@ Ext.define("PSO2.SynthesisComponent", {
                         type: "string",
                         dataIndex: "effect"
                     }]
-                }, Ext.create("PSO2.GridGrouping")],
+                }, 
+                Ext.create("PSO2.GridGrouping")],
                 viewConfig: {
                     altRowCls: "x-grid-row-group",
                     style: {
