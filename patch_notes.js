@@ -1,8 +1,14 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>08/02/2019 (version 1.9):</b>'+
+  '<ul>'+
+  '<li> - Added New SSA (July 10 update) </li>'+
+  '<li> - Implement Search Function for Ability List</li>'+
+  '<li> - Change Campaign Boost from DropDown to Number Box</li>'+
+  '</ul>'+
   '<b>05/15/2019:</b>'+
   '<ul>'+
-  '<li> - Added Abilites added ini May 19, 2019 update (Crack, Ex _ Soul, Divine Will/Order/ Exceed Energy)</li>'+
+  '<li> - Added Abilites added in May 19, 2019 update (Crack, Ex _ Soul, Divine Will/Order/ Exceed Energy)</li>'+
   '<li> - Fix Tooltip for Fabula and Historia Target Boost</li>'+
   '</ul>'+
   '<b>03/16/2019 (version 1.84):</b>'+
