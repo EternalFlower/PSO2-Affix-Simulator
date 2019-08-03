@@ -170,6 +170,70 @@ Ext.define("PSO2.SynthesisComponent", {
                 forceFit: true,
                 sortableColumns: false,
                 scroll: false,
+                filterSetting: 'name',
+                filterValue: '',
+                dockedItems: [{
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    height: 25,
+                    layout: {
+                        type: 'hbox',
+                        align:'stretch'
+                    },
+                    items:[
+                        Ext.create("Ext.form.field.ComboBox", {
+                        store: Ext.create("Ext.data.JsonStore", {
+                            autoLoad: false,
+                            fields: ["T", "V"],
+                            data: [{
+                                T: "Name",
+                                V: 'name'
+                            }, {
+                                T: "Effect",
+                                V: "effect"
+                            }]
+                            
+                        }),
+                        displayField: "T",
+                        forceSelection: true,
+                        editable: false,
+                        queryMode: "local",
+                        valueField: "V",
+                        value: 'name',
+                        typeAhead: true,
+                        width: 74,
+                        listeners: {
+                            scope: synComp,
+                            change: function(combobox, newValue, prevValue) {
+                                this.abilityGrid.filterSetting = newValue;
+                                var store = this.abilityGrid.store;
+                                store.clearFilter(true);
+                                var filterValue = this.abilityGrid.filterValue;
+                                if(filterValue != ''){
+                                    var re = new RegExp(filterValue, 'i');
+                                    store.filter(this.abilityGrid.filterSetting, re);
+                                }  
+                            }
+                        }
+                    }),
+                    {
+                        xtype:'textfield',
+                        name: 'filter',
+                        listeners: {
+                            scope: synComp,
+                            change: function( fld, newValue, oldValue, opts ) {
+                                var store = this.abilityGrid.store;
+                                store.clearFilter(true);
+                                this.abilityGrid.filterValue = newValue;
+                                if(newValue != ''){
+                                    var re = new RegExp(newValue, 'i');
+                                    store.filter(this.abilityGrid.filterSetting, re);
+                                }                                
+                            }       
+                        },
+                        flex: 1
+                    }],}
+                ],
                 columns: [{
                     dataIndex: "name",
                     header: "Ability",
