@@ -94,7 +94,8 @@ Ext.define("PSO2.GridGrouping", {
 });
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
-    version: "1.82",
+    version: "1.9",
+    date: "08-14-19",
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
     outputViewport: false,
@@ -151,7 +152,7 @@ Ext.define("PSO2.SynthesisComponent", {
             ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
             '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
             ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>'+
-            ' (Updated 08-14-19)<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord'+
+            ' (Updated '+ synComp.date +')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord'+
             ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>'+
             ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"].join("")
         });
@@ -207,7 +208,7 @@ Ext.define("PSO2.SynthesisComponent", {
                             change: function(combobox, newValue, prevValue) {
                                 this.abilityGrid.filterSetting = newValue;
                                 var store = this.abilityGrid.store;
-                                store.clearFilter(true);
+                                store.clearFilter();
                                 var filterValue = this.abilityGrid.filterValue;
                                 if(filterValue != ''){
                                     var re = new RegExp(filterValue, 'i');
@@ -223,7 +224,7 @@ Ext.define("PSO2.SynthesisComponent", {
                             scope: synComp,
                             change: function( fld, newValue, oldValue, opts ) {
                                 var store = this.abilityGrid.store;
-                                store.clearFilter(true);
+                                store.clearFilter();
                                 this.abilityGrid.filterValue = newValue;
                                 if(newValue != ''){
                                     var re = new RegExp(newValue, 'i');
