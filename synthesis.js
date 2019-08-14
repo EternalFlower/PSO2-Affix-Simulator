@@ -95,7 +95,7 @@ Ext.define("PSO2.GridGrouping", {
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
     version: "1.9",
-    date: "08-02-2019",
+    date: "08-14-19",
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
     outputViewport: false,
@@ -147,9 +147,9 @@ Ext.define("PSO2.SynthesisComponent", {
             height: 35,
             layout: "fit",
             hidden: synComp.noDD,
-            html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version + 
+            html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
             "&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"'+
-            ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;', 
+            ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
             '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
             ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>'+
             ' (Updated '+ synComp.date +')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord'+
@@ -193,7 +193,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                 T: "Effect",
                                 V: "effect"
                             }]
-                            
+
                         }),
                         displayField: "T",
                         forceSelection: true,
@@ -213,7 +213,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                 if(filterValue != ''){
                                     var re = new RegExp(filterValue, 'i');
                                     store.filter(this.abilityGrid.filterSetting, re);
-                                }  
+                                }
                             }
                         }
                     }),
@@ -229,8 +229,8 @@ Ext.define("PSO2.SynthesisComponent", {
                                 if(newValue != ''){
                                     var re = new RegExp(newValue, 'i');
                                     store.filter(this.abilityGrid.filterSetting, re);
-                                }                                
-                            }       
+                                }
+                            }
                         },
                         flex: 1
                     }],}
@@ -266,7 +266,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                         if (n == null) break;
                                         l.push(n.get("name"));
                                         i++;
-                                    } 
+                                    }
                                 } else {
                                     n = this.ability.findAbilityName(m);
                                     l.push(n.get("name"));
@@ -279,7 +279,7 @@ Ext.define("PSO2.SynthesisComponent", {
                             k.tdAttr = 'data-qtip="' + affixEntry.get("tooltip")
                         else if(affixEntry.get("tooltip"))
                             k.tdAttr += "<br>" + affixEntry.get("tooltip")+'"'
-                        
+
                         if(k.tdAttr)
                             k.tdAttr += '"'
                         return affixDetails
@@ -297,7 +297,7 @@ Ext.define("PSO2.SynthesisComponent", {
                         type: "string",
                         dataIndex: "effect"
                     }]
-                }, 
+                },
                 Ext.create("PSO2.GridGrouping")],
                 viewConfig: {
                     altRowCls: "x-grid-row-group",
@@ -597,9 +597,9 @@ Ext.define("PSO2.SynthesisComponent", {
         if (synComp.noDD !== true) {
             buttons.push("-");
             var access_token = null, api_url = null;
-            Ext.Ajax.request({ 
+            Ext.Ajax.request({
                 url: './api_key_include.js',
-                method: "GET", 
+                method: "GET",
                 success: function(req, opt) {
                     if (req.status == 200) {
                         var json = Ext.JSON.decode(req.responseText)
@@ -633,9 +633,9 @@ Ext.define("PSO2.SynthesisComponent", {
                             html: '<br>Your long link is: <a href="' + link + '" id=long_link>' + link +
                             '</a> <button onclick=copy_inner("long_link")>Copy</button>'+
                             '<br><br>Your short link is:<a href="" id=short_link></a>'+
-                            ' <button onclick=copy_inner("short_link")>Copy</button>'+ 
+                            ' <button onclick=copy_inner("short_link")>Copy</button>'+
                             '<br><br>  You can share via Twitter here:'+
-                            ' <a href="https://twitter.com/share" class="twitter-share-button" data-url="' + 
+                            ' <a href="https://twitter.com/share" class="twitter-share-button" data-url="' +
                             link + '" data-text="PSO2 Affix Simulation"></a><br><center>',
 							//html: '<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + h + '" data-text="PSO2 Skill Simulation"></a>',
                             listeners: {
@@ -690,7 +690,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     }).show()
                 }
             })
-            buttons.push({                
+            buttons.push({
                 text: "Changelog",
                 iconCls: "x-changelog-icon",
                 handler: function() {
