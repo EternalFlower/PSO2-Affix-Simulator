@@ -308,6 +308,7 @@ Ext.define("PSO2.AbilitySet", {
             g = null,
             hashStack = Ext.apply({}, abilitySet.hashStack);
         for (var index = 0; index < baseLength; index++) {
+            // If one of the elements is a wildcard, go to else clause
             if (base[index].indexOf("*") < 0) {
                 if (!hashStack[base[index]]) {
                     return null

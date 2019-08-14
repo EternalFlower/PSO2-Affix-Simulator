@@ -170,6 +170,70 @@ Ext.define("PSO2.SynthesisComponent", {
                 forceFit: true,
                 sortableColumns: false,
                 scroll: false,
+                filterSetting: 'name',
+                filterValue: '',
+                dockedItems: [{
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    height: 25,
+                    layout: {
+                        type: 'hbox',
+                        align:'stretch'
+                    },
+                    items:[
+                        Ext.create("Ext.form.field.ComboBox", {
+                        store: Ext.create("Ext.data.JsonStore", {
+                            autoLoad: false,
+                            fields: ["T", "V"],
+                            data: [{
+                                T: "Name",
+                                V: 'name'
+                            }, {
+                                T: "Effect",
+                                V: "effect"
+                            }]
+
+                        }),
+                        displayField: "T",
+                        forceSelection: true,
+                        editable: false,
+                        queryMode: "local",
+                        valueField: "V",
+                        value: 'name',
+                        typeAhead: true,
+                        width: 74,
+                        listeners: {
+                            scope: synComp,
+                            change: function(combobox, newValue, prevValue) {
+                                this.abilityGrid.filterSetting = newValue;
+                                var store = this.abilityGrid.store;
+                                store.clearFilter(true);
+                                var filterValue = this.abilityGrid.filterValue;
+                                if(filterValue != ''){
+                                    var re = new RegExp(filterValue, 'i');
+                                    store.filter(this.abilityGrid.filterSetting, re);
+                                }
+                            }
+                        }
+                    }),
+                    {
+                        xtype:'textfield',
+                        name: 'filter',
+                        listeners: {
+                            scope: synComp,
+                            change: function( fld, newValue, oldValue, opts ) {
+                                var store = this.abilityGrid.store;
+                                store.clearFilter(true);
+                                this.abilityGrid.filterValue = newValue;
+                                if(newValue != ''){
+                                    var re = new RegExp(newValue, 'i');
+                                    store.filter(this.abilityGrid.filterSetting, re);
+                                }
+                            }
+                        },
+                        flex: 1
+                    }],}
+                ],
                 columns: [{
                     dataIndex: "name",
                     header: "Ability",
@@ -390,46 +454,31 @@ Ext.define("PSO2.SynthesisComponent", {
         })];
         if (synComp.boostCampaign == true) {
             buttons.push("-");
-            buttons.push(Ext.create("Ext.form.field.ComboBox", {
-                store: Ext.create("Ext.data.JsonStore", {
-                    autoLoad: false,
-                    fields: ["T", "V", "F"],
-                    data: [{
-                        T: "No Boost",
-                        V: 0,
-                        F: null
-                    }, {
-                        T: "5% UP",
-                        V: 5,
-                        F: function(baseRate) {
-                            return Math.min(baseRate + 5, 100)
-                        }
-                    }, {
-                        T: "10% UP",
-                        V: 10,
-                        F: function(baseRate) {
-                            return Math.min(baseRate + 10, 100)
-                        }
-                    }]
-                }),
+            buttons.push(Ext.create("Ext.form.field.Number", {
+                fieldLabel: "Campaign Boost",
                 displayField: "T",
                 forceSelection: true,
-                editable: false,
                 queryMode: "local",
-                valueField: "V",
                 value: 0,
-                typeAhead: true,
-                width: 84,
+                maxValue: 100,
+                minValue: 0,
+                hideTrigger: true,
+                width: 138,
+                labelWidth: 100,
                 listeners: {
                     scope: synComp,
-                    change: function(combobox, newValue, prevValue) {
+                    change: function(field, newValue, oldValue, opts) {
                         var resultPanels = this.tabPanel.query("resultpanel");
-                        this.enableBoost = (0 < newValue);
-                        this.boostFunction = combobox.store.findRecord("V", newValue).get("F");
+                        var boost = Math.max(Math.min(parseInt(newValue) || 0, 100), 0);
+                        field.setValue(boost);
+                        this.enableBoost = (0 < boost);
+                        this.boostFunction = function(baseRate) {
+                            return Math.min(baseRate + boost, 100)
+                        }
                         if (this.enableBoost) {
-                            combobox.addCls("x-campaign-up")
+                            field.addCls("x-campaign-up")
                         } else {
-                            combobox.removeCls("x-campaign-up")
+                            field.removeCls("x-campaign-up")
                         }
                         if (Ext.isArray(resultPanels)) {
                             for (var k = 0; k < resultPanels.length; k++) {
