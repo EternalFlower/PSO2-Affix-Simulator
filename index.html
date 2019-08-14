@@ -29,14 +29,14 @@
 	Ext.require(['*']);
 	function ready() {
 		Ext.onReady(function() {
-			Ext.Ajax.request({ 
+			Ext.Ajax.request({
 				url: './params.min.json',
-				method: "GET", 
+				method: "GET",
 				success: function(req, opt) {
 					if (req.status == 200) {
 						var noDD = false,
 							params = {
-								version: '1.84',
+								version: '1.90',
 								ajaxData: Ext.JSON.decode(req.responseText),
 								maxMaterial: 5
 							};
@@ -61,7 +61,7 @@
 								border: 0,
 								html:  ''
 							};
-						} 
+						}
 						Ext.create('PSO2.SynthesisComponent', params);
 					}
 				}
