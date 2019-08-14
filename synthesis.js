@@ -208,7 +208,7 @@ Ext.define("PSO2.SynthesisComponent", {
                             change: function(combobox, newValue, prevValue) {
                                 this.abilityGrid.filterSetting = newValue;
                                 var store = this.abilityGrid.store;
-                                store.clearFilter(true);
+                                store.clearFilter();
                                 var filterValue = this.abilityGrid.filterValue;
                                 if(filterValue != ''){
                                     var re = new RegExp(filterValue, 'i');
@@ -224,7 +224,7 @@ Ext.define("PSO2.SynthesisComponent", {
                             scope: synComp,
                             change: function( fld, newValue, oldValue, opts ) {
                                 var store = this.abilityGrid.store;
-                                store.clearFilter(true);
+                                store.clearFilter();
                                 this.abilityGrid.filterValue = newValue;
                                 if(newValue != ''){
                                     var re = new RegExp(newValue, 'i');
