@@ -95,7 +95,7 @@ Ext.define("PSO2.GridGrouping", {
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
     version: "1.9",
-    date: "08-14-19",
+    date: "08-14-2019",
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
     outputViewport: false,
@@ -897,8 +897,14 @@ Ext.define("PSO2.SynthesisComponent", {
             if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.select) {
                 a.excludePattern = synComp.ajaxData.excludePattern.select
             }
+            if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.remove) {
+                a.excludeRemove = synComp.ajaxData.excludePattern.remove
+            }
             if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.addition) {
                 synComp.ability.excludePattern = synComp.ajaxData.excludePattern.addition
+            }
+            if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.remove) {
+                synComp.ability.excludeRemove = synComp.ajaxData.excludePattern.remove
             }
             if (synComp.ajaxData.boostdaySystem) {
                 a.boostdaySystem = synComp.ajaxData.boostdaySystem

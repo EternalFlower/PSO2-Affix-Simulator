@@ -1,5 +1,9 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>08/14/2019:</b>'+
+  '<ul>'+
+  '<li> - Added Sentence Capsules </li>'+
+  '</ul>'+
   '<b>08/02/2019 (version 1.9):</b>'+
   '<ul>'+
   '<li> - Added New SSA (July 10 update) </li>'+
