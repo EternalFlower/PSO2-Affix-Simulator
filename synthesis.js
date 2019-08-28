@@ -103,7 +103,6 @@ Ext.define("PSO2.SynthesisComponent", {
     maxMaterial: 5,
     currentTabItem: null,
     selectedGridCell: null,
-    getRecommendRecipe: false,
     factorMenuText: {
         on: "Add Factor",
         off: "Cancel Factor"
@@ -577,17 +576,6 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             }
         }))
-        if (synComp.noDD !== true && Ext.isFunction(synComp.getRecommendRecipe)) {
-            buttons.push("-");
-            buttons.push({
-                iconCls: "x-recommend-menu-icon",
-                style: {
-                    overflow: "visible"
-                },
-                text: "レシピ例(仮)",
-                menu: synComp.getRecommendRecipe()
-            })
-        }
         // Share button
         if (synComp.noDD !== true) {
             buttons.push("-");
@@ -632,7 +620,6 @@ Ext.define("PSO2.SynthesisComponent", {
                             '<br><br>  You can share via Twitter here:'+
                             ' <a href="https://twitter.com/share" class="twitter-share-button" data-url="' +
                             link + '" data-text="PSO2 Affix Simulation"></a><br><center>',
-							//html: '<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + h + '" data-text="PSO2 Skill Simulation"></a>',
                             listeners: {
                                 single: true,
                                 afterrender: function() {
@@ -725,15 +712,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                     }(document, "script", "twitter-wjs")
                                 }
                             }
-                        }, /*{
-                            xtype: "textarea",
-                            anchor: "100%",
-                            layout: "fit",
-                            value: h,
-                            style: {
-                                margin: "5px"
-                            }
-                        }*/],
+                        },],
                         dockedItems: [{
                             xtype: "toolbar",
                             ui: "footer",
@@ -892,14 +871,8 @@ Ext.define("PSO2.SynthesisComponent", {
             if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.select) {
                 a.excludePattern = synComp.ajaxData.excludePattern.select
             }
-            if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.remove) {
-                a.excludeRemove = synComp.ajaxData.excludePattern.remove
-            }
             if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.addition) {
                 synComp.ability.excludePattern = synComp.ajaxData.excludePattern.addition
-            }
-            if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.remove) {
-                synComp.ability.excludeRemove = synComp.ajaxData.excludePattern.remove
             }
             if (synComp.ajaxData.boostdaySystem) {
                 a.boostdaySystem = synComp.ajaxData.boostdaySystem
