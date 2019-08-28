@@ -419,7 +419,33 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             })
         });
+        synComp.mainPanel = Ext.create("Ext.panel.Panel", {
+            region: "center",
+            layout: "fit",
+            items: synComp.tabPanel,
+            dockedItems: {
+                xtype: "toolbar",
+                items: synComp.initToolbarButtons()
+            },
+            listeners: {
+                scope: synComp,
+                afterrender: synComp.onChangeLocationHash
+            }
+        });
+        viewportData.push(synComp.mainPanel);
+        Ext.create("Ext.Viewport", {
+            renderTo: synComp.outputViewport ? Ext.get(synComp.outputViewport) : Ext.getBody(),
+            layout: "border",
+            items: viewportData
+        });
+        synComp.initGridMenuButton();
+        window.onhashchange = function() {
+            synComp.onChangeLocationHash()
+        }
+    },
+    initToolbarButtons: function(){
         // Add, Save, Load buttons
+        var synComp = this;
         var buttons = [Ext.create("Ext.Action", {
             iconCls: "x-add-icon",
             text: "Add Panel",
@@ -725,29 +751,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             })
         }
-        synComp.mainPanel = Ext.create("Ext.panel.Panel", {
-            region: "center",
-            layout: "fit",
-            items: synComp.tabPanel,
-            dockedItems: {
-                xtype: "toolbar",
-                items: buttons
-            },
-            listeners: {
-                scope: synComp,
-                afterrender: synComp.onChangeLocationHash
-            }
-        });
-        viewportData.push(synComp.mainPanel);
-        Ext.create("Ext.Viewport", {
-            renderTo: synComp.outputViewport ? Ext.get(synComp.outputViewport) : Ext.getBody(),
-            layout: "border",
-            items: viewportData
-        });
-        synComp.initGridMenuButton();
-        window.onhashchange = function() {
-            synComp.onChangeLocationHash()
-        }
+        return buttons
     },
     // Initialize the menu in the fodder panel section
     initGridMenuButton: function() {
