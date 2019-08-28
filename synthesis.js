@@ -417,15 +417,7 @@ Ext.define("PSO2.SynthesisComponent", {
                         this.currentTabItem = null
                     }
                 }
-            }),
-            listeners: {
-                scope: synComp,
-                beforeremove: function(h, g) {
-                    if (g.$className != "PSO2.CostPanel") {
-                        this.removeLocationHash(g)
-                    }
-                }
-            }
+            })
         });
         // Add, Save, Load buttons
         var buttons = [Ext.create("Ext.Action", {
