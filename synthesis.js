@@ -103,7 +103,6 @@ Ext.define("PSO2.SynthesisComponent", {
     maxMaterial: 5,
     currentTabItem: null,
     selectedGridCell: null,
-    boostCampaign: true,
     getRecommendRecipe: false,
     factorMenuText: {
         on: "Add Factor",
@@ -453,135 +452,131 @@ Ext.define("PSO2.SynthesisComponent", {
             scope: synComp,
             handler: synComp.loadData
         })];
-        if (synComp.boostCampaign == true) {
-            buttons.push("-");
-            buttons.push(Ext.create("Ext.form.field.Number", {
-                fieldLabel: "Campaign Boost",
-                displayField: "T",
-                forceSelection: true,
-                queryMode: "local",
-                value: 0,
-                maxValue: 100,
-                minValue: 0,
-                hideTrigger: true,
-                width: 138,
-                labelWidth: 100,
-                listeners: {
-                    scope: synComp,
-                    change: function(field, newValue, oldValue, opts) {
-                        var resultPanels = this.tabPanel.query("resultpanel");
-                        var boost = Math.max(Math.min(parseInt(newValue) || 0, 100), 0);
-                        field.setValue(boost);
-                        this.enableBoost = (0 < boost);
-                        this.boostFunction = function(baseRate) {
-                            return Math.min(baseRate + boost, 100)
-                        }
-                        if (this.enableBoost) {
-                            field.addCls("x-campaign-up")
-                        } else {
-                            field.removeCls("x-campaign-up")
-                        }
-                        if (Ext.isArray(resultPanels)) {
-                            for (var k = 0; k < resultPanels.length; k++) {
-                                resultPanels[k].boostFunction = this.boostFunction;
-                                if (resultPanels[k].rendered) {
-                                    resultPanels[k].refresh()
-                                }
+        buttons.push("-");
+        buttons.push(Ext.create("Ext.form.field.Number", {
+            fieldLabel: "Campaign Boost",
+            displayField: "T",
+            forceSelection: true,
+            queryMode: "local",
+            value: 0,
+            maxValue: 100,
+            minValue: 0,
+            hideTrigger: true,
+            width: 138,
+            labelWidth: 100,
+            listeners: {
+                scope: synComp,
+                change: function(field, newValue, oldValue, opts) {
+                    var resultPanels = this.tabPanel.query("resultpanel");
+                    var boost = Math.max(Math.min(parseInt(newValue) || 0, 100), 0);
+                    field.setValue(boost);
+                    this.enableBoost = (0 < boost);
+                    this.boostFunction = function(baseRate) {
+                        return Math.min(baseRate + boost, 100)
+                    }
+                    if (this.enableBoost) {
+                        field.addCls("x-campaign-up")
+                    } else {
+                        field.removeCls("x-campaign-up")
+                    }
+                    if (Ext.isArray(resultPanels)) {
+                        for (var k = 0; k < resultPanels.length; k++) {
+                            resultPanels[k].boostFunction = this.boostFunction;
+                            if (resultPanels[k].rendered) {
+                                resultPanels[k].refresh()
                             }
                         }
                     }
                 }
-            }))
-        }
-        if (synComp.boostCampaign == true) {
-            buttons.push("-");
-            buttons.push(Ext.create("Ext.form.field.ComboBox", {
-                store: Ext.create("Ext.data.JsonStore", {
-                    autoLoad: false,
-                    fields: ["T", "V", "F"],
-                    data: [{
-                        T: "No Boost",
-                        V: 0,
-                        F: null
-                    }, {
-                        T: "5% Strike UP",
-                        V: "5S",
-                        F: function(baseRate, name) {
-                            if(this.boostdaySystem["blow"].includes(name))
-                                return Math.min(baseRate + 5, 100)
-                            else
-                                return baseRate
-                        }
-                    },{
-                        T: "5% Shoot UP",
-                        V: "5R",
-                        F: function(baseRate, name) {
-                            if(this.boostdaySystem["shot"].includes(name))
-                                return Math.min(baseRate + 5, 100)
-                            else
-                                return baseRate
-                        }
-                    }, {
-                        T: "5% Tech UP",
-                        V: "5T",
-                        F: function(baseRate, name) {
-                            if(this.boostdaySystem["mind"].includes(name))
-                                return Math.min(baseRate + 5, 100)
-                            else
-                                return baseRate
-                        }
-                    } , {
-                        T: "5% HP&PP UP",
-                        V: "5H",
-                        F: function(baseRate, name) {
-                            if(this.boostdaySystem["hppp"].includes(name))
-                                return Math.min(baseRate + 5, 100)
-                            else
-                                return baseRate
-                        }
-                    } , {
-                        T: "5% Special UP",
-                        V: "5Sp",
-                        F: function(baseRate, name) {
-                            if(this.boostdaySystem["sp"].includes(name))
-                                return Math.min(baseRate + 5, 100)
-                            else
-                                return baseRate
-                        }
-                    }]
-                }),
-                displayField: "T",
-                forceSelection: true,
-                editable: false,
-                queryMode: "local",
-                valueField: "V",
-                value: 0,
-                typeAhead: true,
-                width: 115,
-                listeners: {
-                    scope: synComp,
-                    change: function(combobox, newValue, prevValue) {
-                        var resultPanels = this.tabPanel.query("resultpanel"),
-                            k;
-                        this.enableBoost = (0 != newValue);
-                        this.boostDayFunction = combobox.store.findRecord("V", newValue).get("F");
-                        if (this.enableBoost) {
-                            combobox.addCls("x-campaign-up")
-                        } else {
-                            combobox.removeCls("x-campaign-up")
-                        }
-                        if (Ext.isArray(resultPanels)) {
-                            for (k = 0; k < resultPanels.length; k++) {
-                                resultPanels[k].boostDayFunction = this.boostDayFunction;
-                                if (resultPanels[k].rendered) {
-                                    resultPanels[k].refresh()
-                                }
+            }
+        }))
+        buttons.push("-");
+        buttons.push(Ext.create("Ext.form.field.ComboBox", {
+            store: Ext.create("Ext.data.JsonStore", {
+                autoLoad: false,
+                fields: ["T", "V", "F"],
+                data: [{
+                    T: "No Boost",
+                    V: 0,
+                    F: null
+                }, {
+                    T: "5% Strike UP",
+                    V: "5S",
+                    F: function(baseRate, name) {
+                        if(this.boostdaySystem["blow"].includes(name))
+                            return Math.min(baseRate + 5, 100)
+                        else
+                            return baseRate
+                    }
+                },{
+                    T: "5% Shoot UP",
+                    V: "5R",
+                    F: function(baseRate, name) {
+                        if(this.boostdaySystem["shot"].includes(name))
+                            return Math.min(baseRate + 5, 100)
+                        else
+                            return baseRate
+                    }
+                }, {
+                    T: "5% Tech UP",
+                    V: "5T",
+                    F: function(baseRate, name) {
+                        if(this.boostdaySystem["mind"].includes(name))
+                            return Math.min(baseRate + 5, 100)
+                        else
+                            return baseRate
+                    }
+                } , {
+                    T: "5% HP&PP UP",
+                    V: "5H",
+                    F: function(baseRate, name) {
+                        if(this.boostdaySystem["hppp"].includes(name))
+                            return Math.min(baseRate + 5, 100)
+                        else
+                            return baseRate
+                    }
+                } , {
+                    T: "5% Special UP",
+                    V: "5Sp",
+                    F: function(baseRate, name) {
+                        if(this.boostdaySystem["sp"].includes(name))
+                            return Math.min(baseRate + 5, 100)
+                        else
+                            return baseRate
+                    }
+                }]
+            }),
+            displayField: "T",
+            forceSelection: true,
+            editable: false,
+            queryMode: "local",
+            valueField: "V",
+            value: 0,
+            typeAhead: true,
+            width: 115,
+            listeners: {
+                scope: synComp,
+                change: function(combobox, newValue, prevValue) {
+                    var resultPanels = this.tabPanel.query("resultpanel"),
+                        k;
+                    this.enableBoost = (0 != newValue);
+                    this.boostDayFunction = combobox.store.findRecord("V", newValue).get("F");
+                    if (this.enableBoost) {
+                        combobox.addCls("x-campaign-up")
+                    } else {
+                        combobox.removeCls("x-campaign-up")
+                    }
+                    if (Ext.isArray(resultPanels)) {
+                        for (k = 0; k < resultPanels.length; k++) {
+                            resultPanels[k].boostDayFunction = this.boostDayFunction;
+                            if (resultPanels[k].rendered) {
+                                resultPanels[k].refresh()
                             }
                         }
                     }
                 }
-            }))
-        }
+            }
+        }))
         if (synComp.noDD !== true && Ext.isFunction(synComp.getRecommendRecipe)) {
             buttons.push("-");
             buttons.push({
