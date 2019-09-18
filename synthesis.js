@@ -470,9 +470,9 @@ Ext.define("PSO2.SynthesisComponent", {
             handler: synComp.loadData
         })];
         buttons.push("-");
+        // General Campaign Boost
         buttons.push(Ext.create("Ext.form.field.Number", {
             fieldLabel: "Campaign Boost",
-            displayField: "T",
             forceSelection: true,
             queryMode: "local",
             value: 0,
@@ -487,15 +487,15 @@ Ext.define("PSO2.SynthesisComponent", {
                     var resultPanels = this.tabPanel.query("resultpanel");
                     var boost = Math.max(Math.min(parseInt(newValue) || 0, 100), 0);
                     field.setValue(boost);
-                    this.enableBoost = (0 < boost);
                     this.boostFunction = function(baseRate) {
                         return Math.min(baseRate + boost, 100)
                     }
-                    if (this.enableBoost) {
+                    if (0 < boost) {
                         field.addCls("x-campaign-up")
                     } else {
                         field.removeCls("x-campaign-up")
                     }
+                    
                     if (Ext.isArray(resultPanels)) {
                         for (var k = 0; k < resultPanels.length; k++) {
                             resultPanels[k].boostFunction = this.boostFunction;
@@ -574,17 +574,15 @@ Ext.define("PSO2.SynthesisComponent", {
             listeners: {
                 scope: synComp,
                 change: function(combobox, newValue, prevValue) {
-                    var resultPanels = this.tabPanel.query("resultpanel"),
-                        k;
-                    this.enableBoost = (0 != newValue);
+                    var resultPanels = this.tabPanel.query("resultpanel");
                     this.boostDayFunction = combobox.store.findRecord("V", newValue).get("F");
-                    if (this.enableBoost) {
+                    if (0 != newValue) {
                         combobox.addCls("x-campaign-up")
                     } else {
                         combobox.removeCls("x-campaign-up")
                     }
                     if (Ext.isArray(resultPanels)) {
-                        for (k = 0; k < resultPanels.length; k++) {
+                        for (var k = 0; k < resultPanels.length; k++) {
                             resultPanels[k].boostDayFunction = this.boostDayFunction;
                             if (resultPanels[k].rendered) {
                                 resultPanels[k].refresh()
