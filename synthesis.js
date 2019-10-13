@@ -86,6 +86,14 @@ Ext.define("PSO2.GridGrouping", {
             return "S-Class Special Abilities 3"
         } else if (affixGroup.name == "L4") {
             return "S-Class Special Abilities 4"
+        } else if (affixGroup.name == "L5") {
+            return "S-Class Special Abilities 5"
+        } else if (affixGroup.name == "L6") {
+            return "S-Class Special Abilities 6"
+        } else if (affixGroup.name == "L7") {
+            return "S-Class Special Abilities 7"
+        } else if (affixGroup.name == "L8") {
+            return "S-Class Special Abilities 8"
         } else if (affixGroup.name == "LSAF") {
             return "S-Class Special Ability Factor"
         }
