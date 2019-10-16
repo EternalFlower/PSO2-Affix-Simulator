@@ -74,6 +74,8 @@ Ext.define("PSO2.GridGrouping", {
             return "Soul"
         } else if (affixGroup.name == "EB") {
             return "Fever"
+        } else if (affixGroup.name == "EC"){
+            return "Ripper/Slayer"
         } else if (affixGroup.name == "GB") {
             return "Receptors"
         } else if (affixGroup.name == "YA") {
