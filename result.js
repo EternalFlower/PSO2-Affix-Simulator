@@ -64,7 +64,7 @@ Ext.define("PSO2.ResultPanel", {
     }),
     initOption3Value: "C01",
     totalValue: 0,
-    sameBonusText: "Same",
+    sameBonusText: "Same Items",
     sameBonusBoost: [1, 1.1, 1.15],
     calcSameBonus: function(rateMap, sameCount) {
         var resultPanel = this;
@@ -125,6 +125,7 @@ Ext.define("PSO2.ResultPanel", {
             id: checkboxID,
             labelWidth: 38,
             fieldLabel: resultPanel.sameBonusText,
+            //autoEl:{'data-qtip': 'Combo tip'},
             getSameCount: function() {
                 if (!this.checked) {
                     return 0
@@ -223,10 +224,18 @@ Ext.define("PSO2.ResultPanel", {
     },
     boostRate: function(successItem){
         var resultPanel = this,
-        itemBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt1).get("fn"),
-        potBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt3).get("fn"),
         sameItemCount = resultPanel.chkOpt1.getSameCount(),        
         haveGuid = resultPanel.abilitySet.isGuidanceTrainer();
+
+        var itemBoostFn = function(rate){
+            var boost = resultPanel.getSelectOptionRecord(resultPanel.selOpt1).get("boost");
+            return Math.min(rate + boost, 100);
+        }
+
+        var potBoostFn = function(rate){
+            var boost = resultPanel.getSelectOptionRecord(resultPanel.selOpt3).get("boost");
+            return Math.min(rate + boost, 100);
+        }
 
         successRate = resultPanel.calcSameBonus(successItem, sameItemCount);
         successRate = itemBoostFn(successRate);
