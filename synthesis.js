@@ -79,21 +79,21 @@ Ext.define("PSO2.GridGrouping", {
         } else if (affixGroup.name == "YA") {
             return "Special"
         } else if (affixGroup.name == "L1") {
-            return "S-Class Special Abilities 1"
+            return "S-Class Special Ability 1 (Weapon)"
         } else if (affixGroup.name == "L2") {
-            return "S-Class Special Abilities 2"
+            return "S-Class Special Ability 2 (Weapon)"
         } else if (affixGroup.name == "L3") {
-            return "S-Class Special Abilities 3"
+            return "S-Class Special Ability 3 (Weapon)"
         } else if (affixGroup.name == "L4") {
-            return "S-Class Special Abilities 4"
+            return "S-Class Special Ability 4 (Weapon)"
         } else if (affixGroup.name == "L5") {
-            return "S-Class Special Abilities 5"
+            return "S-Class Special Ability 5"
         } else if (affixGroup.name == "L6") {
-            return "S-Class Special Abilities 6"
+            return "S-Class Special Ability 6 (Rear Unit)"
         } else if (affixGroup.name == "L7") {
-            return "S-Class Special Abilities 7"
+            return "S-Class Special Ability 7 (Arm Unit)"
         } else if (affixGroup.name == "L8") {
-            return "S-Class Special Abilities 8"
+            return "S-Class Special Ability 8 (Leg Unit)"
         } else if (affixGroup.name == "LSAF") {
             return "S-Class Special Ability Factor"
         }
