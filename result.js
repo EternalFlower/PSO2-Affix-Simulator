@@ -787,7 +787,10 @@ Ext.define("PSO2.ResultPanel", {
     getSuccessTable: function(abilityListLen, col, colHead) {
         var resultPanel = this,
             rateList = [],
-            potBoostFn = resultPanel.getSelectOptionRecord(resultPanel.selOpt3).get("fn"),
+            potBoostFn = function(rate){
+                var boost = resultPanel.getSelectOptionRecord(resultPanel.selOpt3).get("boost");
+                return Math.min(rate + boost, 100);
+            },
             len = abilityListLen.length,
             optItem1List = resultPanel.selOpt1.store,
             opt1Len = optItem1List.count(),
@@ -823,7 +826,11 @@ Ext.define("PSO2.ResultPanel", {
             tableHtml += '<tr><td id="ps">' + rowHeader + "</td>";
             colHead.push(rowHeader);
             for (j = 0; j < opt1Len; j++) {
-                var scenarioRate = resultPanel.getSuccessPattern(index, rateList, optItem1List.getAt(j).get("fn"));
+                var itemBoostFn = function(rate){
+                    var boost = optItem1List.getAt(j).get("boost");
+                    return Math.min(rate + boost, 100);
+                }
+                var scenarioRate = resultPanel.getSuccessPattern(index, rateList, itemBoostFn);
                 tableHtml += "<td";
                 if (scenarioRate == 1) {
                     tableHtml += ' id="bold"'
