@@ -123,9 +123,11 @@ Ext.define("PSO2.ResultPanel", {
         var checkboxID = resultPanel.id + resultPanel.constChkOption1;
         resultPanel.chkOpt1 = Ext.create("Ext.form.Checkbox", {
             id: checkboxID,
-            labelWidth: 38,
+            labelWidth: 68,
             fieldLabel: resultPanel.sameBonusText,
-            //autoEl:{'data-qtip': 'Combo tip'},
+            autoEl:{
+                'data-qtip': 'Bonus Multiplier if all items are the same.<br>1.1x for 2 items, 1.15x for 3 or more'
+            },
             getSameCount: function() {
                 if (!this.checked) {
                     return 0

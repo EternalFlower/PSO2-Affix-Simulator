@@ -487,8 +487,8 @@ Ext.define("PSO2.SynthesisComponent", {
             maxValue: 100,
             minValue: 0,
             hideTrigger: true,
-            width: 138,
-            labelWidth: 100,
+            width: 130,
+            labelWidth: 90,
             listeners: {
                 scope: synComp,
                 change: function(field, newValue, oldValue, opts) {
