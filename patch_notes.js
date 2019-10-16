@@ -1,5 +1,12 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>10/15/2019 (version 1.91):</b>'+
+  '<ul>'+
+  '<li> - Added Ripper/Slayer Category</li>'+
+  '<li> - Added S-Class Special Ability 6/7/8 Category</li>'+
+  '<li> - Added Affixes (Oct 15 Update)</li>'+
+  '<li> - Rename Same to Same Item Boost and add tooltip explaining its condition and effect</li>'+
+  '</ul>'+
   '<b>08/14/2019:</b>'+
   '<ul>'+
   '<li> - Added Sentence Capsules </li>'+

@@ -64,7 +64,7 @@ Ext.define("PSO2.ResultPanel", {
     }),
     initOption3Value: "C01",
     totalValue: 0,
-    sameBonusText: "Same Items",
+    sameBonusText: "Same Item Boost",
     sameBonusBoost: [1, 1.1, 1.15],
     calcSameBonus: function(rateMap, sameCount) {
         var resultPanel = this;
@@ -123,7 +123,7 @@ Ext.define("PSO2.ResultPanel", {
         var checkboxID = resultPanel.id + resultPanel.constChkOption1;
         resultPanel.chkOpt1 = Ext.create("Ext.form.Checkbox", {
             id: checkboxID,
-            labelWidth: 68,
+            labelWidth: 98,
             fieldLabel: resultPanel.sameBonusText,
             autoEl:{
                 'data-qtip': 'Bonus Multiplier if all items are the same.<br>1.1x for 2 items, 1.15x for 3 or more'
