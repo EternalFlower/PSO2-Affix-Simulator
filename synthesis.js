@@ -427,7 +427,13 @@ Ext.define("PSO2.SynthesisComponent", {
                         this.currentTabItem = null
                     }
                 }
-            })
+            }),
+            listeners: {	
+                scope: synComp,	
+                beforeremove: function(h, g) {	
+                    this.removeLocationHash(g)		
+                }	
+            }
         });
         synComp.mainPanel = Ext.create("Ext.panel.Panel", {
             region: "center",
