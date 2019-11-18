@@ -89,7 +89,7 @@ Ext.define("PSO2.GridGrouping", {
         } else if (affixGroup.name == "L4") {
             return "S-Class Special Ability 4 (Weapon)"
         } else if (affixGroup.name == "L5") {
-            return "S-Class Special Ability 5"
+            return "S-Class Special Ability 5 (Weapon)"
         } else if (affixGroup.name == "L6") {
             return "S-Class Special Ability 6 (Rear Unit)"
         } else if (affixGroup.name == "L7") {
