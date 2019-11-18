@@ -892,8 +892,8 @@ Ext.define("PSO2.SynthesisComponent", {
             frame: true,
             noDD: synComp.noDD,
             abilityComponent: synComp.ability,
-            boostFunction: synComp.enableBoost ? synComp.boostFunction : null,
-            boostDayFunction: synComp.enableBoost ? synComp.boostDayFunction : null,
+            boostFunction: synComp.boostFunction,
+            boostDayFunction: synComp.boostDayFunction,
             listeners: {
                 scope: synComp,
                 opt1change: function(resultPanel, comboBox, isDefault) {
