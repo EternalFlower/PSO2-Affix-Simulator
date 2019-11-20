@@ -46,7 +46,6 @@ Ext.define("PSO2.ResultPanel", {
     abText: ["S-ATK", "R-ATK", "T-ATK", "S-DEF", "R-DEF", "T-DEF", "DEX", "HP", "PP", "Strike Resist", "Range Resist", "Tech Resist", "Fire Resist", "Ice Resist", "Lightning Resist", "Wind Resist", "Light Resist", "Dark Resist"],
     allUp: ["S-ATK", "R-ATK", "T-ATK", "S-DEF", "R-DEF", "T-DEF", "DEX"],
     resistAll: ["Strike Resist", "Range Resist", "Tech Resist", "Fire Resist", "Ice Resist", "Lightning Resist", "Wind Resist", "Light Resist", "Dark Resist"],
-	//regParam: new RegExp("([^\\(]+)\\(([\\+\\-]\\d+)\\)"),
     optionStore1: Ext.create("Ext.data.Store", {
         fields: ["id", "name", "value", "fn"],
         data: {}
@@ -112,13 +111,7 @@ Ext.define("PSO2.ResultPanel", {
             itemSelector: "tr#success"
         });
         resultPanel.selOpt1 = resultPanel.createComboBox(resultPanel.constSelOption1, resultPanel.optionStore1, resultPanel.initOption1Value, "opt1change");
-        resultPanel.selOpt2 = resultPanel.createComboBox(resultPanel.constSelOption2, resultPanel.optionStore2, resultPanel.initOption2Value, "opt2change", function(comboBox) {
-            if (comboBox.value == null || comboBox.originalValue == comboBox.value) {
-                this.optionItems = []
-            } else {
-                this.optionItems = [this.getSelectOptionRecord(comboBox)]
-            }
-        });
+        resultPanel.selOpt2 = resultPanel.createComboBox(resultPanel.constSelOption2, resultPanel.optionStore2, resultPanel.initOption2Value, "opt2change");
         resultPanel.selOpt3 = resultPanel.createComboBox(resultPanel.constSelOption3, resultPanel.optionStore3, resultPanel.initOption3Value, "opt3change");
         var checkboxID = resultPanel.id + resultPanel.constChkOption1;
         resultPanel.chkOpt1 = Ext.create("Ext.form.Checkbox", {
@@ -180,7 +173,7 @@ Ext.define("PSO2.ResultPanel", {
         resultPanel.prefixOptions[resultPanel.initOption3Value.charAt(0)] = resultPanel.selOpt3;
         resultPanel.callParent(arguments)
     },
-    createComboBox: function(comboBoxID, optStore, initValue, event, func) {
+    createComboBox: function(comboBoxID, optStore, initValue, event) {
         var resultPanel = this;
         return Ext.create("Ext.form.field.ComboBox", {
             id: resultPanel.id + comboBoxID,
@@ -197,9 +190,6 @@ Ext.define("PSO2.ResultPanel", {
             listeners: {
                 scope: resultPanel,
                 change: function(comboBox, menuItem) {
-                    if (Ext.isFunction(func)) {
-                        func.call(this, comboBox)
-                    }
                     if (menuItem !== true) {
                         this.refresh();
                         this.fireEvent(event, this, comboBox, comboBox.originalValue == comboBox.value)
@@ -317,12 +307,12 @@ Ext.define("PSO2.ResultPanel", {
         // Enable success boosters and zenesis if at least 1 affix, else resset and disable
         if (0 < resultPanel.abilityCount()) {
             resultPanel.selOpt1.enable();
-            resultPanel.selOpt3.enable()
+            resultPanel.selOpt3.enable();
         } else {
             resultPanel.selOpt1.select(resultPanel.optionStore1.getAt(0));
             resultPanel.selOpt1.disable();
             resultPanel.selOpt3.select(resultPanel.optionStore3.getAt(0));
-            resultPanel.selOpt3.disable()
+            resultPanel.selOpt3.disable();
         }
         // If there is less affix than max, allow add item
         if (resultPanel.resultItems.length < resultPanel.abilitySet.enableMaterialMaxCount()) {
@@ -397,10 +387,8 @@ Ext.define("PSO2.ResultPanel", {
         var resultPanel = this,
             allExclude = Ext.isArray(resultPanel.excludePattern) ? resultPanel.excludePattern : [resultPanel.excludePattern];
         var exPatternLen = allExclude.length,
-            isCode1SAF = code1.substr(0, 1) == "*",
-            isCode2SAF = code2.substr(0, 1) == "*",
-            codeHeader1 = isCode1SAF ? code1.substr(1, 2) : code1.substr(0, 2),
-            codeHeader2 = isCode2SAF ? code2.substr(1, 2) : code2.substr(0, 2),
+            codeHeader1 = code1.substr(0, 1) == "*" ? code1.substr(1, 2) : code1.substr(0, 2),
+            codeHeader2 = code2.substr(0, 1) == "*" ? code2.substr(1, 2) : code2.substr(0, 2),
             regex = /([^\*]+)\*$/,
             resRegex, headMatch = function(excludePattern, codeHeader) {
                 if (resRegex = excludePattern.match(regex)) {

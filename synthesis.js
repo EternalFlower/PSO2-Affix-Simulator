@@ -120,24 +120,14 @@ Ext.define("PSO2.SynthesisComponent", {
     constructor: function(params) {
         var synComp = this,
             viewportData, abCompData = {};
-        Ext.apply(synComp, params);
-        if (synComp.ajaxData) {
-            if (synComp.ajaxData.abilityList) {
-                abCompData.constAbility = synComp.ajaxData.abilityList
-            }
-            if (synComp.ajaxData.extraSlot) {
-                abCompData.constExtra = synComp.ajaxData.extraSlot
-            }
-            if (synComp.ajaxData.boostPoint) {
-                abCompData.constBoostPoint = synComp.ajaxData.boostPoint
-            }
-            if (synComp.ajaxData.extendAbility) {
-                abCompData.constExtendAbility = synComp.ajaxData.extendAbility
-            }
-            if (synComp.ajaxData.boostdaySystem){
-                abCompData.boostdaySystem = synComp.ajaxData.boostdaySystem
-            }
-        }
+        Ext.apply(synComp, params.ajaxData);
+        synComp.maxMaterial = params.maxMaterial;
+        synComp.items = params.items;
+        synComp.noDD = params.noDD;
+        abCompData.constAbility = synComp.abilityList
+        abCompData.constExtra = synComp.extraSlot
+        abCompData.constBoostPoint = synComp.boostPoint
+        abCompData.constExtendAbility = synComp.extendAbility
         synComp.ability = Ext.create("PSO2.AbilityComponent", abCompData);
         if (synComp.items) {
             if (!Ext.isArray(synComp.items)) {
@@ -536,7 +526,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     T: "5% Strike UP",
                     V: "5S",
                     F: function(baseRate, name) {
-                        if(this.boostdaySystem["blow"].includes(name))
+                        if(synComp.ability.boostdaySystem["blow"].includes(name))
                             return Math.min(baseRate + 5, 100)
                         else
                             return baseRate
@@ -545,7 +535,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     T: "5% Shoot UP",
                     V: "5R",
                     F: function(baseRate, name) {
-                        if(this.boostdaySystem["shot"].includes(name))
+                        if(synComp.ability.boostdaySystem["shot"].includes(name))
                             return Math.min(baseRate + 5, 100)
                         else
                             return baseRate
@@ -554,7 +544,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     T: "5% Tech UP",
                     V: "5T",
                     F: function(baseRate, name) {
-                        if(this.boostdaySystem["mind"].includes(name))
+                        if(synComp.ability.boostdaySystem["mind"].includes(name))
                             return Math.min(baseRate + 5, 100)
                         else
                             return baseRate
@@ -563,7 +553,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     T: "5% HP&PP UP",
                     V: "5H",
                     F: function(baseRate, name) {
-                        if(this.boostdaySystem["hppp"].includes(name))
+                        if(synComp.ability.boostdaySystem["hppp"].includes(name))
                             return Math.min(baseRate + 5, 100)
                         else
                             return baseRate
@@ -572,7 +562,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     T: "5% Special UP",
                     V: "5Sp",
                     F: function(baseRate, name) {
-                        if(this.boostdaySystem["sp"].includes(name))
+                        if(synComp.ability.boostdaySystem["sp"].includes(name))
                             return Math.min(baseRate + 5, 100)
                         else
                             return baseRate
@@ -865,28 +855,23 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             }],
             a = {};
-        if (synComp.ajaxData) {
-            if (synComp.ajaxData.optionList && synComp.ajaxData.optionList.support) {
-                a.supportData = synComp.ajaxData.optionList.support
-            }
-            if (synComp.ajaxData.optionList && synComp.ajaxData.optionList.additional) {
-                a.additionalData = synComp.ajaxData.optionList.additional
-            }
-            if (synComp.ajaxData.optionList && synComp.ajaxData.optionList.additional) {
-                a.potentialData = synComp.ajaxData.optionList.potential
-            }
-            if (synComp.ajaxData.sameBonusBoost) {
-                a.sameBonusBoost = synComp.ajaxData.sameBonusBoost
-            }
-            if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.select) {
-                a.excludePattern = synComp.ajaxData.excludePattern.select
-            }
-            if (synComp.ajaxData.excludePattern && synComp.ajaxData.excludePattern.addition) {
-                synComp.ability.excludePattern = synComp.ajaxData.excludePattern.addition
-            }
-            if (synComp.ajaxData.boostdaySystem) {
-                a.boostdaySystem = synComp.ajaxData.boostdaySystem
-            }
+        if (synComp.optionList && synComp.optionList.support) {
+            a.supportData = synComp.optionList.support
+        }
+        if (synComp.optionList && synComp.optionList.additional) {
+            a.additionalData = synComp.optionList.additional
+        }
+        if (synComp.optionList && synComp.optionList.additional) {
+            a.potentialData = synComp.optionList.potential
+        }
+        if (synComp.sameBonusBoost) {
+            a.sameBonusBoost = synComp.sameBonusBoost
+        }
+        if (synComp.excludePattern && synComp.excludePattern.select) {
+            a.excludePattern = synComp.excludePattern.select
+        }
+        if (synComp.excludePattern && synComp.excludePattern.addition) {
+            synComp.ability.excludePattern = synComp.excludePattern.addition
         }
         panels.push(Ext.create("PSO2.ResultPanel", Ext.apply({
             frame: true,
