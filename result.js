@@ -111,7 +111,13 @@ Ext.define("PSO2.ResultPanel", {
             itemSelector: "tr#success"
         });
         resultPanel.selOpt1 = resultPanel.createComboBox(resultPanel.constSelOption1, resultPanel.optionStore1, resultPanel.initOption1Value, "opt1change");
-        resultPanel.selOpt2 = resultPanel.createComboBox(resultPanel.constSelOption2, resultPanel.optionStore2, resultPanel.initOption2Value, "opt2change");
+        resultPanel.selOpt2 = resultPanel.createComboBox(resultPanel.constSelOption2, resultPanel.optionStore2, resultPanel.initOption2Value, "opt2change", function(comboBox) {
+            if (comboBox.value == null || comboBox.originalValue == comboBox.value) {
+                this.optionItems = []
+            } else {
+                this.optionItems = [this.getSelectOptionRecord(comboBox)]
+            }
+        });
         resultPanel.selOpt3 = resultPanel.createComboBox(resultPanel.constSelOption3, resultPanel.optionStore3, resultPanel.initOption3Value, "opt3change");
         var checkboxID = resultPanel.id + resultPanel.constChkOption1;
         resultPanel.chkOpt1 = Ext.create("Ext.form.Checkbox", {
@@ -173,7 +179,7 @@ Ext.define("PSO2.ResultPanel", {
         resultPanel.prefixOptions[resultPanel.initOption3Value.charAt(0)] = resultPanel.selOpt3;
         resultPanel.callParent(arguments)
     },
-    createComboBox: function(comboBoxID, optStore, initValue, event) {
+    createComboBox: function(comboBoxID, optStore, initValue, event, func) {
         var resultPanel = this;
         return Ext.create("Ext.form.field.ComboBox", {
             id: resultPanel.id + comboBoxID,
@@ -190,6 +196,9 @@ Ext.define("PSO2.ResultPanel", {
             listeners: {
                 scope: resultPanel,
                 change: function(comboBox, menuItem) {
+                    if (Ext.isFunction(func)) {
+                        func.call(this, comboBox)
+                    }
                     if (menuItem !== true) {
                         this.refresh();
                         this.fireEvent(event, this, comboBox, comboBox.originalValue == comboBox.value)

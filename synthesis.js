@@ -120,8 +120,7 @@ Ext.define("PSO2.SynthesisComponent", {
     constructor: function(params) {
         var synComp = this,
             viewportData, abCompData = {};
-        Ext.apply(synComp, params.ajaxData);
-        synComp.maxMaterial = params.maxMaterial;
+        Ext.apply(synComp, params);
         synComp.items = params.items;
         synComp.noDD = params.noDD;
         abCompData.constAbility = synComp.abilityList
