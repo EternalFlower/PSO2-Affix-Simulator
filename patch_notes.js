@@ -1,5 +1,11 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>11/20/2019 (version 1.92):</b>'+
+  '<ul>'+
+  '<li> - Added New Abilities</li>'+
+  '<li> - Added Fixed Bug with Closing a Tab will not update the URL</li>'+
+  '<li> - Added Fixed bug with campaign boost not applying to new tabs</li>'+
+  '</ul>'+
   '<b>10/15/2019 (version 1.91):</b>'+
   '<ul>'+
   '<li> - Added Ripper/Slayer Category</li>'+
