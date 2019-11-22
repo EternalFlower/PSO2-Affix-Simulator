@@ -108,7 +108,6 @@ Ext.define("PSO2.SynthesisComponent", {
     date: "11-20-2019",
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
-    outputViewport: false,
     limitUrlSize: 10,
     maxMaterial: 5,
     currentTabItem: null,
@@ -439,7 +438,7 @@ Ext.define("PSO2.SynthesisComponent", {
         });
         viewportData.push(synComp.mainPanel);
         Ext.create("Ext.Viewport", {
-            renderTo: synComp.outputViewport ? Ext.get(synComp.outputViewport) : Ext.getBody(),
+            renderTo: Ext.getBody(),
             layout: "border",
             items: viewportData
         });
