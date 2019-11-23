@@ -247,10 +247,10 @@ Ext.define("PSO2.SynthesisComponent", {
                         type: "string"
                     },
                     // Tooltip for affix entry, giving details on affix boost
-                    renderer: function(affixDetails, k, affixEntry) {
-                        if (affixEntry.get("extup")) {
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        if (record.get("extup")) {
                             var l = [];
-                            Ext.Array.forEach(affixEntry.get("extup"), function(m) {
+                            Ext.Array.forEach(record.get("extup"), function(m) {
                                 var n;
                                 if (m.length == 2){
                                     n = this.ability.findAbilityName(m + "01");
@@ -269,16 +269,16 @@ Ext.define("PSO2.SynthesisComponent", {
                                 }
 
                             }, synComp);
-                            k.tdAttr = 'data-qtip="' + l.join(", ") + ' Affix Bonus'
+                            metaData.tdAttr = 'data-qtip="' + l.join(", ") + ' Affix Bonus'
                         }
-                        if(affixEntry.get("tooltip") && !k.tdAttr)
-                            k.tdAttr = 'data-qtip="' + affixEntry.get("tooltip")
-                        else if(affixEntry.get("tooltip"))
-                            k.tdAttr += "<br>" + affixEntry.get("tooltip")+'"'
+                        if(record.get("tooltip") && !metaData.tdAttr)
+                            metaData.tdAttr = 'data-qtip="' + record.get("tooltip")
+                        else if(record.get("tooltip"))
+                            metaData.tdAttr += "<br>" + record.get("tooltip")+'"'
 
-                        if(k.tdAttr)
-                            k.tdAttr += '"'
-                        return affixDetails
+                        if(metaData.tdAttr)
+                            metaData.tdAttr += '"'
+                        return value
                     }
                 }],
                 features: [{
