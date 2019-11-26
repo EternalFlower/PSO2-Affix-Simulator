@@ -415,17 +415,12 @@ Ext.define("PSO2.AbilityComponent", {
         Ext.apply(this, abiltiyStore);
         this.callParent(abiltiyStore)
     },
-    getAbilityStore: function(a) {
+    getAbilityStore: function() {
         var abilityComponent = this;
-        if (a === true) {
-            return Ext.create("PSO2.AbilityStore", {
+        if (!abilityComponent.abilityStore) {
+            abilityComponent.abilityStore = Ext.create("PSO2.AbilityStore", {
                 data: abilityComponent.constAbility
             })
-        } else {
-            if (!abilityComponent.abilityStore) {
-                // If abilityStore is not defined in abilityComponent, initialize
-                abilityComponent.abilityStore = abilityComponent.getAbilityStore(true)
-            }
         }
         return abilityComponent.abilityStore
     },
