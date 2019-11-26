@@ -1300,12 +1300,13 @@ Ext.define("PSO2.SynthesisComponent", {
             }, {
                 dataIndex: "slot",
                 header: "Ability",
-                renderer: function(slotData, n, slot, r, p, o) {
-                    if (slotData != null) {
-                        if (slotData.factor) {
-                            n.tdCls = "x-factor-icon"
+                
+                renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                    if (value != null) {
+                        if (value.factor) {
+                            metaData.tdCls = "x-factor-icon"
                         }
-                        return slotData.name
+                        return value.name
                     }
                     return ""
                 }

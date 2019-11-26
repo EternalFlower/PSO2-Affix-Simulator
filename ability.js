@@ -717,11 +717,11 @@ Ext.define("PSO2.AbilityComponent", {
         return a
     },
     // Final result list
-    getSuccessList: function(b, selAffix, optItem) {
+    getSuccessList: function(abilitySet, selAffix, optItem) {
         var abComp = this,
             totalSel = (selAffix.length + optItem.length),
-            isUpslot = b.enableCheckMax == totalSel,
-            upslotBonus = (2 <= b.enableMaterial()),
+            isUpslot = abilitySet.enableCheckMax == totalSel,
+            upslotBonus = (2 <= abilitySet.enableMaterial()),
             abilityStore = abComp.getAbilityStore(),
             len = selAffix.length,
             affixEntry, rate, result = [];
@@ -730,7 +730,7 @@ Ext.define("PSO2.AbilityComponent", {
             affixEntry = abilityStore.findRecord("code", isSAF ? selAffix[index].inputValue.substr(1) : selAffix[index].inputValue);
             var isExemptUpslot = affixEntry.get("noEx");
             if (affixEntry) {
-                rate = isSAF ? 100 : abComp.calcSuccess(b, affixEntry);
+                rate = isSAF ? 100 : abComp.calcSuccess(abilitySet, affixEntry);
                 if (isUpslot && !isExemptUpslot) {
                     rate = parseInt((rate * abComp.constExtra[totalSel - 1][upslotBonus]) / 100)
                 }
