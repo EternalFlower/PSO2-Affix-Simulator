@@ -1,10 +1,18 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>12/18/2019 (version 1.93):</b>'+
+  '<ul>'+
+  '<li> - Added Capsules</li>'+
+  '<li> - Added Placeholder for S5</li>'+
+  '<li> - Break Stat Enchancements into 2 Categories</li>'+
+  '<li> - Fixed bugs related to Tuesday Boost</li>'+
+  '<li><b>Note: Change id of the capsules, so old recipes before this update will lose their saved capsules</b></li>' +
+  '</ul>'+
   '<b>11/20/2019 (version 1.92):</b>'+
   '<ul>'+
   '<li> - Added New Abilities</li>'+
-  '<li> - Added Fixed Bug with Closing a Tab will not update the URL</li>'+
-  '<li> - Added Fixed bug with campaign boost not applying to new tabs</li>'+
+  '<li> - Fixed Bug with Closing a Tab will not update the URL</li>'+
+  '<li> - Fixed bug with campaign boost not applying to new tabs</li>'+
   '</ul>'+
   '<b>10/15/2019 (version 1.91):</b>'+
   '<ul>'+

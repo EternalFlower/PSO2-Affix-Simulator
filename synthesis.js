@@ -63,7 +63,9 @@ Ext.define("PSO2.GridGrouping", {
         } else if (affixGroup.name == "AB") {
             return "Stat Enhancement (Lesser)"
         } else if (affixGroup.name == "AC") {
-            return "Stat Enhancement (Special)"
+            return "Stat Enhancement (Special/1)"
+        } else if (affixGroup.name == "AD") {
+            return "Stat Enhancement (Special/2)"
         } else if (affixGroup.name == "CB") {
             return "Special Ability Factor"
         } else if (affixGroup.name == "DA") {
@@ -74,7 +76,7 @@ Ext.define("PSO2.GridGrouping", {
             return "Soul"
         } else if (affixGroup.name == "EB") {
             return "Fever"
-        } else if (affixGroup.name == "EC"){
+        } else if (affixGroup.name == "EC") {
             return "Ripper/Slayer"
         } else if (affixGroup.name == "GB") {
             return "Receptors"
@@ -104,8 +106,8 @@ Ext.define("PSO2.GridGrouping", {
 });
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
-    version: "1.92",
-    date: "11-20-2019",
+    version: "1.93",
+    date: "12-18-2019",
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
     limitUrlSize: 10,
@@ -144,13 +146,14 @@ Ext.define("PSO2.SynthesisComponent", {
             layout: "fit",
             hidden: synComp.noDD,
             html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
-            "&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"'+
-            ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
-            '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
-            ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>'+
-            ' (Updated '+ synComp.date +')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord'+
-            ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>'+
-            ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"].join("")
+                "&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
+                ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
+                '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
+                ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>' +
+                ' (Updated ' + synComp.date + ')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord' +
+                ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>' +
+                ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"
+            ].join("")
         });
         synComp.panelNames = ["Base"];
         for (var d = 1; d <= synComp.maxMaterial; d++) {
@@ -175,62 +178,63 @@ Ext.define("PSO2.SynthesisComponent", {
                     height: 25,
                     layout: {
                         type: 'hbox',
-                        align:'stretch'
+                        align: 'stretch'
                     },
-                    items:[
+                    items: [
                         Ext.create("Ext.form.field.ComboBox", {
-                        store: Ext.create("Ext.data.JsonStore", {
-                            autoLoad: false,
-                            fields: ["T", "V"],
-                            data: [{
-                                T: "Name",
-                                V: 'name'
-                            }, {
-                                T: "Effect",
-                                V: "effect"
-                            }]
+                            store: Ext.create("Ext.data.JsonStore", {
+                                autoLoad: false,
+                                fields: ["T", "V"],
+                                data: [{
+                                    T: "Name",
+                                    V: 'name'
+                                }, {
+                                    T: "Effect",
+                                    V: "effect"
+                                }]
 
+                            }),
+                            displayField: "T",
+                            forceSelection: true,
+                            editable: false,
+                            queryMode: "local",
+                            valueField: "V",
+                            value: 'name',
+                            typeAhead: true,
+                            width: 74,
+                            listeners: {
+                                scope: synComp,
+                                change: function(combobox, newValue, prevValue) {
+                                    this.abilityGrid.filterSetting = newValue;
+                                    var store = this.abilityGrid.store;
+                                    store.clearFilter();
+                                    var filterValue = this.abilityGrid.filterValue;
+                                    if (filterValue != '') {
+                                        var re = new RegExp(filterValue, 'i');
+                                        store.filter(this.abilityGrid.filterSetting, re);
+                                    }
+                                }
+                            }
                         }),
-                        displayField: "T",
-                        forceSelection: true,
-                        editable: false,
-                        queryMode: "local",
-                        valueField: "V",
-                        value: 'name',
-                        typeAhead: true,
-                        width: 74,
-                        listeners: {
-                            scope: synComp,
-                            change: function(combobox, newValue, prevValue) {
-                                this.abilityGrid.filterSetting = newValue;
-                                var store = this.abilityGrid.store;
-                                store.clearFilter();
-                                var filterValue = this.abilityGrid.filterValue;
-                                if(filterValue != ''){
-                                    var re = new RegExp(filterValue, 'i');
-                                    store.filter(this.abilityGrid.filterSetting, re);
+                        {
+                            xtype: 'textfield',
+                            name: 'filter',
+                            listeners: {
+                                scope: synComp,
+                                change: function(fld, newValue, oldValue, opts) {
+                                    var store = this.abilityGrid.store;
+                                    store.clearFilter();
+                                    this.abilityGrid.filterValue = newValue;
+                                    if (newValue != '') {
+                                        var re = new RegExp(newValue, 'i');
+                                        store.filter(this.abilityGrid.filterSetting, re);
+                                    }
                                 }
-                            }
+                            },
+                            flex: 1
                         }
-                    }),
-                    {
-                        xtype:'textfield',
-                        name: 'filter',
-                        listeners: {
-                            scope: synComp,
-                            change: function( fld, newValue, oldValue, opts ) {
-                                var store = this.abilityGrid.store;
-                                store.clearFilter();
-                                this.abilityGrid.filterValue = newValue;
-                                if(newValue != ''){
-                                    var re = new RegExp(newValue, 'i');
-                                    store.filter(this.abilityGrid.filterSetting, re);
-                                }
-                            }
-                        },
-                        flex: 1
-                    }],}
-                ],
+                    ],
+                }],
                 columns: [{
                     dataIndex: "name",
                     header: "Ability",
@@ -252,10 +256,10 @@ Ext.define("PSO2.SynthesisComponent", {
                             var l = [];
                             Ext.Array.forEach(record.get("extup"), function(m) {
                                 var n;
-                                if (m.length == 2){
+                                if (m.length == 2) {
                                     n = this.ability.findAbilityName(m + "01");
                                     l.push(n.get("name").replace(/[IV]+$/, "").replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ""))
-                                } else if (m.length == 3){
+                                } else if (m.length == 3) {
                                     var i = 1;
                                     while (true) {
                                         n = this.ability.findAbilityName(m + i);
@@ -271,30 +275,31 @@ Ext.define("PSO2.SynthesisComponent", {
                             }, synComp);
                             metaData.tdAttr = 'data-qtip="' + l.join(", ") + ' Affix Bonus'
                         }
-                        if(record.get("tooltip") && !metaData.tdAttr)
+                        if (record.get("tooltip") && !metaData.tdAttr)
                             metaData.tdAttr = 'data-qtip="' + record.get("tooltip")
-                        else if(record.get("tooltip"))
-                            metaData.tdAttr += "<br>" + record.get("tooltip")+'"'
+                        else if (record.get("tooltip"))
+                            metaData.tdAttr += "<br>" + record.get("tooltip") + '"'
 
-                        if(metaData.tdAttr)
+                        if (metaData.tdAttr)
                             metaData.tdAttr += '"'
                         return value
                     }
                 }],
                 features: [{
-                    ftype: "filters",
-                    encode: false,
-                    local: true,
-                    menuFilterText: "Search",
-                    filters: [{
-                        type: "string",
-                        dataIndex: "name"
-                    }, {
-                        type: "string",
-                        dataIndex: "effect"
-                    }]
-                },
-                Ext.create("PSO2.GridGrouping")],
+                        ftype: "filters",
+                        encode: false,
+                        local: true,
+                        menuFilterText: "Search",
+                        filters: [{
+                            type: "string",
+                            dataIndex: "name"
+                        }, {
+                            type: "string",
+                            dataIndex: "effect"
+                        }]
+                    },
+                    Ext.create("PSO2.GridGrouping")
+                ],
                 viewConfig: {
                     altRowCls: "x-grid-row-group",
                     style: {
@@ -416,11 +421,11 @@ Ext.define("PSO2.SynthesisComponent", {
                     }
                 }
             }),
-            listeners: {	
-                scope: synComp,	
-                beforeremove: function(h, g) {	
-                    this.removeLocationHash(g)		
-                }	
+            listeners: {
+                scope: synComp,
+                beforeremove: function(h, g) {
+                    this.removeLocationHash(g)
+                }
             }
         });
         synComp.mainPanel = Ext.create("Ext.panel.Panel", {
@@ -447,7 +452,7 @@ Ext.define("PSO2.SynthesisComponent", {
             synComp.onChangeLocationHash()
         }
     },
-    initToolbarButtons: function(){
+    initToolbarButtons: function() {
         // Add, Save, Load buttons
         var synComp = this;
         var buttons = [Ext.create("Ext.Action", {
@@ -499,7 +504,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     } else {
                         field.removeCls("x-campaign-up")
                     }
-                    
+
                     if (Ext.isArray(resultPanels)) {
                         for (var k = 0; k < resultPanels.length; k++) {
                             resultPanels[k].boostFunction = this.boostFunction;
@@ -513,93 +518,94 @@ Ext.define("PSO2.SynthesisComponent", {
         }))
         buttons.push("-");
         buttons.push(Ext.create("Ext.form.field.ComboBox", {
-            store: Ext.create("Ext.data.JsonStore", {
-                autoLoad: false,
-                fields: ["T", "V", "F"],
-                data: [{
-                    T: "No Boost",
-                    V: 0,
-                    F: null
-                }, {
-                    T: "5% Strike UP",
-                    V: "5S",
-                    F: function(baseRate, name) {
-                        if(synComp.ability.boostdaySystem["blow"].includes(name))
-                            return Math.min(baseRate + 5, 100)
-                        else
-                            return baseRate
-                    }
-                },{
-                    T: "5% Shoot UP",
-                    V: "5R",
-                    F: function(baseRate, name) {
-                        if(synComp.ability.boostdaySystem["shot"].includes(name))
-                            return Math.min(baseRate + 5, 100)
-                        else
-                            return baseRate
-                    }
-                }, {
-                    T: "5% Tech UP",
-                    V: "5T",
-                    F: function(baseRate, name) {
-                        if(synComp.ability.boostdaySystem["mind"].includes(name))
-                            return Math.min(baseRate + 5, 100)
-                        else
-                            return baseRate
-                    }
-                } , {
-                    T: "5% HP&PP UP",
-                    V: "5H",
-                    F: function(baseRate, name) {
-                        if(synComp.ability.boostdaySystem["hppp"].includes(name))
-                            return Math.min(baseRate + 5, 100)
-                        else
-                            return baseRate
-                    }
-                } , {
-                    T: "5% Special UP",
-                    V: "5Sp",
-                    F: function(baseRate, name) {
-                        if(synComp.ability.boostdaySystem["sp"].includes(name))
-                            return Math.min(baseRate + 5, 100)
-                        else
-                            return baseRate
-                    }
-                }]
-            }),
-            displayField: "T",
-            forceSelection: true,
-            editable: false,
-            queryMode: "local",
-            valueField: "V",
-            value: 0,
-            typeAhead: true,
-            width: 115,
-            listeners: {
-                scope: synComp,
-                change: function(combobox, newValue, prevValue) {
-                    var resultPanels = this.tabPanel.query("resultpanel");
-                    this.boostDayFunction = combobox.store.findRecord("V", newValue).get("F");
-                    if (0 != newValue) {
-                        combobox.addCls("x-campaign-up")
-                    } else {
-                        combobox.removeCls("x-campaign-up")
-                    }
-                    if (Ext.isArray(resultPanels)) {
-                        for (var k = 0; k < resultPanels.length; k++) {
-                            resultPanels[k].boostDayFunction = this.boostDayFunction;
-                            if (resultPanels[k].rendered) {
-                                resultPanels[k].refresh()
+                store: Ext.create("Ext.data.JsonStore", {
+                    autoLoad: false,
+                    fields: ["T", "V", "F"],
+                    data: [{
+                        T: "No Boost",
+                        V: 0,
+                        F: null
+                    }, {
+                        T: "5% Strike UP",
+                        V: "5S",
+                        F: function(baseRate, name) {
+                            if (synComp.boostdaySystem["blow"].includes(name))
+                                return Math.min(baseRate + 5, 100)
+                            else
+                                return baseRate
+                        }
+                    }, {
+                        T: "5% Shoot UP",
+                        V: "5R",
+                        F: function(baseRate, name) {
+                            if (synComp.boostdaySystem["shot"].includes(name))
+                                return Math.min(baseRate + 5, 100)
+                            else
+                                return baseRate
+                        }
+                    }, {
+                        T: "5% Tech UP",
+                        V: "5T",
+                        F: function(baseRate, name) {
+                            if (synComp.boostdaySystem["mind"].includes(name))
+                                return Math.min(baseRate + 5, 100)
+                            else
+                                return baseRate
+                        }
+                    }, {
+                        T: "5% HP&PP UP",
+                        V: "5H",
+                        F: function(baseRate, name) {
+                            if (synComp.boostdaySystem["hppp"].includes(name))
+                                return Math.min(baseRate + 5, 100)
+                            else
+                                return baseRate
+                        }
+                    }, {
+                        T: "5% Special UP",
+                        V: "5Sp",
+                        F: function(baseRate, name) {
+                            if (synComp.boostdaySystem["sp"].includes(name))
+                                return Math.min(baseRate + 5, 100)
+                            else
+                                return baseRate
+                        }
+                    }]
+                }),
+                displayField: "T",
+                forceSelection: true,
+                editable: false,
+                queryMode: "local",
+                valueField: "V",
+                value: 0,
+                typeAhead: true,
+                width: 115,
+                listeners: {
+                    scope: synComp,
+                    change: function(combobox, newValue, prevValue) {
+                        var resultPanels = this.tabPanel.query("resultpanel");
+                        this.boostDayFunction = combobox.store.findRecord("V", newValue).get("F");
+                        if (0 != newValue) {
+                            combobox.addCls("x-campaign-up")
+                        } else {
+                            combobox.removeCls("x-campaign-up")
+                        }
+                        if (Ext.isArray(resultPanels)) {
+                            for (var k = 0; k < resultPanels.length; k++) {
+                                resultPanels[k].boostDayFunction = this.boostDayFunction;
+                                if (resultPanels[k].rendered) {
+                                    resultPanels[k].refresh()
+                                }
                             }
                         }
                     }
                 }
-            }
-        }))
-        // Share button
+            }))
+            // Share button
         if (synComp.noDD !== true) {
             buttons.push("-");
-            var access_token = null, api_url = null;
+            var access_token = null,
+                api_url = null;
             Ext.Ajax.request({
                 url: './api_key_include.js',
                 method: "GET",
@@ -634,12 +640,12 @@ Ext.define("PSO2.SynthesisComponent", {
                             },
                             height: 32,
                             html: '<br>Your long link is: <a href="' + link + '" id=long_link>' + link +
-                            '</a> <button onclick=copy_inner("long_link")>Copy</button>'+
-                            '<br><br>Your short link is:<a href="" id=short_link></a>'+
-                            ' <button onclick=copy_inner("short_link")>Copy</button>'+
-                            '<br><br>  You can share via Twitter here:'+
-                            ' <a href="https://twitter.com/share" class="twitter-share-button" data-url="' +
-                            link + '" data-text="PSO2 Affix Simulation"></a><br><center>',
+                                '</a> <button onclick=copy_inner("long_link")>Copy</button>' +
+                                '<br><br>Your short link is:<a href="" id=short_link></a>' +
+                                ' <button onclick=copy_inner("short_link")>Copy</button>' +
+                                '<br><br>  You can share via Twitter here:' +
+                                ' <a href="https://twitter.com/share" class="twitter-share-button" data-url="' +
+                                link + '" data-text="PSO2 Affix Simulation"></a><br><center>',
                             listeners: {
                                 single: true,
                                 afterrender: function() {
@@ -656,23 +662,19 @@ Ext.define("PSO2.SynthesisComponent", {
                                         }
                                     }(document, "script", "twitter-wjs")
                                     $.getJSON(
-                                        api_url + '/v3/shorten?access_token=' + access_token + '&longUrl=' + encodeURIComponent(link),
-                                        {},
-                                        function(response)
-                                        {
-                                            if(response.status_code == 200){
+                                        api_url + '/v3/shorten?access_token=' + access_token + '&longUrl=' + encodeURIComponent(link), {},
+                                        function(response) {
+                                            if (response.status_code == 200) {
                                                 document.getElementById("short_link").innerHTML = response.data.url;
                                                 document.getElementById("short_link").href = response.data.url;
-                                            }
-                                            else{
+                                            } else {
                                                 document.getElementById("short_link").innerHTML = "Error: " + response.status_code
                                             }
                                         }
                                     );
                                 }
                             }
-                        },
-                    ],
+                        }, ],
                         dockedItems: [{
                             xtype: "toolbar",
                             ui: "footer",
@@ -713,7 +715,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                 padding: "5px"
                             },
                             height: 32,
-                            autoScroll:true,
+                            autoScroll: true,
                             html: patch_notes,
                             listeners: {
                                 single: true,
@@ -732,7 +734,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                     }(document, "script", "twitter-wjs")
                                 }
                             }
-                        },],
+                        }, ],
                         dockedItems: [{
                             xtype: "toolbar",
                             ui: "footer",
@@ -868,9 +870,6 @@ Ext.define("PSO2.SynthesisComponent", {
         if (synComp.excludePattern && synComp.excludePattern.select) {
             a.excludePattern = synComp.excludePattern.select
         }
-        if (synComp.excludePattern && synComp.excludePattern.addition) {
-            synComp.ability.excludePattern = synComp.excludePattern.addition
-        }
         panels.push(Ext.create("PSO2.ResultPanel", Ext.apply({
             frame: true,
             noDD: synComp.noDD,
@@ -897,7 +896,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             }
         }, a)));
-        var panel = Ext.create("Ext.panel.Panel", {
+        var bottomPanel = Ext.create("Ext.panel.Panel", {
             flex: 1,
             frame: true,
             border: false,
@@ -938,12 +937,12 @@ Ext.define("PSO2.SynthesisComponent", {
         });
         // Load up the checkboxes from save
         if (synComp.initializedRestoreData === true) {
-            var fieldSet = panel.getFieldSet(),
-                resultPanel = panel.getResultPanel();
+            var fieldSet = bottomPanel.getFieldSet(),
+                resultPanel = bottomPanel.getResultPanel();
             fieldSet.on("afterrender", function(p, delayEventData) {
                 var t = this,
                     selectedCode = panelData.r;
-                panel.updateResults();
+                bottomPanel.updateResults();
                 if (selectedCode) {
                     var codeArray = selectedCode.split("."),
                         checkBoxes = t.query("checkbox"),
@@ -980,16 +979,17 @@ Ext.define("PSO2.SynthesisComponent", {
                 myComponent: synComp
             })
         }
-        var foddersGrid = [synComp.createGridPanel(0, synComp.ability.createSlotStore(), panel, panelData ? panelData.s : null)];
+        var foddersGrid = [synComp.createGridPanel(0, synComp.ability.createSlotStore(), bottomPanel, panelData ? panelData.s : null)];
         for (var e = 1; e <= synComp.maxMaterial; e++) {
-            foddersGrid.push(synComp.createGridPanel(e, synComp.ability.createSlotStore(), panel, panelData ? panelData[e] : null))
+            foddersGrid.push(synComp.createGridPanel(e, synComp.ability.createSlotStore(), bottomPanel, panelData ? panelData[e] : null))
         }
         var synPanel = synComp.tabPanel.add({
             title: "Synthesis Panel",
             autoScroll: true,
             closable: true,
             fillDuster: function() {
-                var gridPanels = this.query("gridpanel"), maxSlots = 0;
+                var gridPanels = this.query("gridpanel"),
+                    maxSlots = 0;
                 for (var index = 0; index < gridPanels.length; index++) {
                     maxSlots = Math.max(maxSlots, gridPanels[index].getAbilityCount())
                 }
@@ -1007,7 +1007,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 } finally {
                     synComp.initializedRestoreData = false
                 }
-                panel.updateResults();
+                bottomPanel.updateResults();
                 synComp.onChangeAbility()
             },
             layout: {
@@ -1026,8 +1026,8 @@ Ext.define("PSO2.SynthesisComponent", {
                     }
                 },
                 items: foddersGrid
-            }, panel],
-            getResultPanel: panel.getResultPanel
+            }, bottomPanel],
+            getResultPanel: bottomPanel.getResultPanel
         });
         synComp.addLocationHash(synPanel);
         if (synComp.initializedRestoreData !== true) {
@@ -1035,9 +1035,9 @@ Ext.define("PSO2.SynthesisComponent", {
         }
         return synPanel
     },
-    renamePanel: function(){
+    renamePanel: function() {
         var synComp = this,
-        active = synComp.tabPanel.activeTab;
+            active = synComp.tabPanel.activeTab;
         if (active) {
             var tabIndex = synComp.findLocationHashBy(synComp.tabPanel.activeTab);
             if (0 <= tabIndex) {
@@ -1095,7 +1095,7 @@ Ext.define("PSO2.SynthesisComponent", {
             savedCookies = PSO2.Cookie.get(synComp.constCookieName);
         if (savedCookies && Ext.isObject(savedCookies)) {
             var cookieMap = [],
-            a;
+                a;
             for (var e in savedCookies) {
                 cookieMap.unshift({
                     key: e,
@@ -1222,8 +1222,7 @@ Ext.define("PSO2.SynthesisComponent", {
     },
     createGridPanel: function(index, store, panel, codeString) {
         var synComp = this,
-            fodderPanel, resultPanel = panel.getResultPanel(),
-            g, indexList = [];
+            fodderPanel, resultPanel = panel.getResultPanel(), indexList = [];
         for (i = 0; i <= synComp.maxMaterial; i++) {
             if (i != index) {
                 indexList.push(i)
@@ -1300,7 +1299,7 @@ Ext.define("PSO2.SynthesisComponent", {
             }, {
                 dataIndex: "slot",
                 header: "Ability",
-                
+
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                     if (value != null) {
                         if (value.factor) {
