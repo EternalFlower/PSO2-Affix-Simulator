@@ -128,6 +128,7 @@ Ext.define("PSO2.SynthesisComponent", {
         abCompData.constExtra = synComp.extraSlot
         abCompData.constBoostPoint = synComp.boostPoint
         abCompData.constExtendAbility = synComp.extendAbility
+        abCompData.excludePattern = synComp.excludePattern.addition
         synComp.ability = Ext.create("PSO2.AbilityComponent", abCompData);
         if (synComp.items) {
             if (!Ext.isArray(synComp.items)) {
