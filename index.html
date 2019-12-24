@@ -30,7 +30,7 @@
 	function ready() {
 		Ext.onReady(function() {
 			Ext.Ajax.request({
-				url: './params.min.json',
+				url: './params.json',
 				method: "GET",
 				success: function(req, opt) {
 					if (req.status == 200) {
