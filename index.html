@@ -28,9 +28,15 @@
 	Ext.Loader.setConfig({enabled: true});
 	Ext.require(['*']);
 	function ready() {
+		var url = './params.json'
+		var today = new Date();
+		var update = new Date("January 1, 2020 UTC+9");
+		if(today > update){
+			url = './params-Jan-01.json'
+		}
 		Ext.onReady(function() {
 			Ext.Ajax.request({
-				url: './params.min.json',
+				url: url,
 				method: "GET",
 				success: function(req, opt) {
 					if (req.status == 200) {
