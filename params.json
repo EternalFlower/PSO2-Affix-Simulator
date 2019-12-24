@@ -9385,8 +9385,8 @@
 		{
             "code": "XH01",
             "gid": "GB",
-            "name": "Catalyst Receptor",
-            "effect": "Boosts Catalyst-type ability.<br>ALL(+10)"
+            "name": "<strike>Catalyst Receptor</strike>",
+            "effect": "Not Implemented<br><strike>Boosts Catalyst-type ability.<br>ALL(+10)</strike>"
         },
         {
             "code": "XI30",
@@ -9409,14 +9409,14 @@
 		{
             "code": "XJ01",
             "gid": "GB",
-            "name": "Divine Receptor",
-            "effect": "Greatly increases affix rate of Divine-type ability.<br>ALL(+10)"
+            "name": "<strike>Divine Receptor</strike>",
+            "effect": "Not Implemented<br><strike>Greatly increases affix rate of Divine-type ability.<br>ALL(+10)</strike>"
         },
 		{
             "code": "XK01",
             "gid": "GB",
-            "name": "Exceed Receptor",
-            "effect": "Greatly increases affix rate of Exceed-type ability.<br>ALL(+10)"
+            "name": "<strike>Exceed Receptor</strike>",
+            "effect": "Not Implemented<br><strike>Greatly increases affix rate of Exceed-type ability.<br>ALL(+10)</strike>"
         },
         {
             "code": "ZA01",
