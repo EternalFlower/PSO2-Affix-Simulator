@@ -107,7 +107,7 @@ Ext.define("PSO2.ResultPanel", {
             autoWidth: true,
             autoHeight: true,
             store: resultPanel.successStore,
-            tpl: ['<table style="width:100%">', '<tpl for=".">', '<tr id="success">', '<td style="width:50%;padding-bottom:5px">{name}</td>', '<td style="width:50%;padding-bottom:5px">{success}%</td>', "</tr>", "</tpl>", "</table>", '<div style="clear:both"></div>'],
+            tpl: ['<table style="width:100%">', '<tpl for=".">', '<tr id="success">', '<td style="width:50%;padding-bottom:5px">{name}</td>', '<td style="width:50%;padding-bottom:5px">{success}%</td>', "</tr>", "</tpl>", "</table>"],
             itemSelector: "tr#success"
         });
         resultPanel.selOpt1 = resultPanel.createComboBox(resultPanel.constSelOption1, resultPanel.optionStore1, resultPanel.initOption1Value, "opt1change");
