@@ -1,5 +1,5 @@
 {
-    "lastModified": "2019-11-19",
+    "lastModified": "2019-01-01",
     "optionList": {
         "support": [
             {
@@ -134,14 +134,14 @@
                 "effect": "HP(+80),PP(+5)"
             },
             {
-                "id": "Add Ability (HP&PP/4)",
+                "id": "Add Ability (Grand HP)",
                 "name": "Grand Stamina",
                 "value": "B9d",
                 "extend": 100,
                 "effect": "HP(+100),PP(+6)"
             },
             {
-                "id": "Add Ability (PP/4)",
+                "id": "Add Ability (Grand PP)",
                 "name": "Grace Spirita",
                 "value": "B10d",
                 "extend": 100,
@@ -169,7 +169,7 @@
                 "effect": "S-ATK(+50),PP(+5)"
             },
             {
-                "id": "Add Ability (S-ATK&PP/4)",
+                "id": "Add Ability (Grand P)",
                 "name": "Grand Power",
                 "value": "B11d",
                 "extend": 100,
@@ -197,7 +197,7 @@
                 "effect": "R-ATK(+50),PP(+5)"
             },
             {
-                "id": "Add Ability (R-ATK&PP/4)",
+                "id": "Add Ability (Grand S)",
                 "name": "Grand Shoot",
                 "value": "B12d",
                 "extend": 100,
@@ -224,8 +224,8 @@
                 "extend": 100,
                 "effect": "T-ATK(+50),PP(+5)"
             },
-            {
-                "id": "Add Ability (T-ATK&PP/4)",
+             {
+                "id": "Add Ability (Grand T)",
                 "name": "Grand Technique",
                 "value": "B13d",
                 "extend": 100,
