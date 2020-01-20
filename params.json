@@ -307,6 +307,20 @@
                 "value": "XG01",
                 "extend": 100,
                 "effect": "ALL(+10)"
+            },
+            {
+                "id": "Add Ability (Divine Receptor)",
+                "name": "Divine Receptor",
+                "value": "XJ01",
+                "extend": 100,
+                "effect": "ALL(+10)"
+            },
+            {
+                "id": "Add Ability (Catalyst Receptor)",
+                "name": "Catalyst Receptor",
+                "value": "XH01",
+                "extend": 100,
+                "effect": "ALL(+10)"
             }
         ],
         "potential": [
@@ -5877,7 +5891,7 @@
         {
 			"code": "LD0S",
 			"gid": "L4",
-			"name":"S4:Colored Spectrum",
+			"name":"S4:Harmonized Rainbow",
 			"extend": [
 				100
 			],
@@ -5915,13 +5929,33 @@
             "noEx": true
 		},
         {
+			"code": "LD0W",
+			"gid": "L4",
+			"name":"S4:Evasion Training",
+			"extend": [
+				100
+			],
+			"effect": "Evading when the two<br>circles overlap puts<br>you in a \"Successful<br>Evasion\" state. If you<br>do not evade, recovers<br>5% of maximum HP.",
+            "noEx": true
+		},
+        {
+			"code": "LD0X",
+			"gid": "L4",
+			"name":"S4:Colossal Radiance",
+			"extend": [
+				100
+			],
+			"effect": "Recovers 40 PP every<br>10 seconds when there<br>is a boss nearby.",
+            "noEx": true
+		},
+        {
 			"code": "LE01",
 			"gid": "L5",
 			"name":"S5:Release Parry",
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Performance alters<br>after a Just Guard<br>using the Weapon<br>Action. Sword only.",
             "noEx": true
 		},
         {
@@ -5931,7 +5965,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "After a Just Guard,<br>Gear consumption<br>reduced to 0 for 15<br>seconds. Boosts damage<br>by 2%. Wired Lance only.",
             "noEx": true
 		},
         {
@@ -5941,7 +5975,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Damages enemies when<br>you touch them while<br>running at high speed.<br>When you stop running,<br>generates a shockwave.<br>Boosts damage by 2%.<br>Partizan only.",
             "noEx": true
 		},
         {
@@ -5951,7 +5985,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "PP consumption and PP<br>recovery sped change<br>when below 50% PP.<br>Twin Daggers only.",
             "noEx": true
 		},
         {
@@ -5961,7 +5995,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Fills Gear Gauge and<br>hits enemies with a<br>powerful blow on a<br>successful DS Wind<br>Parry. Boosts damage<br>by 2%. Double Saber<br>only.",
             "noEx": true
 		},
         {
@@ -5971,7 +6005,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Drops a giant fist on the<br>target after avoiding an<br>attack with Sway.<br>Boosts damage by 2%.<br>Knuckles only.",
             "noEx": true
 		},
         {
@@ -5981,7 +6015,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Boosts Counter power.<br>A successful Braver<br>counter fills Gear to<br>maximum. Katana only.",
             "noEx": true
 		},
         {
@@ -5991,7 +6025,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "When using a PA,<br>lightning bolts are<br>formed from Photons.<br>Dual Blades only.",
             "noEx": true
 		},
         {
@@ -6001,7 +6035,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Boosts End Attract.<br>Has a cooldown after<br>using End Attract.<br>Cooldown time is<br>shortened when you<br>avoid an attack with<br>Dive Roll. Boosts<br>damage by 2%.<br>Assault Rifle only.",
             "noEx": true
 		},
         {
@@ -6011,7 +6045,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Boosts Zero Distance.<br>Has a cooldown after<br>using Zero Distance.<br>Cooldown time is<br>shortened when you<br>avoid an attack with<br>Dive Roll. Boosts<br>damage by 2%.<br>Launcher only.",
             "noEx": true
 		},
         {
@@ -6021,17 +6055,17 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Grants a PP recovery<br>effect when you<br>evade an attack with<br>Step or Stylish Roll,<br>until you take damage.<br>Twin Machineguns only.",
             "noEx": true
 		},
         {
 			"code": "LE0C",
 			"gid": "L5",
-			"name":"S5:Auxilary Arrow",
+			"name":"S5:Auxiliary Arrow",
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Creates a Chase<br>Arrow each time you<br>hit with a PA other than<br>Banishing Arrow.<br>Boosts these Chase<br>Arrows for a short<br>time each time you<br>avoid an attack with<br>Step.",
             "noEx": true
 		},
         {
@@ -6041,7 +6075,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Enhances normal<br>attacks and boosts the<br>power of Rod Shoot by<br>100%. Rod only.",
             "noEx": true
 		},
         {
@@ -6051,7 +6085,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Reduces the charge<br>time of support Techs.<br>Reduces the power of<br>Zondeel. Talis only.",
             "noEx": true
 		},
         {
@@ -6061,7 +6095,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Unleashes a shockwave<br>on your third step<br>normal attack. Boosts<br>damage by 2%. Wand<br>only.",
             "noEx": true
 		},
         {
@@ -6071,7 +6105,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Boosts the power of<br>Elemental Burst by 30%<br>and activates it<br>automatically during PA<br>Shift Actions. Jet Boots<br>only.",
             "noEx": true
 		},
         {
@@ -6081,7 +6115,7 @@
 			"extend": [
 				100
 			],
-			"effect": "This is a placeholder.",
+			"effect": "Boosts critical hit rate<br>by 20%. On a critical<br>hit, boosts damage by<br>2% and recovers 1%<br>of damage dealt as HP.<br>(Max. recovery: 30 HP)",
             "noEx": true
 		},
         {
@@ -6245,6 +6279,16 @@
             "noEx": true
 		},
         {
+			"code": "LF0R",
+			"gid": "L6",
+			"name":"S6:Long Night Star",
+			"extend": [
+				100
+			],
+			"effect": "Reduces Etoile Boost's<br>decay per second by<br>50%.",
+            "noEx": true
+		},
+        {
 			"code": "LG0A",
 			"gid": "L7",
 			"name":"S7:Glowing Grace",
@@ -6357,7 +6401,7 @@
         {
 			"code": "LG0L",
 			"gid": "L7",
-			"name":"S7:Blinding Strike",
+			"name":"S7:Zenith Impact",
 			"extend": [
 				100
 			],
@@ -6365,9 +6409,29 @@
             "noEx": true
 		},
         {
+			"code": "LG0M",
+			"gid": "L7",
+			"name":"S7:Increased Efficiency",
+			"extend": [
+				100
+			],
+			"effect": "Boosts the effect of<br>recovery items by 30%.",
+            "noEx": true
+		},
+        {
+			"code": "LG0N",
+			"gid": "L7",
+			"name":"S7:Mind Merge",
+			"extend": [
+				100
+			],
+			"effect": "Automatically answers<br>Sympathy requests<br>during Alter Ego. No<br>effect if using weapon<br>with \"Glance of<br>Darkness\"",
+            "noEx": true
+		},
+        {
 			"code": "LH0A",
 			"gid": "L8",
-			"name":"S8:Saltating Support",
+			"name":"S8:Sky Dance's Boon",
 			"extend": [
 				100
 			],
@@ -6377,7 +6441,7 @@
         {
 			"code": "LH0B",
 			"gid": "L8",
-			"name":"S8:Untouchable Gulper",
+			"name":"S8:Strong Potency",
 			"extend": [
 				100
 			],
@@ -6452,6 +6516,16 @@
 				100
 			],
 			"effect": "Increases PP by 6.",
+            "noEx": true
+		},
+        {
+			"code": "LH0J",
+			"gid": "L8",
+			"name":"S8:High-Minded",
+			"extend": [
+				100
+			],
+			"effect": "Reduces falling speed<br>while charging a<br>Technique in the air.",
             "noEx": true
 		},
         {
@@ -9385,8 +9459,8 @@
 		{
             "code": "XH01",
             "gid": "GB",
-            "name": "<strike>Catalyst Receptor</strike>",
-            "effect": "Not Implemented<br><strike>Boosts Catalyst-type ability.<br>ALL(+10)</strike>"
+            "name": "Catalyst Receptor",
+            "effect": "Boosts Catalyst-type ability.<br>ALL(+10)"
         },
         {
             "code": "XI30",
@@ -9409,8 +9483,8 @@
 		{
             "code": "XJ01",
             "gid": "GB",
-            "name": "<strike>Divine Receptor</strike>",
-            "effect": "Not Implemented<br><strike>Greatly increases affix rate of Divine-type ability.<br>ALL(+10)</strike>"
+            "name": "Divine Receptor",
+            "effect": "Greatly increases affix rate of Divine-type ability.<br>ALL(+10)"
         },
 		{
             "code": "XK01",
