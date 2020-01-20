@@ -1,5 +1,5 @@
 {
-    "lastModified": "2019-01-01",
+    "lastModified": "2019-01-20",
     "optionList": {
         "support": [
             {
@@ -49,6 +49,18 @@
                 "name": "+50%",
                 "value": "A08",
                 "boost": 50
+            },
+            {
+                "id": "Ability Success Rate +55%",
+                "name": "+55%",
+                "value": "A09",
+                "boost": 55
+            },
+            {
+                "id": "Ability Success Rate +60%",
+                "name": "+60%",
+                "value": "A10",
+                "boost": 60
             }
         ],
         "additional": [
@@ -646,14 +658,6 @@
             ],
             "ref": "$$",
             "success": 10
-        },
-		{
-            "base": [
-                "XG01",
-                "UC*"
-            ],
-            "ref": "$$",
-            "success": 100
         },
         {
             "base": [
@@ -1450,40 +1454,40 @@
 		},
 		{
 			"base":[
-			"LS05",
-			"LM05"
+			    "LS05",
+			    "LM05"
 			],
 			"ref":"LS06",
 			"success":50
 		},
 		{
 			"base":[
-			"LT05",
-			"LM05"
+			    "LT05",
+			    "LM05"
 			],
 			"ref":"LT06",
 			"success":50
 		},
 		{
 			"base":[
-			"LP05",
-			"LR05"
+			    "LP05",
+			    "LR05"
 			],
 			"ref":"LP07",
 			"success":50
 		},
 		{
 			"base":[
-			"LS05",
-			"LR05"
+			    "LS05",
+			    "LR05"
 			],
 			"ref":"LS07",
 			"success":50
 		},
 		{
 			"base":[
-			"LT05",
-			"LR05"
+			    "LT05",
+			    "LR05"
 			],
 			"ref":"LT07",
 			"success":50
@@ -8883,30 +8887,50 @@
             "code": "UC01",
             "gid": "AC",
             "name": "Mark Joyo",
-            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>HP(+50)"
+            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>HP(+50)",
+            "extend": [
+                100
+            ],
+            "require": "XG01"
         },
         {
             "code": "UC11",
             "gid": "AC",
             "name": "Mark Couragena",
-            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>PP(+5)"
+            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>PP(+5)",
+            "extend": [
+                100
+            ],
+            "require": "XG01"
         },
         {
             "code": "UC21",
             "gid": "AC",
             "name": "Mark Angar",
-            "effect": "S-ATK(+50),<br>R-ATK(+50),<br>T-ATK(+50),<br>DEX(+40)"
+            "effect": "S-ATK(+50),<br>R-ATK(+50),<br>T-ATK(+50),<br>DEX(+40)",
+            "extend": [
+                100
+            ],
+            "require": "XG01"
         },
         {
             "code": "UC31",
             "gid": "AC",
             "name": "Mark Grif",
-            "effect": "S-DEF(+50),<br>R-DEF(+50),<br>T-DEF(+50),<br>HP(+80)"
+            "effect": "S-DEF(+50),<br>R-DEF(+50),<br>T-DEF(+50),<br>HP(+80)",
+            "extend": [
+                100
+            ],
+            "require": "XG01"
         },
         {
             "code": "ID01",
             "gid": "AC",
             "name": "Divine Will",
+            "extend": [
+                100
+            ],
+            "require": "XJ01",
             "extup": [
                 "TN0"
             ],
@@ -8917,6 +8941,10 @@
             "code": "ID02",
             "gid": "AC",
             "name": "Divine Order",
+            "extend": [
+                100
+            ],
+            "require": "XJ01",
             "extup": [
                 "TN0"
             ],
@@ -8927,6 +8955,10 @@
             "code": "IE01",
             "gid": "AC",
             "name": "Exceed Energy",
+            "extend": [
+                100
+            ],
+            "require": "XK01",
             "effect": "S-ATK(+50),<br>R-ATK(+50),<br>T-ATK(+50),<br>DEX(+20),<br>S-DEF(+20),<br>R-DEF(+20),<br>T-DEF(+20),<br>HP(+20),<br>PP(+5)"
         },
         {
