@@ -272,6 +272,34 @@
                 "effect": "S-DEF(+35),R-DEF(+35),T-DEF(+35),HP(+75),PP(+3)"
             },
             {
+                "id": "Add Ability (Power VI)",
+                "name": "Power VI",
+                "value": "AA06",
+                "extend": 100,
+                "effect": "S-ATK(+45)"
+            },
+            {
+                "id": "Add Ability (Shoot VI)",
+                "name": "Shoot VI",
+                "value": "AB06",
+                "extend": 100,
+                "effect": "R-ATK(+45)"
+            },
+            {
+                "id": "Add Ability (Technique VI)",
+                "name": "Technique VI",
+                "value": "AA06",
+                "extend": 100,
+                "effect": "T-ATK(+45)"
+            },
+            {
+                "id": "Add Ability (Ability IV)",
+                "name": "Ability IV",
+                "value": "FA04",
+                "extend": 100,
+                "effect": "ALL(+20)"
+            },
+            {
                 "id": "Add Ability (Attack Inherit)",
                 "name": "Attack Receptor",
                 "value": "B30",
@@ -293,27 +321,6 @@
                 "effect": "ALL(+5)"
             },
             {
-                "id": "Add Ability (Sentence P)",
-                "name": "Sentence Power",
-                "value": "B40",
-                "extend": 100,
-                "effect": "S-ATK(+20),PP(+4)"
-            },
-            {
-                "id": "Add Ability (Sentence S)",
-                "name": "Sentence Shoot",
-                "value": "B41",
-                "extend": 100,
-                "effect": "R-ATK(+20),PP(+4)"
-            },
-            {
-                "id": "Add Ability (Sentence T)",
-                "name": "Sentence Tech",
-                "value": "B42",
-                "extend": 100,
-                "effect": "T-ATK(+20),PP(+4)"
-            },
-            {
                 "id": "Add Ability (Mark Receptor)",
                 "name": "Mark Receptor",
                 "value": "XG01",
@@ -333,6 +340,55 @@
                 "value": "XH01",
                 "extend": 100,
                 "effect": "ALL(+10)"
+            },
+            {
+                "id": "Add Ability (Mark Joyo)",
+                "name": "Mark Joyo",
+                "value": "UC01",
+                "extend": 100,
+                "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>HP(+50)"
+            },
+            {
+                "id": "Add Ability (Mark Couragena)",
+                "name": "Mark Couragena",
+                "value": "UC01",
+                "extend": 100,
+                "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>PP(+5)"
+            },
+            {
+                "id": "Add Ability (Mark Angar)",
+                "name": "Mark Angar",
+                "value": "UC21",
+                "extend": 100,
+                "effect": "S-ATK(+50),<br>R-ATK(+50),<br>T-ATK(+50),<br>DEX(+40)"
+            },
+            {
+                "id": "Add Ability (Mark Grif)",
+                "name": "Mark Grif",
+                "value": "UC31",
+                "extend": 100,
+                "effect": "S-DEF(+50),<br>R-DEF(+50),<br>T-DEF(+50),<br>HP(+80)"
+            },
+            {
+                "id": "Add Ability (Sentence P)",
+                "name": "Sentence Power",
+                "value": "B40",
+                "extend": 100,
+                "effect": "S-ATK(+20),PP(+4)"
+            },
+            {
+                "id": "Add Ability (Sentence S)",
+                "name": "Sentence Shoot",
+                "value": "B41",
+                "extend": 100,
+                "effect": "R-ATK(+20),PP(+4)"
+            },
+            {
+                "id": "Add Ability (Sentence T)",
+                "name": "Sentence Tech",
+                "value": "B42",
+                "extend": 100,
+                "effect": "T-ATK(+20),PP(+4)"
             }
         ],
         "potential": [
@@ -9517,12 +9573,6 @@
             "gid": "GB",
             "name": "Divine Receptor",
             "effect": "Greatly increases affix rate of Divine-type ability.<br>ALL(+10)"
-        },
-		{
-            "code": "XK01",
-            "gid": "GB",
-            "name": "<strike>Exceed Receptor</strike>",
-            "effect": "Not Implemented<br><strike>Greatly increases affix rate of Exceed-type ability.<br>ALL(+10)</strike>"
         },
         {
             "code": "ZA01",

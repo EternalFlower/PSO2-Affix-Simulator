@@ -1,5 +1,10 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>01/31/2020:</b>'+
+  '<ul>'+
+  '<li> - Added SG Capsules (P/S/T 6, Ability 4, Receptor)</li>'+
+  '<li> - Added Replace Placeholder for S5</li>'+
+  '</ul>'+
   '<b>12/18/2019 (version 1.93):</b>'+
   '<ul>'+
   '<li> - Added Capsules</li>'+
