@@ -351,7 +351,7 @@
             {
                 "id": "Add Ability (Mark Couragena)",
                 "name": "Mark Couragena",
-                "value": "UC01",
+                "value": "UC11",
                 "extend": 100,
                 "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>PP(+5)"
             },
@@ -1916,6 +1916,14 @@
             ],
             "ref": "TJ01",
             "success": 10
+        },
+        {
+            "base": [
+                "VJ*",
+				"XH01"
+            ],
+            "ref": "$$",
+            "success": 100
         }
     ],
     "extraSlot": [
@@ -2265,7 +2273,7 @@
             "Shoot V",
             "Shoot VI",
             "Sentence Tiro",
-			"Apprezina Reverie",
+			"Appregina Reverie",
 			"Lesser Shoot I",
             "Lesser Shoot II",
             "Lesser Shoot III",
@@ -2441,6 +2449,8 @@
             "Slayer/Kuronite Type",
             "Slayer/Phantoms Type",
             "Slayer/Darkers",
+            "Slayer/Dragonkin",
+            "Slayer/Luminmech",
             "Ripper/Fire Weak",
             "Ripper/Ice Weak",
             "Ripper/Wind Weak",
@@ -8054,7 +8064,7 @@
         {
             "code": "TK04",
             "gid": "AC",
-            "name": "Apprezina Reverie",
+            "name": "Appregina Reverie",
             "extend": [
                 0,
                 30,
@@ -9403,6 +9413,28 @@
             "effect": "Boost damage against Darkers.<br>Effect is reduced<br>as the Weapon<br>Rarity increases."
         },
         {
+            "code": "PN17",
+            "gid": "EC",
+            "name": "Slayer/Dragonkin",
+            "extend": [
+                0,
+                10,
+                20
+            ],
+            "effect": "Boost damage against Dragonkin.<br>Effect is reduced<br>as the Weapon<br>Rarity increases."
+        },
+        {
+            "code": "PO18",
+            "gid": "EC",
+            "name": "Slayer/Luminmech",
+            "extend": [
+                0,
+                10,
+                20
+            ],
+            "effect": "Boost damage against Luminmech.<br>Effect is reduced<br>as the Weapon<br>Rarity increases."
+        },
+        {
             "code": "VJ01",
             "gid": "YA",
             "name": "Soul Catalyst",
@@ -9436,7 +9468,7 @@
                 30
             ],
             "effect": "HP(+10),<br>PP(+1)",
-			"tooltip": "Made from: Elder Reverie, Loser Reverie, Apprezina Reverie, Double Reverie, Persona Reverie<br>Used for: Mana Reverie"
+			"tooltip": "Made from: Elder Reverie, Loser Reverie, Appregina Reverie, Double Reverie, Persona Reverie<br>Used for: Mana Reverie"
         },
         {
             "code": "VL01",
