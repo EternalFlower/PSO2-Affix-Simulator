@@ -37,10 +37,16 @@ PSO2.Cookie = {
     localeName: "locale",
     init: function() {
         var pathname = location.pathname.split('/');
+        for(var i = pathname.length - 1; i >= 0; i--){
+            if(!pathname[i]){
+                pathname.pop();
+            } else {
+                break;
+            }
+        }
         pathname.pop();
-        pathname.join("/");
         PSO2.Cookie.cookieProvider = Ext.create("Ext.state.CookieProvider", {
-            path: pathname,
+            path: pathname.join("/"),
             domain: location.hostname,
             expires: new Date(new Date().getTime() + (86400000 * PSO2.Cookie.expiresDay))
         });
