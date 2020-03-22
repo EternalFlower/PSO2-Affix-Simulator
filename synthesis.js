@@ -761,9 +761,29 @@ Ext.define("PSO2.SynthesisComponent", {
             } else if (locale == "jp"){
                 locale = "na";
             }
+            var isJP = locale == "jp";
             buttons.push({
-                cls: "x-" + locale + "-flag",
+                cls: "x-jp-flag",
                 width: 25,
+                enableToggle: true,
+                handler: function() {
+                    var site = location
+                    var pathname = site.pathname.split('/');
+                    for(var i = 0; i < pathname.length; i++){
+                        if(pathname[i] == "na"){
+                            pathname[i] = "jp";
+                        } else if(pathname[i] == "jp"){
+                            pathname[i] = "na";
+                        }
+                    }
+                    
+                    site.pathname = pathname.join("/");
+                }
+            })
+            buttons.push({
+                cls: "x-na-flag",
+                width: 32,
+                enableToggle: true,
                 handler: function() {
                     var site = location
                     var pathname = site.pathname.split('/');
