@@ -34,9 +34,13 @@ PSO2.Cookie = {
     expiresDay: 60,
     version: "1.1",
     vText: "__version",
+    localeName: "locale",
     init: function() {
+        var pathname = location.pathname.split('/');
+        pathname.pop();
+        pathname.join("/");
         PSO2.Cookie.cookieProvider = Ext.create("Ext.state.CookieProvider", {
-            path: location.pathname,
+            path: pathname,
             domain: location.hostname,
             expires: new Date(new Date().getTime() + (86400000 * PSO2.Cookie.expiresDay))
         });
@@ -72,6 +76,22 @@ PSO2.Cookie = {
             PSO2.Cookie.cookieProvider.set(cookieName, savedPlanList);
             PSO2.Cookie.cookieProvider.set(cookieName + PSO2.Cookie.vText, PSO2.Cookie.version)
         }
+    },
+    getLocale: function(){
+        if (!Ext.isDefined(PSO2.Cookie.cookieProvider)) {
+            PSO2.Cookie.init()
+        }
+        var locale = PSO2.Cookie.cookieProvider.get(this.localeName);
+        if(!locale){
+            locale = "jp";
+        }
+        return locale;
+    },
+    setLocale: function(locale){
+        if (!Ext.isDefined(PSO2.Cookie.cookieProvider)) {
+            PSO2.Cookie.init()
+        }
+        PSO2.Cookie.cookieProvider.set(this.localeName, locale);
     }
 };
 PSO2.utils = {

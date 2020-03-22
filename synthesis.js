@@ -699,8 +699,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 text: "Changelog",
                 iconCls: "x-changelog-icon",
                 handler: function() {
-                    var site = location,
-                        link = site.protocol + "//" + site.host + site.pathname + "#!" + lzbase62.compress(site.hash.substring(3));
+                    
                     Ext.create("widget.window", {
                         title: "Changelog",
                         modal: true,
@@ -755,8 +754,37 @@ Ext.define("PSO2.SynthesisComponent", {
                     }).show()
                 }
             })
+            buttons.push("->")
+            var locale = this.getLocale();
+            if(locale == "na"){
+                locale = "jp";
+            } else if (locale == "jp"){
+                locale = "na";
+            }
+            buttons.push({
+                cls: "x-" + locale + "-flag",
+                width: 25,
+                handler: function() {
+                    var site = location
+                    var pathname = site.pathname.split('/');
+                    for(var i = 0; i < pathname.length; i++){
+                        if(pathname[i] == "na"){
+                            pathname[i] = "jp";
+                        } else if(pathname[i] == "jp"){
+                            pathname[i] = "na";
+                        }
+                    }
+                    
+                    site.pathname = pathname.join("/");
+                }
+            })
         }
         return buttons
+    },
+    getLocale: function(){
+        var pathname = location.pathname.split('/');
+        pathname.pop();
+        return pathname.pop();
     },
     // Initialize the menu in the fodder panel section
     initGridMenuButton: function() {

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=4" />
+<meta name="keywords" content="PSO2,dudu,affix,simulator,doodoo,sim,ability" />
+<meta name="description" content="Engine for simulating an affixing action for PSO2." />
+<title>PSO2 Affixing Simulator</title>
+<link rel="stylesheet" type="text/css" href="./../extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="./../css/default.css" />
+<script type="text/javascript" src="./../extjs/ext-all-a.js"></script>
+<script type="text/javascript" src="./../extjs/ext-all-b.js"></script>
+<script type="text/javascript" src="./../extjs/ext-all-c.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="./../extjs/examples/ux/grid/FiltersFeature.js"></script>
+<script type="text/javascript" src="./../extjs/examples/ux/TabCloseMenu.js"></script>
+<script type="text/javascript" src="./../extjs/examples/ux/grid/menu/ListMenu.js"></script>
+<script type="text/javascript" src="./../extjs/examples/ux/grid/menu/RangeMenu.js"></script>
+<script type="text/javascript" src="./../extjs/examples/ux/grid/filter/Filter.js"></script>
+<script type="text/javascript" src="./../extjs/examples/ux/grid/filter/StringFilter.js"></script>
+<script type="text/javascript" charset="utf-8" src="./../lzbase62.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./../utils.js?v=1.90"></script>
+<script type="text/javascript" charset="utf-8" src="./../ability.js?v=1.93"></script>
+<script type="text/javascript" charset="utf-8" src="./../result.js?v=1.93"></script>
+<script type="text/javascript" charset="utf-8" src="./../patch_notes.js?d=1/30/2020"></script>
+<script type="text/javascript" charset="utf-8" src="./../synthesis.js?v=1.93"></script>
+<script type="text/javascript">
+	Ext.Loader.setConfig({enabled: true});
+	Ext.require(['*']);
+	function ready() {
+		var url = './params.json'
+		//var today = new Date();
+		//var update = new Date("January 1, 2020 UTC+9");
+		/*if(today > update){
+			url = './params-Jan-01.json'
+		}*/
+        PSO2.Cookie.setLocale("na");
+		Ext.onReady(function() {
+			Ext.Ajax.request({
+				url: url,
+				method: "GET",
+				success: function(req, opt) {
+					if (req.status == 200) {
+						var noDD = false,
+							params = Ext.JSON.decode(req.responseText);
+						if (Ext.userAgent) {
+							var ua = Ext.userAgent.toLowerCase();
+							if (0 < ua.indexOf('iphone') || 0 < ua.indexOf('ipad')
+								 || 0 < ua.indexOf('ipod') || 0 < ua.indexOf('android')) {
+								noDD = true;
+							}
+						}
+						params.noDD = noDD;
+						if (noDD === false) {
+							Ext.getBody().dom.innerHTML = '';
+							Ext.tip.QuickTipManager.init();
+							params.items = {
+								region: 'south',
+								layout: 'fit',
+								style: {
+									textAlign: 'center'
+								},
+								frame: false,
+								border: 0,
+								html:  ''
+							};
+						}
+						Ext.create('PSO2.SynthesisComponent', params);
+					}
+				}
+			});
+		});
+	}
+</script>
+</head>
+<body onload="ready();">
+</body>
+</html>

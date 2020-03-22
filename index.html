@@ -28,47 +28,19 @@
 	Ext.Loader.setConfig({enabled: true});
 	Ext.require(['*']);
 	function ready() {
-		var url = './params.json'
-		//var today = new Date();
-		//var update = new Date("January 1, 2020 UTC+9");
-		/*if(today > update){
-			url = './params-Jan-01.json'
-		}*/
-		Ext.onReady(function() {
-			Ext.Ajax.request({
-				url: url,
-				method: "GET",
-				success: function(req, opt) {
-					if (req.status == 200) {
-						var noDD = false,
-							params = Ext.JSON.decode(req.responseText);
-						if (Ext.userAgent) {
-							var ua = Ext.userAgent.toLowerCase();
-							if (0 < ua.indexOf('iphone') || 0 < ua.indexOf('ipad')
-								 || 0 < ua.indexOf('ipod') || 0 < ua.indexOf('android')) {
-								noDD = true;
-							}
-						}
-						params.noDD = noDD;
-						if (noDD === false) {
-							Ext.getBody().dom.innerHTML = '';
-							Ext.tip.QuickTipManager.init();
-							params.items = {
-								region: 'south',
-								layout: 'fit',
-								style: {
-									textAlign: 'center'
-								},
-								frame: false,
-								border: 0,
-								html:  ''
-							};
-						}
-						Ext.create('PSO2.SynthesisComponent', params);
-					}
-				}
-			});
-		});
+		var locale = PSO2.Cookie.getLocale();
+		var site = location
+		var pathname = site.pathname.split('/');
+		for(var i = pathname.length - 1; i >= 0; i--){
+			if(!pathname[i]){
+				pathname.pop();
+			} else {
+				pathname.push(locale);
+				break;
+			}
+		}
+		console.log(pathname.join("/"));
+		site.pathname = pathname.join("/");
 	}
 </script>
 </head>

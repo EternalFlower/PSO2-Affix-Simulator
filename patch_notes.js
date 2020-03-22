@@ -1,5 +1,9 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>03/21/2020:</b>'+
+  '<ul>'+
+  '<li> - Addeed NA Locale Version</li>'+
+  '</ul>'+
   '<b>01/31/2020:</b>'+
   '<ul>'+
   '<li> - Added SG Capsules (P/S/T 6, Ability 4, Receptor)</li>'+
