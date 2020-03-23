@@ -31,21 +31,6 @@ Ext.define("PSO2.AbilitySet", {
         var abilitySet = this,
             abilityEntry;
         Ext.apply(abilitySet, inAbilitySet);
-		// Find id of Mutation I, Mutation II, and Photon Collect for boost upgrade calculations
-        if (abilitySet.abilityStore) {
-            abilityEntry = abilitySet.abilityStore.findRecord("name", "Mutation I");
-            if (abilityEntry) {
-                abilitySet.mutationICd = abilityEntry.get("code")
-            }
-            abilityEntry = abilitySet.abilityStore.findRecord("name", "Mutation II");
-            if (abilityEntry) {
-                abilitySet.mutationIICd = abilityEntry.get("code")
-            }
-            abilityEntry = abilitySet.abilityStore.findRecord("name", "Photon Collect");
-            if (abilityEntry) {
-                abilitySet.photonCd = abilityEntry.get("code")
-            }
-        }
         abilitySet.stores = [];
         abilitySet.clear()
     },

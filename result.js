@@ -43,9 +43,9 @@ Ext.define("PSO2.ResultPanel", {
     moreButtonText: "Success or +10,000",
     moreDodoLimit: 10000,
     monimoniButtonText: "Details",
-    abText: ["S-ATK", "R-ATK", "T-ATK", "S-DEF", "R-DEF", "T-DEF", "DEX", "HP", "PP", "Strike Resist", "Range Resist", "Tech Resist", "Fire Resist", "Ice Resist", "Lightning Resist", "Wind Resist", "Light Resist", "Dark Resist"],
-    allUp: ["S-ATK", "R-ATK", "T-ATK", "S-DEF", "R-DEF", "T-DEF", "DEX"],
-    resistAll: ["Strike Resist", "Range Resist", "Tech Resist", "Fire Resist", "Ice Resist", "Lightning Resist", "Wind Resist", "Light Resist", "Dark Resist"],
+    abText: [Locale.satk, Locale.ratk, Locale.tatk, Locale.sdef, Locale.rdef, Locale.tdef, Locale.dex, Locale.hp, Locale.pp, Locale.strikeResist, Locale.rangeResist, Locale.techResist, Locale.fireResist, Locale.iceResist, Locale.ltnResist, Locale.windResist, Locale.lightResist, Locale.darkResist],
+    allUp: [Locale.satk, Locale.ratk, Locale.tatk, Locale.sdef, Locale.rdef, Locale.tdef, Locale.dex],
+    resistAll: [Locale.strikeResist, Locale.rangeResist, Locale.techResist, Locale.fireResist, Locale.iceResist, Locale.ltnResist, Locale.windResist, Locale.lightResist, Locale.darkResist],
     optionStore1: Ext.create("Ext.data.Store", {
         fields: ["id", "name", "value", "fn"],
         data: {}
@@ -926,7 +926,7 @@ Ext.define("PSO2.ResultPanel", {
         }
         fieldset = Ext.create("Ext.form.FieldSet", {
             frame: true,
-            title: "Special Abilities",
+            title: Locale.specialAbility,
             margins: "0",
             width: "100%",
             layout: "column",

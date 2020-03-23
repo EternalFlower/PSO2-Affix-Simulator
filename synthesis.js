@@ -59,49 +59,49 @@ Ext.define("PSO2.GridGrouping", {
     },
     getHeaderName: function(affixGroup) {
         if (affixGroup.name == "AA") {
-            return "Stat Enhancement"
+            return Locale.group1
         } else if (affixGroup.name == "AB") {
-            return "Stat Enhancement (Lesser)"
+            return Locale.group2
         } else if (affixGroup.name == "AC") {
-            return "Stat Enhancement (Special/1)"
+            return Locale.group3
         } else if (affixGroup.name == "AD") {
-            return "Stat Enhancement (Special/2)"
+            return Locale.group4
         } else if (affixGroup.name == "CB") {
-            return "Special Ability Factor"
+            return Locale.group5
         } else if (affixGroup.name == "DA") {
-            return "Resistance"
+            return Locale.group6
         } else if (affixGroup.name == "DB") {
-            return "Status Effect"
+            return Locale.group7
         } else if (affixGroup.name == "EA") {
-            return "Soul"
+            return Locale.group8
         } else if (affixGroup.name == "EB") {
-            return "Fever"
+            return Locale.group9
         } else if (affixGroup.name == "EC") {
-            return "Ripper/Slayer"
+            return Locale.group10
         } else if (affixGroup.name == "GB") {
-            return "Receptors"
+            return Locale.group11
         } else if (affixGroup.name == "YA") {
-            return "Special"
+            return Locale.group12
         } else if (affixGroup.name == "L1") {
-            return "S-Class Special Ability 1 (Weapon)"
+            return Locale.group13
         } else if (affixGroup.name == "L2") {
-            return "S-Class Special Ability 2 (Weapon)"
+            return Locale.group14
         } else if (affixGroup.name == "L3") {
-            return "S-Class Special Ability 3 (Weapon)"
+            return Locale.group15
         } else if (affixGroup.name == "L4") {
-            return "S-Class Special Ability 4 (Weapon)"
+            return Locale.group16
         } else if (affixGroup.name == "L5") {
-            return "S-Class Special Ability 5 (Weapon)"
+            return Locale.group17
         } else if (affixGroup.name == "L6") {
-            return "S-Class Special Ability 6 (Rear Unit)"
+            return Locale.group18
         } else if (affixGroup.name == "L7") {
-            return "S-Class Special Ability 7 (Arm Unit)"
+            return Locale.group19
         } else if (affixGroup.name == "L8") {
-            return "S-Class Special Ability 8 (Leg Unit)"
+            return Locale.group20
         } else if (affixGroup.name == "LSAF") {
-            return "S-Class Special Ability Factor"
+            return Locale.group21
         }
-        return "Other"
+        return Locale.group0
     }
 });
 Ext.define("PSO2.SynthesisComponent", {
@@ -163,7 +163,7 @@ Ext.define("PSO2.SynthesisComponent", {
         // If not on iphone, android, ipod or ipad
         if (synComp.noDD !== true) {
             synComp.abilityGrid = Ext.create("Ext.grid.Panel", {
-                title: "Special Ability",
+                title: Locale.specialAbility,
                 region: "west",
                 collapsible: true,
                 floatable: true,
@@ -238,7 +238,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 }],
                 columns: [{
                     dataIndex: "name",
-                    header: "Ability",
+                    header: Locale.ability,
                     width: 108,
                     filterable: true,
                     filter: {
@@ -342,7 +342,7 @@ Ext.define("PSO2.SynthesisComponent", {
             viewportData.push(synComp.abilityGrid)
         } else { // on iphone, ipod, ipad, android
             synComp.abilityWindow = Ext.create("widget.window", {
-                title: "Special Ability",
+                title: Locale.specialAbility,
                 autoDestroy: false,
                 closable: true,
                 closeAction: "hide",
@@ -355,7 +355,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     scroll: false,
                     columns: [{
                         dataIndex: "name",
-                        header: "Ability",
+                        header: Locale.ability,
                         filter: {
                             type: "string"
                         }
@@ -527,7 +527,7 @@ Ext.define("PSO2.SynthesisComponent", {
                         V: 0,
                         F: null
                     }, {
-                        T: "5% Strike UP",
+                        T: Locale.campaign_satk5,
                         V: "5S",
                         F: function(baseRate, name) {
                             if (synComp.boostdaySystem["blow"].includes(name))
@@ -536,7 +536,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                 return baseRate
                         }
                     }, {
-                        T: "5% Shoot UP",
+                        T: Locale.campaign_ratk5,
                         V: "5R",
                         F: function(baseRate, name) {
                             if (synComp.boostdaySystem["shot"].includes(name))
@@ -545,7 +545,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                 return baseRate
                         }
                     }, {
-                        T: "5% Tech UP",
+                        T: Locale.campaign_tatk5,
                         V: "5T",
                         F: function(baseRate, name) {
                             if (synComp.boostdaySystem["mind"].includes(name))
@@ -554,7 +554,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                 return baseRate
                         }
                     }, {
-                        T: "5% HP&PP UP",
+                        T: Locale.campaign_hppp5,
                         V: "5H",
                         F: function(baseRate, name) {
                             if (synComp.boostdaySystem["hppp"].includes(name))
@@ -563,7 +563,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                 return baseRate
                         }
                     }, {
-                        T: "5% Special UP",
+                        T: Locale.campaign_special5,
                         V: "5Sp",
                         F: function(baseRate, name) {
                             if (synComp.boostdaySystem["sp"].includes(name))
@@ -755,13 +755,12 @@ Ext.define("PSO2.SynthesisComponent", {
                 }
             })
             buttons.push("->")
-            var locale = this.getLocale();
-            if(locale == "na"){
-                locale = "jp";
-            } else if (locale == "jp"){
-                locale = "na";
+            var appLocale = this.getLocale();
+            if(appLocale == "na"){
+                appLocale = "jp";
+            } else if (appLocale == "jp"){
+                appLocale = "na";
             }
-            var isJP = locale == "jp";
             buttons.push({
                 cls: "x-jp-flag",
                 width: 25,
@@ -890,7 +889,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 items: {
                     xtype: "fieldset",
                     layout: "anchor",
-                    title: "Select Abilities",
+                    title: Locale.selectAbility,
                     autoHeight: true,
                     padding: "0 0 0 4",
                     margin: "0 0 0 0",
@@ -1347,7 +1346,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 hidden: synComp.noDD || 2 < synComp.maxMaterial
             }, {
                 dataIndex: "slot",
-                header: "Ability",
+                header: Locale.ability,
 
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                     if (value != null) {
