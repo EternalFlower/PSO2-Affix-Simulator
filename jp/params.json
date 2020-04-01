@@ -5398,6 +5398,46 @@
             "effect": "Recover 75% of your maximum HP at regular intervals.",
             "noEx": true
         },
+        {
+            "code": "LB2H",
+            "gid": "L2",
+            "name": "S2:Lethal Intent",
+            "extend": [
+                100
+            ],
+            "effect": "-",
+            "noEx": true
+        },
+        {
+            "code": "LB2I",
+            "gid": "L2",
+            "name": "S2:Rainbow's Intent",
+            "extend": [
+                100
+            ],
+            "effect": "While Petal, Ocean,<br>Leaf, Moon, Snow or<br>Shadow Flash is active:<br>Boosts damage by 5%.",
+            "noEx": true
+        },
+        {
+            "code": "LB2J",
+            "gid": "L2",
+            "name": "S2:Rainbow's Exhilaration",
+            "extend": [
+                100
+            ],
+            "effect": "While Petal, Ocean,<br>Leaf, Moon, Snow or<br>Shadow Flash is active:<br>Recovers 3% of your<br>HP every second.",
+            "noEx": true
+        },
+        {
+            "code": "LB2K",
+            "gid": "L2",
+            "name": "S2:Umbrageous Melody 2",
+            "extend": [
+                100
+            ],
+            "effect": "While Green Leaf Flash,<br>Yellow Moon Flash or<br>Black Shadow Flash is<br>active:<br>Boosts damage by up<br>to 7% over time.",
+            "noEx": true
+        },
 		{
             "code": "LC01",
             "gid": "L3",
@@ -5749,6 +5789,86 @@
             "noEx": true
         },
         {
+            "code": "LC1Q",
+            "gid": "L3",
+            "name": "S3:Double-Edged Sword",
+            "extend": [
+                100
+            ],
+            "effect": "Increase Attack PP Recovery by 23%.",
+            "noEx": true
+        },
+        {
+            "code": "LC1R",
+            "gid": "L3",
+            "name": "S3:Lethal Intent",
+            "extend": [
+                100
+            ],
+            "effect": "-",
+            "noEx": true
+        },
+        {
+            "code": "LC1S",
+            "gid": "L3",
+            "name": "S3:Furious Inspiration",
+            "extend": [
+                100
+            ],
+            "effect": "Boosts power and<br>critical hit rate.<br>Improves PP efficiency.<br>This effect disappears<br>on taking damage, then<br>is restored after a set<br>time.",
+            "noEx": true
+        },
+        {
+            "code": "LC1T",
+            "gid": "L3",
+            "name": "S3:Rupturing Excess",
+            "extend": [
+                100
+            ],
+            "effect": "Boosts attack PP<br>recovery by 35% when<br>attacking breakable<br>enemy parts.",
+            "noEx": true
+        },
+        {
+            "code": "LC1U",
+            "gid": "L3",
+            "name": "S3:Nature's Melody 2",
+            "extend": [
+                100
+            ],
+            "effect": "While Red Petal Flash,<br>Blue Ocean Flash or<br>White Snow Flash is<br>active:<br>Boosts damage by up<br>to 7% over time.",
+            "noEx": true
+        },
+        {
+            "code": "LC1V",
+            "gid": "L3",
+            "name": "S3:Rainbow's Reduction",
+            "extend": [
+                100
+            ],
+            "effect": "While Petal, Ocean,<br>Leaf, Moon, Snow or<br>Shadow Flash is active:<br>Reduces your PP<br>consumption by 20%.",
+            "noEx": true
+        },
+        {
+            "code": "LC1W",
+            "gid": "L3",
+            "name": "S3:Rainbow's Radiance",
+            "extend": [
+                100
+            ],
+            "effect": "While Petal, Ocean,<br>Leaf, Moon, Snow or<br>Shadow Flash is active:<br>Boosts attack PP<br>recovery by 45%.",
+            "noEx": true
+        },
+        {
+            "code": "LC1X",
+            "gid": "L3",
+            "name": "S3:Rainbow's Gleam",
+            "extend": [
+                100
+            ],
+            "effect": "While Petal, Ocean,<br>Leaf, Moon, Snow or<br>Shadow Flash is active:<br>Boosts PP regeneration<br>by 40%.",
+            "noEx": true
+        },
+        {
             "code": "LD07",
             "gid": "L4",
             "name": "S4:Marvelous Aegis",
@@ -5871,7 +5991,7 @@
         {
             "code": "LD0J",
             "gid": "L4",
-            "name": "S4:Swift Strike",
+            "name": "S4:Wand Clobber",
             "extend": [
                 100
             ],
@@ -5981,7 +6101,7 @@
         {
 			"code": "LD0U",
 			"gid": "L4",
-			"name":"S4:Skilled Crippler",
+			"name":"S4:Pursuing Eclipse",
 			"extend": [
 				100
 			],
@@ -6016,6 +6136,26 @@
 				100
 			],
 			"effect": "Recovers 40 PP every<br>10 seconds when there<br>is a boss nearby.",
+            "noEx": true
+		},
+        {
+			"code": "LD0Y",
+			"gid": "L4",
+			"name":"S4:Radiant Eclipse",
+			"extend": [
+				100
+			],
+			"effect": "Boosts attack PP<br>recovery by 60% when<br>attacking an enemy<br>affected by status,<br>Jellen or Weak Bullet.",
+            "noEx": true
+		},
+        {
+			"code": "LD0Z",
+			"gid": "L4",
+			"name":"S4:Shared Ruin",
+			"extend": [
+				100
+			],
+			"effect": "You and your party<br>recover HP and PP<br>when an enemy dies<br>within range.",
             "noEx": true
 		},
         {
@@ -6189,6 +6329,46 @@
             "noEx": true
 		},
         {
+			"code": "LE0I",
+			"gid": "L5",
+			"name":"S5:Instant Invocation",
+			"extend": [
+				100
+			],
+			"effect": "Technique damage is<br>decreased by 40%, but<br>using the same<br>Technique with a JA<br>substantially<br>decreases charge<br>time.",
+            "noEx": true
+		},
+        {
+			"code": "LE0J",
+			"gid": "L5",
+			"name":"S5:Vigorous Response",
+			"extend": [
+				100
+			],
+			"effect": "Grants a bonus when<br>your max HP is at<br>1000. Gain additional<br>bonuses per 500 max<br>HP over. Maximum<br>bonuses are reached<br>when max HP is at<br>3000.",
+            "noEx": true
+        },
+        {
+			"code": "LE0K",
+			"gid": "L5",
+			"name":"S5:Tethered Eclipse",
+			"extend": [
+				100
+			],
+			"effect": "Boosts damage by 3%<br>against enemies<br>inflicted with a<br>status effect. Also<br>gives a chance to<br>inflict Bind by 40%.",
+            "noEx": true
+		},
+        {
+			"code": "LE0L",
+			"gid": "L5",
+			"name":"S5:Anthesis Cultivation",
+			"extend": [
+				100
+			],
+			"effect": "Doubles the effects<br>of special abilities.",
+            "noEx": true
+		},
+        {
 			"code": "LF0A",
 			"gid": "L6",
 			"name":"S6:Heroic Howl",
@@ -6357,6 +6537,16 @@
 			],
 			"effect": "Reduces Etoile Boost's<br>decay per second by<br>50%.",
             "noEx": true
+        },
+        {
+			"code": "LF0S",
+			"gid": "L6",
+			"name":"S6:Overlimit",
+			"extend": [
+				100
+			],
+			"effect": "Boosts maximum HP by<br>50% while Limit Break<br>is active.",
+            "noEx": true
 		},
         {
 			"code": "LG0A",
@@ -6496,6 +6686,16 @@
 				100
 			],
 			"effect": "Automatically answers<br>Sympathy requests<br>during Alter Ego. No<br>effect if using weapon<br>with \"Glance of<br>Darkness\"",
+            "noEx": true
+		},
+        {
+			"code": "LG0O",
+			"gid": "L7",
+			"name":"S7:Sentinel's Gift",
+			"extend": [
+				100
+			],
+			"effect": "Upon a successful<br>Tech Charge Parry,<br>recover 5% HP & 10 PP.",
             "noEx": true
 		},
         {
