@@ -30,7 +30,7 @@ const Locale = {
     campaign_satk5:"5% Strike UP",
     campaign_ratk5:"5% Shoot UP",
     campaign_tatk5:"5% Tech UP",
-    campaign_hppp5:"5% Tech UP",
+    campaign_hppp5:"5% HP&PP UP",
     campaign_special5:"5% Special UP",
     satk:"S-ATK",
     ratk:"R-ATK",

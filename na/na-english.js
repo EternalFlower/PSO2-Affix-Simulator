@@ -24,7 +24,7 @@ const Locale = {
     group19:"S-Class Special Ability 7 (Arm Unit)",
     group20:"S-Class Special Ability 8 (Leg Unit)",
     group21:"S-Class Special Ability Factor",
-    specialAbility:"Special Ability",
+    specialAbility:"Augment",
     ability:"Ability",
     selectAbility:"Select Abilities",
     campaign_satk5:"5% Strike UP",
