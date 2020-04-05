@@ -107,7 +107,7 @@ Ext.define("PSO2.GridGrouping", {
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
     version: "1.93",
-    date: "12-18-2019",
+    date: document.lastModified,
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
     limitUrlSize: 10,
@@ -140,22 +140,45 @@ Ext.define("PSO2.SynthesisComponent", {
         } else {
             viewportData = []
         }
-        viewportData.push({
+		var appLocale = this.getLocale();
+		if(appLocale == "jp")
+		{
+            viewportData.push({
+                cls: "app-header",
+                region: "north",
+                height: 35,
+                layout: "fit",
+                hidden: synComp.noDD,
+                html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
+                    " (PSO2 JP)&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
+                    ' style="text-decoration:none">Created by Pulsar@å€‰åº«çµ†</a>&nbsp;&amp;&nbsp;',
+                    '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">åŠ©å³è¡›é–€@ship8</a>',
+                    ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>' +
+                    ' (Updated ' + synComp.date + ')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord' +
+                    ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>' +
+                    ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"
+                ].join("")
+            });
+		}
+		else
+		{
+			        viewportData.push({
             cls: "app-header",
             region: "north",
             height: 35,
             layout: "fit",
             hidden: synComp.noDD,
             html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
-                "&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
-                ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
-                '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
+                " (PSO2 NA)&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
+                ' style="text-decoration:none">Created by Pulsar@å€‰åº«çµ†</a>&nbsp;&amp;&nbsp;',
+                '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">åŠ©å³è¡›é–€@ship8</a>',
                 ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>' +
                 ' (Updated ' + synComp.date + ')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord' +
                 ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>' +
                 ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"
             ].join("")
         });
+		}
         synComp.panelNames = ["Base"];
         for (var d = 1; d <= synComp.maxMaterial; d++) {
             synComp.panelNames.push("Fodder " + d)
@@ -761,6 +784,9 @@ Ext.define("PSO2.SynthesisComponent", {
             } else if (appLocale == "jp"){
                 appLocale = "na";
             }
+			buttons.push({
+				text: "Click a flag to switch between PSO2JP and PSO2NA (This setting will be saved) ->",
+            })
             buttons.push({
                 cls: "x-jp-flag",
                 width: 25,
@@ -1031,6 +1057,34 @@ Ext.define("PSO2.SynthesisComponent", {
         for (var e = 1; e <= synComp.maxMaterial; e++) {
             foddersGrid.push(synComp.createGridPanel(e, synComp.ability.createSlotStore(), bottomPanel, panelData ? panelData[e] : null))
         }
+
+        var synPanelItems = [
+            {
+                layout: "column",
+                defaults: {
+                    columnWidth: 1 / (synComp.maxMaterial + 1),
+                    layout: "anchor",
+                    autoHeight: true,
+                    defaults: {
+                        anchor: "100%"
+                    }
+                },
+                items: foddersGrid
+            }, 
+            bottomPanel
+        ];
+
+        if(this.getLocale() == "na"){
+            synPanelItems.push(
+                Ext.create("Ext.panel.Panel", {
+                    title: "<p style=font-size:15px>!!! Important information for PSO2NA users !!!</p>",
+                    height: 200,
+                    html: "<p style=font-size:26px>Please note that not all affixes in this simulator will have their official NA terms, as we are still trying to complete a list of them. The most updated list of term differences is available at <A HREF=https://github.com/SynthSy/PSO2-Dictionary/wiki/Affix-Names target=_blank>The PSO2 Dictionary</a>. If you find any errors, mismatched names/terms, or bugs/issues, please send a DM to Aida Enna#0001 on Discord.</p>"
+        
+                })
+            )
+        }
+        
         var synPanel = synComp.tabPanel.add({
             title: "Synthesis Panel",
             autoScroll: true,
@@ -1063,18 +1117,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 align: "stretch",
                 padding: "0 0 5 0"
             },
-            items: [{
-                layout: "column",
-                defaults: {
-                    columnWidth: 1 / (synComp.maxMaterial + 1),
-                    layout: "anchor",
-                    autoHeight: true,
-                    defaults: {
-                        anchor: "100%"
-                    }
-                },
-                items: foddersGrid
-            }, bottomPanel],
+            items: synPanelItems,
             getResultPanel: bottomPanel.getResultPanel
         });
         synComp.addLocationHash(synPanel);
