@@ -2341,6 +2341,9 @@
             "Guard Boost",
             "Spirita Alpha",
             "Fordruss Glare",
+            "Execour Glare",
+            "Mitra Glare",
+            "Varuna Glare",
             "Stamina I",
             "Stamina II",
             "Stamina III",
@@ -5794,7 +5797,7 @@
             "extend": [
                 100
             ],
-            "effect": "Increase Attack PP Recovery by 23%.",
+            "effect": "Deal 4% more damage but take 8% more damage when weapon is drawn.",
             "noEx": true
         },
         {

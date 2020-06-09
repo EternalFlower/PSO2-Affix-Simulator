@@ -1,8 +1,12 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>06/08/2020:</b>'+
+  '<ul>'+
+  '<li> - Fix Regex Bug when searching the ability menu (I wish someone told me instead me watching a Youtube video)</li>'+
+  '</ul>'+
   '<b>03/21/2020:</b>'+
   '<ul>'+
-  '<li> - Addeed NA Locale Version</li>'+
+  '<li> - Added NA Locale Version</li>'+
   '</ul>'+
   '<b>01/31/2020:</b>'+
   '<ul>'+
