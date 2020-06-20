@@ -4879,6 +4879,16 @@
 			],
 			"effect": "Increase Critical Hit Rate by 18%.",
             "noEx": true
+        },
+        {
+			"code": "LA2T",
+			"gid": "L1",
+			"name":"S1:Immediate Skill",
+			"extend": [
+				100
+			],
+			"effect": "When you Just Guard<br>at less than 25% HP,<br>recovers HP by 50%<br>and PP by 30%",
+            "noEx": true
 		},
         {
             "code": "LB01",
@@ -5557,7 +5567,7 @@
             "extend": [
                 100
             ],
-            "effect": "Reduces PP consumption by 10%.",
+            "effect": "Reduces PP consumption by 7%.",
             "noEx": true
         },
         {
@@ -5868,6 +5878,26 @@
                 100
             ],
             "effect": "While Petal, Ocean,<br>Leaf, Moon, Snow or<br>Shadow Flash is active:<br>Boosts PP regeneration<br>by 40%.",
+            "noEx": true
+        },
+        {
+            "code": "LC1Y",
+            "gid": "L3",
+            "name": "S3:Immediate Brilliance",
+            "extend": [
+                100
+            ],
+            "effect": "Successful JA hits<br>boosts your PP<br>recovery amount by<br>3%. Cannot exceed<br>30%. Non-JA hits<br>are excluded.",
+            "noEx": true
+        },
+        {
+            "code": "LC1Z",
+            "gid": "L3",
+            "name": "S3:Splintering Intent",
+            "extend": [
+                100
+            ],
+            "effect": "Upon landing a<br>Critical Hit on a<br>breakable part,<br>your power is<br>boosted by 9%.",
             "noEx": true
         },
         {
@@ -6368,6 +6398,66 @@
 				100
 			],
 			"effect": "Doubles the effects<br>of special abilities.",
+            "noEx": true
+        },
+        {
+			"code": "LE0M",
+			"gid": "L5",
+			"name":"S5:Angelic Respite",
+			"extend": [
+				100
+			],
+			"effect": "",
+            "noEx": true
+        },
+        {
+			"code": "LE0N",
+			"gid": "L5",
+			"name":"S5:Chained Radiance",
+			"extend": [
+				100
+			],
+			"effect": "",
+            "noEx": true
+        },
+        {
+			"code": "LE0O",
+			"gid": "L5",
+			"name":"S5:Calming Quartet",
+			"extend": [
+				100
+			],
+			"effect": "",
+            "noEx": true
+        },
+        {
+			"code": "LE0P",
+			"gid": "L5",
+			"name":"S5:Calming Expanse",
+			"extend": [
+				100
+			],
+			"effect": "",
+            "noEx": true
+        },
+        {
+			"code": "LE0Q",
+			"gid": "L5",
+			"name":"S5:Area Support",
+			"extend": [
+				100
+			],
+			"effect": "When either Critical<br>Field or EPPR are<br>active, gain the<br>effects of both<br>fields instead.",
+            "noEx": true
+        },
+        {
+			"code": "LE0R",
+			"gid": "L5",
+			"name":"S5:Swift Radiance",
+			"extend": [
+				100
+			],
+			"effect": "",
             "noEx": true
 		},
         {
