@@ -234,7 +234,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                     store.clearFilter();
                                     var filterValue = this.abilityGrid.filterValue;
                                     if (filterValue.length != 0) {
-                                        var re = new RegExp(filterValue.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&'), 'i');
+                                        var re = new RegExp(filterValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
                                         store.filter(this.abilityGrid.filterSetting, re);
                                     }
                                 }
@@ -250,7 +250,7 @@ Ext.define("PSO2.SynthesisComponent", {
                                     store.clearFilter();
                                     this.abilityGrid.filterValue = newValue;
                                     if (newValue.length != 0) {
-                                        var re = new RegExp(newValue.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&'), 'i');
+                                        var re = new RegExp(newValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
                                         store.filter(this.abilityGrid.filterSetting, re);
                                     }
                                 }
