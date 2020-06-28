@@ -1074,7 +1074,7 @@ Ext.define("PSO2.SynthesisComponent", {
             bottomPanel
         ];
 
-        if(this.getLocale() == "na"){
+        /*if(this.getLocale() == "na"){
             synPanelItems.push(
                 Ext.create("Ext.panel.Panel", {
                     title: "<p style=font-size:15px>!!! Important information for PSO2NA users !!!</p>",
@@ -1083,7 +1083,7 @@ Ext.define("PSO2.SynthesisComponent", {
         
                 })
             )
-        }
+        }*/
         
         var synPanel = synComp.tabPanel.add({
             title: "Synthesis Panel",
