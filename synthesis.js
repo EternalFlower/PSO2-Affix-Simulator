@@ -151,8 +151,8 @@ Ext.define("PSO2.SynthesisComponent", {
                 hidden: synComp.noDD,
                 html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
                     " (PSO2 JP)&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
-                    ' style="text-decoration:none">Created by Pulsar@å€‰åº«çµ†</a>&nbsp;&amp;&nbsp;',
-                    '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">åŠ©å³è¡›é–€@ship8</a>',
+                    ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
+                    '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
                     ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>' +
                     ' (Updated ' + synComp.date + ')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord' +
                     ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>' +
@@ -170,8 +170,8 @@ Ext.define("PSO2.SynthesisComponent", {
             hidden: synComp.noDD,
             html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
                 " (PSO2 NA)&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
-                ' style="text-decoration:none">Created by Pulsar@å€‰åº«çµ†</a>&nbsp;&amp;&nbsp;',
-                '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">åŠ©å³è¡›é–€@ship8</a>',
+                ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
+                '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
                 ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>' +
                 ' (Updated ' + synComp.date + ')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord' +
                 ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>' +
