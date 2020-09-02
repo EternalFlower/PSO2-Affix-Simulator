@@ -60,6 +60,12 @@
                 "name": "+60%",
                 "value": "A10",
                 "boost": 60
+            },
+            {
+                "id": "Ability Success Rate +65%",
+                "name": "+65%",
+                "value": "A11",
+                "boost": 65
             }
         ],
         "additional": [
@@ -388,6 +394,34 @@
                 "value": "B42",
                 "extend": 100,
                 "effect": "T-ATK(+20),PP(+4)"
+            },
+            {
+                "id": "Add Ability (Ether S)",
+                "name": "Ether Soul",
+                "value": "B43",
+                "extend": 100,
+                "effect": "ALL(+15),<br>HP(+15),<br>PP(+2)"
+            },
+            {
+                "id": "Add Ability (Factor C)",
+                "name": "Factor Catalyst",
+                "value": "B44",
+                "extend": 100,
+                "effect": "ALL(+10),<br>PP(+1)"
+            },
+            {
+                "id": "Add Ability (Omega M)",
+                "name": "Omega Memoria",
+                "value": "B45",
+                "extend": 100,
+                "effect": "ALL(+15),<br>HP(+15),<br>PP(+2)"
+            },
+            {
+                "id": "Add Ability (Factor C)",
+                "name": "Reverie Catalyst",
+                "value": "B46",
+                "extend": 100,
+                "effect": "ALL(+10),<br>PP(+1)"
             }
         ],
         "potential": [
@@ -668,6 +702,14 @@
         },
         {
             "base": [
+                "XA01",
+                "SA02"
+            ],
+            "ref": "SA02",
+            "success": 10
+        },
+        {
+            "base": [
                 "XB01",
                 "UA*"
             ],
@@ -746,6 +788,57 @@
             ],
             "ref": "SA01",
             "success": 60
+        },
+		{
+            "base": [
+                "TN01",
+                "TN02",
+                "TN04",
+                "TN05"
+            ],
+            "ref": "VJ04",
+            "success": 10
+        },
+		{
+            "base": [
+                "TN02",
+                "TN03",
+                "TN04",
+                "TN05"
+            ],
+            "ref": "VJ04",
+            "success": 10
+        },
+        {
+            "base": [
+                "TN06",
+                "TN07",
+                "TN08",
+                "TN09"
+            ],
+            "ref": "TN0A",
+            "success": 10
+        },
+		{
+            "base": [
+                "VJ04",
+                "VJ04",
+                "VJ04",
+                "VJ04",
+                "TN0A"
+            ],
+            "ref": "TN11",
+            "success": 60
+        },
+        {
+            "base": [
+                "SA01",
+                "TG31",
+                "TK10",
+                "TN11"
+            ],
+            "ref": "SA02",
+            "success": 10
         },
         {
             "base": [
@@ -2204,7 +2297,7 @@
             "Org Soul",
             "Meduna Soul",
             "Soma Soul",
-            "Lilli Soul",
+            "Lili Soul",
             "Ex Act Soul",
             "Lovey Fever",
             "Ceremo Fever",
@@ -3237,6 +3330,12 @@
             "gid": "CB",
             "name": "Ability IV",
             "effect": "ALL(+20)"
+        },
+        {
+            "code": "FA05",
+            "gid": "CB",
+            "name": "Ability V",
+            "effect": "ALL(+30)"
         },
         {
             "code": "HA01",
@@ -4503,7 +4602,7 @@
         {
             "code": "LA04",
             "gid": "L1",
-            "name": "S1:Skilled Brilliance",
+            "name": "S1:Brilliant Intent",
             "extend": [
                 100
             ],
@@ -4613,7 +4712,7 @@
         {
             "code": "LA21",
             "gid": "L1",
-            "name": "S1:Skilled Strike",
+            "name": "S1:Skilled Intent",
             "extend": [
                 100
             ],
@@ -5083,7 +5182,7 @@
         {
             "code": "LB1A",
             "gid": "L2",
-            "name": "S2:Skilled Strike",
+            "name": "S2:Skilled Intent",
             "extend": [
                 100
             ],
@@ -5223,7 +5322,7 @@
 		{
 			"code": "LB1O",
 			"gid": "L2",
-			"name":"S2:Skilled Strike 2",
+			"name":"S2:Skilled Intent 2",
 			"extend": [
 				100
 			],
@@ -5450,6 +5549,16 @@
             "effect": "While Green Leaf Flash,<br>Yellow Moon Flash or<br>Black Shadow Flash is<br>active:<br>Boosts damage by up<br>to 7% over time.",
             "noEx": true
         },
+        {
+            "code": "LB2L",
+            "gid": "L2",
+            "name": "S2:Brilliant Intent",
+            "extend": [
+                100
+            ],
+            "effect": "Boosts damage by 3%<br>while PP is at 40%<br>or above.",
+            "noEx": true
+        },
 		{
             "code": "LC01",
             "gid": "L3",
@@ -5483,7 +5592,7 @@
         {
             "code": "LC04",
             "gid": "L3",
-            "name": "S3:Skilled Strike",
+            "name": "S3:Skilled Intent",
             "extend": [
                 100
             ],
@@ -5783,7 +5892,7 @@
         {
             "code": "LC1O",
             "gid": "L3",
-            "name": "S3:Skilled Strike 2",
+            "name": "S3:Skilled Intent 2",
             "extend": [
                 100
             ],
@@ -5893,7 +6002,7 @@
         {
             "code": "LC1Z",
             "gid": "L3",
-            "name": "S3:Splintering Intent",
+            "name": "S3:Puncturing Intent",
             "extend": [
                 100
             ],
@@ -6093,7 +6202,7 @@
 		{
 			"code": "LD0Q",
 			"gid": "L4",
-			"name":"S4:Mysterious Strike",
+			"name":"S4:Skilled Balance",
 			"extend": [
 				100
 			],
@@ -6353,7 +6462,7 @@
         {
 			"code": "LE0H",
 			"gid": "L5",
-			"name":"S5:Mysterious Intent",
+			"name":"S5:Mysterious Purpose",
 			"extend": [
 				100
 			],
@@ -6407,7 +6516,7 @@
 			"extend": [
 				100
 			],
-			"effect": "",
+			"effect": "At maximum Gear, you<br>consume no Gear while<br>in the air. Partizan only.",
             "noEx": true
         },
         {
@@ -6417,7 +6526,7 @@
 			"extend": [
 				100
 			],
-			"effect": "",
+			"effect": "Recovers PP and boosts<br>damage by 3% for 60<br>seconds after activating<br>Chain Trigger.<br>Twin Machineguns only.",
             "noEx": true
         },
         {
@@ -6427,7 +6536,7 @@
 			"extend": [
 				100
 			],
-			"effect": "",
+			"effect": "Reduces the power of<br>normal attacks by 67%,<br>but makes each normal<br>attack fire 4 shots.<br>Launchers only.",
             "noEx": true
         },
         {
@@ -6437,7 +6546,7 @@
 			"extend": [
 				100
 			],
-			"effect": "",
+			"effect": "Adds an extra wide-area<br>attack and a chance to<br>stun to normal attacks.<br>Assault Rifles only.",
             "noEx": true
         },
         {
@@ -6447,7 +6556,7 @@
 			"extend": [
 				100
 			],
-			"effect": "When either Critical<br>Field or EPPR are<br>active, gain the<br>effects of both<br>fields instead.",
+			"effect": "Gain additional bonus<br>effects to Critical<br>Field and EPPR when<br>either are active.",
             "noEx": true
         },
         {
@@ -6457,7 +6566,7 @@
 			"extend": [
 				100
 			],
-			"effect": "",
+			"effect": "Reduces PP regeneration<br>to 0. Boosts attack PP<br>recovery by 50% and<br>recovers 100 PP on a<br>successful dodge.",
             "noEx": true
 		},
         {
@@ -6641,6 +6750,16 @@
             "noEx": true
 		},
         {
+			"code": "LF0T",
+			"gid": "L6",
+			"name":"S6:Wondrous Encore",
+			"extend": [
+				100
+			],
+			"effect": "Reduces Showtime's<br>hate increase. Once per<br>activation, reduces<br>damage taken and<br>maintains One More Time.",
+            "noEx": true
+		},
+        {
 			"code": "LG0A",
 			"gid": "L7",
 			"name":"S7:Glowing Grace",
@@ -6788,6 +6907,16 @@
 				100
 			],
 			"effect": "Upon a successful<br>Tech Charge Parry,<br>recover 5% HP & 10 PP.",
+            "noEx": true
+		},
+        {
+			"code": "LG0P",
+			"gid": "L7",
+			"name":"S7:Descried Warrior",
+			"extend": [
+				100
+			],
+			"effect": "Boosts damage by 1%<br>& reduces damage<br>taken by enemies<br>targeting you by<br>15%.",
             "noEx": true
 		},
         {
@@ -7919,7 +8048,14 @@
             "gid": "EA",
             "name": "Astral Soul",
             "effect": "ALL(+35),<br>HP(+35),<br>PP(+5)",
-			"tooltip": "Made from: 4x Soul Catalyst + Darkness Soul"
+			"tooltip": "Made from: 4x Soul Catalyst + Darkness Soul<br>Used for: Guardian Soul"
+        },
+        {
+            "code": "SA02",
+            "gid": "EA",
+            "name": "Guardian Soul",
+            "effect": "ALL(+70),<br>HP(+70),<br>PP(+7)",
+			"tooltip": "Made from: Astral Soul, Ether Factor, Mana Reverie, Absolute Glare"
         },
         {
             "code": "SA11",
@@ -8287,7 +8423,7 @@
             "gid": "AC",
             "name": "Ether Factor",
             "effect": "ALL(+30),<br>HP(+10),<br>PP(+6)",
-			"tooltip": "Made from: 4x Factor Catalyst + Ether Soul"
+			"tooltip": "Made from: 4x Factor Catalyst + Ether Soul<br>Used for: Guardian Soul"
         },
         {
             "code": "TI01",
@@ -8398,7 +8534,7 @@
             "name": "Mana Reverie",
             "status": 6,
             "effect": "S-ATK(+50),<br>R-ATK(+50),<br>T-ATK(+50),<br>HP(+20),<br>PP(+4)",
-			"tooltip": "Made from: Omega Memoria + 4x Reverie Catalyst"
+			"tooltip": "Made from: Omega Memoria + 4x Reverie Catalyst<br>Used for: Guardian Soul"
         },
         {
             "code": "TL01",
@@ -8568,6 +8704,51 @@
             ],
             "status": 1,
             "effect": "S-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+20)<br>R-DEF(+20)<br>T-DEF(+20)<br>HP(+20)<br>PP(+2)"
+        },
+        {
+            "code": "TN08",
+            "gid": "AC",
+            "name": "Shiva Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "R-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+20)<br>R-DEF(+20)<br>T-DEF(+20)<br>HP(+20)<br>PP(+2)"
+        },
+        {
+            "code": "TN09",
+            "gid": "AC",
+            "name": "Origin Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "ALL(+15)<br>HP(+15)<br>PP(+2)"
+        },
+        {
+            "code": "TN0A",
+            "gid": "AC",
+            "name": "Photoner Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "S-ATK(+30)<br>R-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+10)<br>R-DEF(+10)<br>T-DEF(+10)<br>HP(+20)<br>PP(+2)"
+        },
+        {
+            "code": "TN11",
+            "gid": "AC",
+            "name": "Absolute Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "ALL(+40)<br>HP(+30)<br>PP(+3)",
+			"tooltip": "Made from: 4x Glare Catalyst + Photoner Glare<br>Used for: Guardian Soul"
         },
         {
             "code": "TH01",
@@ -9794,6 +9975,18 @@
             ],
             "effect": "HP(+10),<br>PP(+1)",
 			"tooltip": "Made from: Elder Reverie, Loser Reverie, Appregina Reverie, Double Reverie, Persona Reverie<br>Used for: Mana Reverie"
+        },
+		{
+            "code": "VJ04",
+            "gid": "YA",
+            "name": "Glare Catalyst",
+            "extend": [
+                0,
+                10,
+                30
+            ],
+            "effect": "HP(+10),<br>PP(+1)",
+			"tooltip": "Made from: Veluge Glare, Forduss Glare, Execour Glare and (Ange Glare or Dominus Glare)<br>Used for: Absolute Glare"
         },
         {
             "code": "VL01",
