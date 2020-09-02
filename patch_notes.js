@@ -1,5 +1,9 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>09/02/2020:</b>'+
+  '<ul>'+
+  '<li> - Add Abilities from updates up to Sept. 02, 2020</li>'+
+  '</ul>'+
   '<b>06/08/2020:</b>'+
   '<ul>'+
   '<li> - Fix Regex Bug when searching the ability menu (I wish someone told me instead me watching a Youtube video)</li>'+
