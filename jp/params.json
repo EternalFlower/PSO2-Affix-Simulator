@@ -417,7 +417,7 @@
                 "effect": "ALL(+15),<br>HP(+15),<br>PP(+2)"
             },
             {
-                "id": "Add Ability (Factor C)",
+                "id": "Add Ability (Reverie C)",
                 "name": "Reverie Catalyst",
                 "value": "B46",
                 "extend": 100,
@@ -8725,7 +8725,7 @@
                 50
             ],
             "status": 1,
-            "effect": "ALL(+15)<br>HP(+15)<br>PP(+2)"
+            "effect": "S-ATK(+30)<br>R-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+10)<br>R-DEF(+10)<br>T-DEF(+10)<br>HP(+20)<br>PP(+2)"
         },
         {
             "code": "TN0A",
@@ -8736,16 +8736,12 @@
                 50
             ],
             "status": 1,
-            "effect": "S-ATK(+30)<br>R-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+10)<br>R-DEF(+10)<br>T-DEF(+10)<br>HP(+20)<br>PP(+2)"
+            "effect": "ALL(+15)<br>HP(+15)<br>PP(+2)"
         },
         {
             "code": "TN11",
             "gid": "AC",
             "name": "Absolute Glare",
-            "extend": [
-                30,
-                50
-            ],
             "status": 1,
             "effect": "ALL(+40)<br>HP(+30)<br>PP(+3)",
 			"tooltip": "Made from: 4x Glare Catalyst + Photoner Glare<br>Used for: Guardian Soul"
@@ -10123,6 +10119,12 @@
             "gid": "GB",
             "name": "Divine Receptor",
             "effect": "Greatly increases affix rate of Divine-type ability.<br>ALL(+10)"
+        },
+		{
+            "code": "XK01",
+            "gid": "GB",
+            "name": "Exceed Receptor",
+            "effect": "Greatly increases affix rate of Exceed-type ability.<br>ALL(+10)"
         },
         {
             "code": "ZA01",

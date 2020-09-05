@@ -65,9 +65,9 @@ Ext.define("PSO2.ResultPanel", {
     totalValue: 0,
     sameBonusText: "Same Item Boost",
     sameBonusBoost: [1, 1.1, 1.15],
-    calcSameBonus: function(rateMap, sameCount) {
+    calcSameBonus: function(rate, sameCount) {
         var resultPanel = this;
-        return Math.min(parseInt(rateMap.success * resultPanel.sameBonusBoost[PSO2.utils.overflow(resultPanel.sameBonusBoost.length, sameCount + 1, 1)]), 100)
+        return Math.min(parseInt(rate * resultPanel.sameBonusBoost[PSO2.utils.overflow(resultPanel.sameBonusBoost.length, sameCount + 1, 1)]), 100)
     },
     initComponent: function() {
         var resultPanel = this;
@@ -238,15 +238,19 @@ Ext.define("PSO2.ResultPanel", {
             return Math.min(rate + boost, 100);
         }
 
-        successRate = resultPanel.calcSameBonus(successItem, sameItemCount);
-        successRate = itemBoostFn(successRate);
-        successRate = potBoostFn(successRate);
+        var successRate = successItem.success;
+
         if (resultPanel.boostFunction) {
             successRate = resultPanel.boostFunction(successRate)
         }
         if (resultPanel.boostDayFunction) {
             successRate = resultPanel.boostDayFunction(successRate, successItem.name)
         }
+
+        successRate = resultPanel.calcSameBonus(successRate, sameItemCount);
+        successRate = itemBoostFn(successRate);
+        successRate = potBoostFn(successRate);
+        
         if(haveGuid) successRate = Math.min(successRate + 5, 100);
         return successRate;
     },
@@ -792,17 +796,18 @@ Ext.define("PSO2.ResultPanel", {
             },
             len = abilityListLen.length,
             optItem1List = resultPanel.selOpt1.store,
-            opt1Len = optItem1List.count(),
-            rate;
+            opt1Len = optItem1List.count()
+           
         for (var index = 0; index < len; index++) {
-            rate = resultPanel.calcSameBonus(abilityListLen[index], resultPanel.chkOpt1.getSameCount());
-            rate = potBoostFn(rate);
+            var rate = abilityListLen[index].success;
             if (resultPanel.boostFunction) {
                 rate = resultPanel.boostFunction(rate)
             }
             if (resultPanel.boostDayFunction) {
                 rate = resultPanel.boostDayFunction(rate, abilityListLen[index].name)
             }
+            rate = resultPanel.calcSameBonus(rate, resultPanel.chkOpt1.getSameCount());
+            rate = potBoostFn(rate);
             rateList.push(rate)
         }
         var tableHtml = '<table id="ps"><tr><td id="psh"></td>';
