@@ -1,5 +1,11 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>09/16/2020:</b>'+
+  '<ul>'+
+  '<li> - Expose transfer rates so user can find the transfer rate without external sources</li>'+
+  '<li> - Change transfer rate for Stat 6 with September 16, 2020 update</li>'+
+  '<li> - Regroup the affixes, resulting in the dissolution of Special Ability Factor (SAF) and Special Group and creation of Special Effect and Catalyst Group</li>'+
+  '</ul>'+
   '<b>09/02/2020:</b>'+
   '<ul>'+
   '<li> - Add Abilities from updates up to Sept. 02, 2020</li>'+

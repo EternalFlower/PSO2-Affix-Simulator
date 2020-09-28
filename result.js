@@ -239,6 +239,7 @@ Ext.define("PSO2.ResultPanel", {
         }
 
         var successRate = successItem.success;
+        successRate = resultPanel.calcSameBonus(successRate, sameItemCount);
 
         if (resultPanel.boostFunction) {
             successRate = resultPanel.boostFunction(successRate)
@@ -247,7 +248,6 @@ Ext.define("PSO2.ResultPanel", {
             successRate = resultPanel.boostDayFunction(successRate, successItem.name)
         }
 
-        successRate = resultPanel.calcSameBonus(successRate, sameItemCount);
         successRate = itemBoostFn(successRate);
         successRate = potBoostFn(successRate);
         
@@ -800,13 +800,15 @@ Ext.define("PSO2.ResultPanel", {
            
         for (var index = 0; index < len; index++) {
             var rate = abilityListLen[index].success;
+            rate = resultPanel.calcSameBonus(rate, resultPanel.chkOpt1.getSameCount());
+
             if (resultPanel.boostFunction) {
                 rate = resultPanel.boostFunction(rate)
             }
             if (resultPanel.boostDayFunction) {
                 rate = resultPanel.boostDayFunction(rate, abilityListLen[index].name)
             }
-            rate = resultPanel.calcSameBonus(rate, resultPanel.chkOpt1.getSameCount());
+            
             rate = potBoostFn(rate);
             rateList.push(rate)
         }

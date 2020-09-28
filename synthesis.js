@@ -100,6 +100,10 @@ Ext.define("PSO2.GridGrouping", {
             return Locale.group20
         } else if (affixGroup.name == "LSAF") {
             return Locale.group21
+        } else if (affixGroup.name == "CC") {
+            return Locale.group22
+        } else if (affixGroup.name == "CA") {
+            return Locale.group23
         }
         return Locale.group0
     }
@@ -259,56 +263,72 @@ Ext.define("PSO2.SynthesisComponent", {
                         }
                     ],
                 }],
-                columns: [{
-                    dataIndex: "name",
-                    header: Locale.ability,
-                    width: 108,
-                    filterable: true,
-                    filter: {
-                        type: "string"
-                    }
-                }, {
-                    dataIndex: "effect",
-                    header: "Effect",
-                    width: 144,
-                    filter: {
-                        type: "string"
-                    },
-                    // Tooltip for affix entry, giving details on affix boost
-                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                        if (record.get("extup")) {
-                            var l = [];
-                            Ext.Array.forEach(record.get("extup"), function(m) {
-                                var n;
-                                if (m.length == 2) {
-                                    n = this.ability.findAbilityName(m + "01");
-                                    l.push(n.get("name").replace(/[IV]+$/, "").replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ""))
-                                } else if (m.length == 3) {
-                                    var i = 1;
-                                    while (true) {
-                                        n = this.ability.findAbilityName(m + i);
-                                        if (n == null) break;
-                                        l.push(n.get("name"));
-                                        i++;
-                                    }
-                                } else {
-                                    n = this.ability.findAbilityName(m);
-                                    l.push(n.get("name"));
-                                }
-
-                            }, synComp);
-                            metaData.tdAttr = 'data-qtip="' + l.join(", ") + ' Affix Bonus'
+                columns: [
+                    {
+                        dataIndex: "name",
+                        header: Locale.ability,
+                        width: 108,
+                        filterable: true,
+                        filter: {
+                            type: "string"
                         }
-                        if (record.get("tooltip") && !metaData.tdAttr)
-                            metaData.tdAttr = 'data-qtip="' + record.get("tooltip")
-                        else if (record.get("tooltip"))
-                            metaData.tdAttr += "<br>" + record.get("tooltip") + '"'
+                    }, 
+                    {
+                        dataIndex: "effect",
+                        header: "Effect",
+                        width: 144,
+                        filter: {
+                            type: "string"
+                        },
+                        // Tooltip for affix entry, giving details on affix boost
+                        renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                            if (record.get("extup")) {
+                                var l = [];
+                                Ext.Array.forEach(record.get("extup"), function(m) {
+                                    var n;
+                                    if (m.length == 2) {
+                                        n = this.ability.findAbilityName(m + "01");
+                                        l.push(n.get("name").replace(/[IV]+$/, "").replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ""))
+                                    } else if (m.length == 3) {
+                                        var i = 1;
+                                        while (true) {
+                                            n = this.ability.findAbilityName(m + i);
+                                            if (n == null) break;
+                                            l.push(n.get("name"));
+                                            i++;
+                                        }
+                                    } else {
+                                        n = this.ability.findAbilityName(m);
+                                        l.push(n.get("name"));
+                                    }
 
-                        if (metaData.tdAttr)
-                            metaData.tdAttr += '"'
-                        return value
+                                }, synComp);
+                                metaData.tdAttr = 'data-qtip="' + l.join(", ") + ' Affix Bonus'
+                            }
+                            if (record.get("tooltip") && !metaData.tdAttr)
+                                metaData.tdAttr = 'data-qtip="' + record.get("tooltip")
+                            else if (record.get("tooltip"))
+                                metaData.tdAttr += "<br>" + record.get("tooltip") + '"'
+
+                            if (metaData.tdAttr)
+                                metaData.tdAttr += '"'
+                            return value
+                        }
+                    },
+                    {
+                        dataIndex: "extend",
+                        header: "Transfer Rate",
+                        width: 108,
+                        renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
+                            var display = value.toString();
+                            var require = ""
+                            if(record.get("require")){
+                                require = "<br>require: <br>" + synComp.ability.findAbilityName(record.get("require")).get("name")
+                            }
+                            return display + require
+                        }
                     }
-                }],
+                ],
                 features: [{
                         ftype: "filters",
                         encode: false,
