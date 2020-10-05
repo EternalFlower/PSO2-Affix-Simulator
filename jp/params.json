@@ -9248,25 +9248,25 @@
             "code": "UC01",
             "gid": "AC",
             "name": "Mark Joyo",
-            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>HP(+50)",
+            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>HP(+50)"
         },
         {
             "code": "UC11",
             "gid": "AC",
             "name": "Mark Couragena",
-            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>PP(+5)",
+            "effect": "S-ATK(+40),<br>R-ATK(+40),<br>T-ATK(+40),<br>PP(+5)"
         },
         {
             "code": "UC21",
             "gid": "AC",
             "name": "Mark Angar",
-            "effect": "S-ATK(+50),<br>R-ATK(+50),<br>T-ATK(+50),<br>DEX(+40)",
+            "effect": "S-ATK(+50),<br>R-ATK(+50),<br>T-ATK(+50),<br>DEX(+40)"
         },
         {
             "code": "UC31",
             "gid": "AC",
             "name": "Mark Grif",
-            "effect": "S-DEF(+50),<br>R-DEF(+50),<br>T-DEF(+50),<br>HP(+80)",
+            "effect": "S-DEF(+50),<br>R-DEF(+50),<br>T-DEF(+50),<br>HP(+80)"
         },
         {
             "code": "ID01",

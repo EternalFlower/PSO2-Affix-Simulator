@@ -1551,361 +1551,74 @@
         {
             "base": [
                 "XI30",
-                "AA01"
+                "AA*"
             ],
-            "ref": "AA01",
+            "ref": "$$",
             "success": 100
         },
         {
             "base": [
                 "XI30",
-                "AA02"
+                "AB*"
             ],
-            "ref": "AA02",
+            "ref": "$$",
+            "success": 100
+        },,
+        {
+            "base": [
+                "XI30",
+                "AC*"
+            ],
+            "ref": "$$",
             "success": 100
         },
         {
             "base": [
                 "XI30",
-                "AA03"
+                "AD*"
             ],
-            "ref": "AA03",
+            "ref": "$$",
             "success": 100
         },
+
         {
             "base": [
-                "XI30",
-                "AA04"
+                "XI31",
+                "BA*"
             ],
-            "ref": "AA04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AA05"
-            ],
-            "ref": "AA05",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AB01"
-            ],
-            "ref": "AB01",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AB02"
-            ],
-            "ref": "AB02",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AB03"
-            ],
-            "ref": "AB03",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AB04"
-            ],
-            "ref": "AB04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AB05"
-            ],
-            "ref": "AB05",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AC01"
-            ],
-            "ref": "AC01",
-            "success": 100
-        },
-         {
-            "base": [
-                "XI30",
-                "AC02"
-            ],
-            "ref": "AC02",
-            "success": 100
-        },
-         {
-            "base": [
-                "XI30",
-                "AC03"
-            ],
-            "ref": "AC03",
-            "success": 100
-        },
-         {
-            "base": [
-                "XI30",
-                "AC04"
-            ],
-            "ref": "AC04",
-            "success": 100
-        },
-         {
-            "base": [
-                "XI30",
-                "AC05"
-            ],
-            "ref": "AC05",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AD01"
-            ],
-            "ref": "AD01",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AD02"
-            ],
-            "ref": "AD02",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AD03"
-            ],
-            "ref": "AD03",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AD04"
-            ],
-            "ref": "AD04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI30",
-                "AD05"
-            ],
-            "ref": "AD05",
+            "ref": "$$",
             "success": 100
         },
         {
             "base": [
                 "XI31",
-                "BA01"
+                "BB*"
             ],
-            "ref": "BA01",
+            "ref": "$$",
             "success": 100
         },
         {
             "base": [
                 "XI31",
-                "BA02"
+                "BC*"
             ],
-            "ref": "BA02",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BA03"
-            ],
-            "ref": "BA03",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BA04"
-            ],
-            "ref": "BA04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BA05"
-            ],
-            "ref": "BA05",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BB01"
-            ],
-            "ref": "BB01",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BB02"
-            ],
-            "ref": "BB02",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BB03"
-            ],
-            "ref": "BB03",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BB04"
-            ],
-            "ref": "BB04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BB05"
-            ],
-            "ref": "BB05",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BC01"
-            ],
-            "ref": "BC01",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BC02"
-            ],
-            "ref": "BC02",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BC03"
-            ],
-            "ref": "BC03",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BC04"
-            ],
-            "ref": "BC04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI31",
-                "BC05"
-            ],
-            "ref": "BC05",
+            "ref": "$$",
             "success": 100
         },
         {
             "base": [
                 "XI32",
-                "EA01"
+                "EA*"
             ],
-            "ref": "EA01",
+            "ref": "$$",
             "success": 100
         },
         {
             "base": [
                 "XI32",
-                "EA02"
+                "EB*"
             ],
-            "ref": "EA02",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EA03"
-            ],
-            "ref": "EA03",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EA04"
-            ],
-            "ref": "EA04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EA05"
-            ],
-            "ref": "EA05",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EB01"
-            ],
-            "ref": "EB01",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EB02"
-            ],
-            "ref": "EB02",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EB03"
-            ],
-            "ref": "EB03",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EB04"
-            ],
-            "ref": "EB04",
-            "success": 100
-        },
-        {
-            "base": [
-                "XI32",
-                "EB05"
-            ],
-            "ref": "EB05",
+            "ref": "$$",
             "success": 100
         },
         {
@@ -2563,8 +2276,17 @@
         },
         {
             "code": "AA06",
-            "gid": "CB",
+            "gid": "AA",
             "name": "Might VI",
+            "extend": [
+                20,
+                40,
+                60
+            ],
+            "generate": [
+                10,
+                30
+            ],
             "status": 1,
             "effect": "MEL Pwr(+45)"
         },
@@ -2648,8 +2370,17 @@
         },
         {
             "code": "AB06",
-            "gid": "CB",
+            "gid": "AA",
             "name": "Precision VI",
+            "extend": [
+                20,
+                40,
+                60
+            ],
+            "generate": [
+                10,
+                30
+            ],
             "status": 1,
             "effect": "RNG Pwr(+45)"
         },
@@ -2733,8 +2464,17 @@
         },
         {
             "code": "AC06",
-            "gid": "CB",
+            "gid": "AA",
             "name": "Casting VI",
+            "extend": [
+                20,
+                40,
+                60
+            ],
+            "generate": [
+                10,
+                30
+            ],
             "status": 1,
             "effect": "TEC Pwr(+45)"
         },
@@ -3130,8 +2870,17 @@
         },
         {
             "code": "EA06",
-            "gid": "CB",
+            "gid": "AA",
             "name": "Stamina VI",
+            "extend": [
+                20,
+                40,
+                60
+            ],
+            "generate": [
+                10,
+                30
+            ],
             "status": 1,
             "effect": "HP(+80)"
         },
@@ -3215,8 +2964,17 @@
         },
         {
             "code": "EB06",
-            "gid": "CB",
+            "gid": "AA",
             "name": "Spirit VI",
+            "extend": [
+                20,
+                40,
+                60
+            ],
+            "generate": [
+                10,
+                30
+            ],
             "status": 1,
             "effect": "PP(+7)"
         },
