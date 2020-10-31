@@ -24,6 +24,8 @@ const Locale = {
     group19:"S-Class Special Ability 7 (Arm Unit)",
     group20:"S-Class Special Ability 8 (Leg Unit)",
     group21:"S-Class Special Ability Factor",
+    group22:"Special Effect",
+    group23:"Catalyst",
     specialAbility:"Augment",
     ability:"Ability",
     selectAbility:"Select Abilities",

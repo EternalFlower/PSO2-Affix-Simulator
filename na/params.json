@@ -2171,6 +2171,7 @@
             "Soul Catalyst",
             "Factor Catalyst",
             "Reverie Catalyst",
+            "Glare Catalyst",
             "Necky Smile",
             "Polytan's Smile",
 			"Arkuma's Smile",
@@ -3039,7 +3040,7 @@
         },
         {
             "code": "FA04",
-            "gid": "CB",
+            "gid": "AD",
             "name": "Mastery IV",
             "effect": "ALL(+20)"
         },
@@ -8052,6 +8053,86 @@
             "effect": "MEL Def(+35)<br>RNG Def(+35)<br>TEC Def(+35)<br>HP(+40)<br>PP(+4)"
         },
         {
+            "code": "TN05",
+            "gid": "AC",
+            "name": "Execour Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "S-ATK(+20)<br>R-ATK(+20)<br>T-ATK(+20)<br>S-DEF(+50)<br>R-DEF(+50)<br>T-DEF(+50)",
+            "tooltip": "Used for: Glare Catalyst"
+        },
+        {
+            "code": "TN06",
+            "gid": "AC",
+            "name": "Mitra Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "S-ATK(+30)<br>R-ATK(+30)<br>S-DEF(+20)<br>R-DEF(+20)<br>T-DEF(+20)<br>HP(+20)<br>PP(+2)",
+            "tooltip": "Used for: Photoner Glare"
+        },
+        {
+            "code": "TN07",
+            "gid": "AC",
+            "name": "Varuna Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "S-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+20)<br>R-DEF(+20)<br>T-DEF(+20)<br>HP(+20)<br>PP(+2)",
+            "tooltip": "Used for: Photoner Glare"
+        },
+        {
+            "code": "TN08",
+            "gid": "AC",
+            "name": "Shiva Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "R-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+20)<br>R-DEF(+20)<br>T-DEF(+20)<br>HP(+20)<br>PP(+2)",
+            "tooltip": "Used for: Photoner Glare"
+        },
+        {
+            "code": "TN09",
+            "gid": "AC",
+            "name": "Origin Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "S-ATK(+30)<br>R-ATK(+30)<br>T-ATK(+30)<br>S-DEF(+10)<br>R-DEF(+10)<br>T-DEF(+10)<br>HP(+20)<br>PP(+2)",
+            "tooltip": "Used for: Photoner Glare"
+        },
+        {
+            "code": "TN0A",
+            "gid": "AC",
+            "name": "Photoner Glare",
+            "extend": [
+                30,
+                50
+            ],
+            "status": 1,
+            "effect": "ALL(+15)<br>HP(+15)<br>PP(+2)",
+            "tooltip": "Made from: Mitra Glare, Varuna Glare, Shiva Glare, Origin Glare<br>Used for: Absolute Glare"
+        },
+        {
+            "code": "TN11",
+            "gid": "AC",
+            "name": "Absolute Glare",
+            "status": 1,
+            "effect": "ALL(+40)<br>HP(+30)<br>PP(+3)",
+			"tooltip": "Made from: 4x Glare Catalyst + Photoner Glare<br>Used for: Guardian Soul"
+        },
+        {
             "code": "TH01",
             "gid": "AD",
             "name": "Doom Break I",
@@ -8814,7 +8895,7 @@
         },
         {
             "code": "YA05",
-            "gid": "CB",
+            "gid": "AC",
             "name": "Sentence Arma",
             "effect": "MEL Pwr(+20),<br>HP(+20),<br>PP(+3)"
         },
@@ -8826,7 +8907,7 @@
         },
         {
             "code": "YA15",
-            "gid": "CB",
+            "gid": "AC",
             "name": "Sentence Tyro",
             "effect": "RNG Pwr(+20),<br>HP(+20),<br>PP(+3)"
         },
@@ -8838,55 +8919,55 @@
         },
         {
             "code": "YA25",
-            "gid": "CB",
+            "gid": "AC",
             "name": "Sentence Magia",
             "effect": "TEC Pwr(+20),<br>HP(+20),<br>PP(+3)"
         },
         {
             "code": "YA31",
-            "gid": "CB",
+            "gid": "AC",
             "name": "Sentence Triple",
             "effect": "MEL Pwr(+30),RNG Pwr(+30),TEC Pwr(+30)"
         },
         {
             "code": "YB41",
-            "gid": "CB",
+            "gid": "CC",
             "name": "Phrase Reduce",
             "effect": "PP consumption decreases by 4%."
         },
         {
             "code": "YB51",
-            "gid": "CB",
+            "gid": "CC",
             "name": "Phrase Decay",
             "effect": "Boosts damage inflicted to enemies<br>affected by Jellen by 5%."
         },
         {
             "code": "YB01",
-            "gid": "CB",
+            "gid": "CC",
             "name": "Phrase Recovery",
             "effect": "+5% PP Recovery Rate"
         },
         {
             "code": "YB11",
-            "gid": "CB",
+            "gid": "CC",
             "name": "Phrase Weak",
             "effect": "+2% Elemental Weakness damage"
         },
         {
             "code": "YB21",
-            "gid": "CB",
+            "gid": "CC",
             "name": "Phrase Response",
             "effect": "+5% ATK PP Recovery"
         },
         {
             "code": "YB31",
-            "gid": "CB",
+            "gid": "CC",
             "name": "Phrase Chase",
             "effect": "+5% damage against enemies<BR>with Status Effects"
         },
         {
             "code": "VA01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Lucky Charm I",
             "lvup": "VA02",
             "extend": [
@@ -8899,7 +8980,7 @@
         },
         {
             "code": "VA02",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Lucky Charm II",
             "lvup": "VA03",
             "extend": [
@@ -8916,7 +8997,7 @@
         },
         {
             "code": "VA03",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Lucky Charm III",
             "extend": [
                 0,
@@ -8932,7 +9013,7 @@
         },
         {
             "code": "VB01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Meseta Fever I",
             "lvup": "VZ02",
             "extend": [
@@ -8945,7 +9026,7 @@
         },
         {
             "code": "VZ02",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Meseta Fever II",
             "lvup": "VB03",
             "extend": [
@@ -8962,7 +9043,7 @@
         },
         {
             "code": "VB03",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Meseta Fever III",
             "extend": [
                 0,
@@ -8978,7 +9059,7 @@
         },
         {
             "code": "VC01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Increased EXP I",
             "lvup": "VC02",
             "extend": [
@@ -8991,7 +9072,7 @@
         },
         {
             "code": "VC02",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Increased EXP II",
             "lvup": "VC03",
             "extend": [
@@ -9008,7 +9089,7 @@
         },
         {
             "code": "VC03",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Increased EXP III",
             "extend": [
                 0,
@@ -9024,25 +9105,25 @@
         },
         {
             "code": "VD01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Temptation",
             "effect": "Item Drop Rate +10%"
         },
         {
             "code": "VE01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Alternate History",
             "effect": "Experience Gain +10%"
         },
         {
             "code": "VF01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Fresh Sign",
             "effect": "Boost EXP by 30% until Lv.30"
         },
         {
             "code": "VH01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Ultimate Buster",
             "extend": [
                 0,
@@ -9055,7 +9136,7 @@
         },
         {
             "code": "VH02",
-            "gid": "CB",
+            "gid": "CC",
             "name": "Omega Buster",
             "effect": "Boosts damage against Demons by 3%."
         },
@@ -9215,7 +9296,7 @@
         },
         {
             "code": "VJ01",
-            "gid": "YA",
+            "gid": "CA",
             "name": "Soul Catalyst",
             "extend": [
                 0,
@@ -9227,7 +9308,7 @@
         },
         {
             "code": "VJ02",
-            "gid": "YA",
+            "gid": "CA",
             "name": "Factor Catalyst",
             "extend": [
                 0,
@@ -9239,7 +9320,7 @@
         },
 		{
             "code": "VJ03",
-            "gid": "YA",
+            "gid": "CA",
             "name": "Reverie Catalyst",
             "extend": [
                 0,
@@ -9249,9 +9330,16 @@
             "effect": "HP(+10),<br>PP(+1)",
 			"tooltip": "Made from: Elder Reverie, Luther Reverie, Appregina Reverie, Gemini Reverie, Persona Reverie<br>Used for: Mana Reverie"
         },
+		{
+            "code": "VJ04",
+            "gid": "CA",
+            "name": "Glare Catalyst",
+            "effect": "HP(+10),<br>PP(+1)",
+			"tooltip": "Made from: Berouge Glare, Fodrus Glare, Execour Glare and (Angele Glare or Duminus Glare)<br>Used for: Absolute Glare"
+        },
         {
             "code": "VL01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Polytan's Smile",
             "extend": [
                 100
@@ -9260,7 +9348,7 @@
         },
         {
             "code": "VM01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Arkuma's Smile",
             "extend": [
                 100
@@ -9269,7 +9357,7 @@
         },
         {
             "code": "VN01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Empy Embrace",
             "extend": [
                 100
@@ -9278,7 +9366,7 @@
         },
         {
             "code": "VO01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Augment Guidance",
             "extend": [
                 0,
@@ -9289,7 +9377,7 @@
         },
         {
             "code": "VP01",
-            "gid": "YA",
+            "gid": "CC",
             "name": "Weapon Booster",
             "extend": [
                 100
