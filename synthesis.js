@@ -1383,7 +1383,7 @@ Ext.define("PSO2.SynthesisComponent", {
             },
             fillDuster: function(minAffix) {
                 var count, slot;
-                minAffix = Math.min(minAffix + this.store.getFactorCount(), this.store.getCount());
+                minAffix = Math.min(minAffix + this.store.getFactorCount(), this.store.getCount() + this.store.getFactorCount());
                 if (this.getAbilityCount() <= minAffix) {
                     count = 0;
                     while (count < minAffix && (slot = this.store.getAt(count).get("slot")) != null) {
