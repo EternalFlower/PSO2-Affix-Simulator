@@ -82,7 +82,7 @@
             },
             {
                 "id": "Add Ability (PP)",
-                "name": " Spirita Boost",
+                "name": "Spirita Boost",
                 "value": "B03",
                 "extend": 100,
                 "effect": "PP(+5)"

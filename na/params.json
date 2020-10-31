@@ -1710,7 +1710,8 @@
                     0,
                     100,
                     70,
-                    50
+                    50,
+                    0
                 ],
                 "3": [
                     0,
@@ -1718,7 +1719,8 @@
                     0,
                     100,
                     70,
-                    50
+                    50,
+                    0
                 ]
             }
         },
@@ -1730,6 +1732,7 @@
                     0,
                     30,
                     0,
+                    0,
                     0
                 ],
                 "2": [
@@ -1738,6 +1741,7 @@
                     0,
                     30,
                     0,
+                    0,
                     0
                 ],
                 "3": [
@@ -1745,6 +1749,7 @@
                     0,
                     0,
                     40,
+                    0,
                     0,
                     0
                 ]
@@ -1758,6 +1763,7 @@
                     0,
                     40,
                     30,
+                    0,
                     0
                 ],
                 "2": [
@@ -1766,6 +1772,7 @@
                     0,
                     40,
                     30,
+                    0,
                     0
                 ],
                 "3": [
@@ -1774,6 +1781,7 @@
                     0,
                     50,
                     30,
+                    0,
                     0
                 ]
             }
@@ -1786,6 +1794,7 @@
                     0,
                     20,
                     20,
+                    0,
                     0
                 ],
                 "2": [
@@ -1794,6 +1803,7 @@
                     0,
                     20,
                     20,
+                    0,
                     0
                 ],
                 "3": [
@@ -1802,6 +1812,7 @@
                     0,
                     30,
                     20,
+                    0,
                     0
                 ],
                 "4": [
@@ -1810,6 +1821,7 @@
                     0,
                     10,
                     10,
+                    0,
                     0
                 ]
             },
@@ -1820,6 +1832,7 @@
                     0,
                     20,
                     0,
+                    0,
                     0
                 ],
                 "2": [
@@ -1827,6 +1840,7 @@
                     0,
                     0,
                     20,
+                    0,
                     0,
                     0
                 ],
@@ -1836,6 +1850,7 @@
                     0,
                     60,
                     0,
+                    0,
                     0
                 ],
                 "4": [
@@ -1844,6 +1859,7 @@
                     0,
                     10,
                     10,
+                    0,
                     0
                 ],
                 "6": [
@@ -1899,6 +1915,10 @@
                     0,
                     {
                         "max": 80,
+                        "boost": 20
+                    },
+                    {
+                        "max": 60,
                         "boost": 20
                     },
                     {
@@ -2262,6 +2282,7 @@
             "code": "AA05",
             "gid": "AA",
             "name": "Might V",
+            "lvup": "AA06",
             "extend": [
                 20,
                 40,
@@ -2356,6 +2377,7 @@
             "code": "AB05",
             "gid": "AA",
             "name": "Precision V",
+            "lvup": "AB06",
             "extend": [
                 20,
                 40,
@@ -2450,6 +2472,7 @@
             "code": "AC05",
             "gid": "AA",
             "name": "Casting V",
+            "lvup": "AC06",
             "extend": [
                 20,
                 40,
@@ -2856,6 +2879,7 @@
             "code": "EA05",
             "gid": "AA",
             "name": "Stamina V",
+            "lvup": "EA06",
             "extend": [
                 20,
                 40,
@@ -2950,6 +2974,7 @@
             "code": "EB05",
             "gid": "AA",
             "name": "Spirit V",
+            "lvup": "EB06",
             "extend": [
                 20,
                 40,
@@ -4453,7 +4478,7 @@
 		{
 			"code": "LA27",
 			"gid": "L1",
-			"name":"S1: Goliathslayer's Resolve",
+			"name":"S1: Goliathslayer's Will",
 			"extend": [
 				100
 			],
@@ -4473,7 +4498,7 @@
 		{
 			"code": "LA29",
 			"gid": "L1",
-			"name":"S1: Partbreaker's Boon",
+			"name":"S1: Lustrous Partbreaker",
 			"extend": [
 				100
 			],
@@ -4483,7 +4508,7 @@
 		{
 			"code": "LA2A",
 			"gid": "L1",
-			"name":"S1: Revenant's Resolve",
+			"name":"S1: Spectre's Will",
 			"extend": [
 				100
 			],
@@ -4493,7 +4518,7 @@
 		{
 			"code": "LA2B",
 			"gid": "L1",
-			"name":"S1: Elementalist's Resolve",
+			"name":"S1: Elementalist's Will",
 			"extend": [
 				100
 			],
@@ -4513,7 +4538,7 @@
 		{
 			"code": "LA2D",
 			"gid": "L1",
-			"name":"S1: Boon of Madness",
+			"name":"S1: Favor of Madness",
 			"extend": [
 				100
 			],
@@ -4523,7 +4548,7 @@
 		{
 			"code": "LA2E",
 			"gid": "L1",
-			"name":"S1: Photon Reduction 2",
+			"name":"S1: Photon Descent 2",
 			"extend": [
 				100
 			],
@@ -4533,7 +4558,7 @@
 		{
 			"code": "LA2G",
 			"gid": "L1",
-			"name":"S1: Wake of Destruction Photon 2",
+			"name":"S1: Lucent Domain 2",
 			"extend": [
 				100
 			],
@@ -4543,7 +4568,7 @@
 		{
 			"code": "LA2H",
 			"gid": "L1",
-			"name":"S1: Resolve of the Dying",
+			"name":"S1: Will of the Dying",
 			"extend": [
 				100
 			],
@@ -4553,7 +4578,7 @@
 		{
 			"code": "LA2I",
 			"gid": "L1",
-			"name":"S1: Resolveflow",
+			"name":"S1: Timeflow Will",
 			"extend": [
 				100
 			],
@@ -4603,7 +4628,7 @@
         {
 			"code": "LA2N",
 			"gid": "L1",
-			"name":"S1: Augment Resolve",
+			"name":"S1: Augment Will",
 			"extend": [
 				100
 			],
@@ -4613,7 +4638,7 @@
         {
 			"code": "LA2O",
 			"gid": "L1",
-			"name":"S1: Crippling Scourge",
+			"name":"S1: Crippling Erode",
 			"extend": [
 				100
 			],
@@ -4643,7 +4668,7 @@
         {
 			"code": "LA2R",
 			"gid": "L1",
-			"name":"S1: Lucent Grace 2",
+			"name":"S1: Luminous Grace 2",
 			"extend": [
 				100
 			],
@@ -4653,7 +4678,7 @@
         {
 			"code": "LA2S",
 			"gid": "L1",
-			"name":"S1: Superior Prowess 2",
+			"name":"S1: Skillful Adept 2",
 			"extend": [
 				100
 			],
@@ -4873,7 +4898,7 @@
 		{
 			"code": "LB1C",
 			"gid": "L2",
-			"name":"S2: Partbreaker's Boon",
+			"name":"S2: Lustrous Partbreaker",
 			"extend": [
                 100
             ],
@@ -4883,7 +4908,7 @@
 		{
 			"code": "LB1D",
 			"gid": "L2",
-			"name":"S2: Double-Edged Sword",
+			"name":"S2: Two-edged Strike",
 			"extend": [
                 100
             ],
@@ -4893,7 +4918,7 @@
 		{
 			"code": "LB1E",
 			"gid": "L2",
-			"name":"S2: Goliathslayer's Resolve",
+			"name":"S2: Goliathslayer's Will",
 			"extend": [
                 100
             ],
@@ -4903,7 +4928,7 @@
 		{
 			"code": "LB1F",
 			"gid": "L2",
-			"name":"S2: Revenant's Lucentboon",
+			"name":"S2: Lustrous Spectre",
 			"extend": [
                 100
             ],
@@ -4913,7 +4938,7 @@
 		{
 			"code": "LB1G",
 			"gid": "L2",
-			"name":"S2: Revenant's Lucentrush",
+			"name":"S2: Spectre Apparition",
 			"extend": [
 				100
 			],
@@ -4923,7 +4948,7 @@
 		{
 			"code": "LB1H",
 			"gid": "L2",
-			"name":"S2: Shield of the Revenant",
+			"name":"S2: Spectre Shield",
 			"extend": [
 				100
 			],
@@ -4933,7 +4958,7 @@
 		{
 			"code": "LB1I",
 			"gid": "L2",
-			"name":"S2: Boon of Madness",
+			"name":"S2: Favor of Madness",
 			"extend": [
 				100
 			],
@@ -4953,7 +4978,7 @@
 		{
 			"code": "LB1K",
 			"gid": "L2",
-			"name":"S2: Moonlit Shadowforest Song",
+			"name":"S2: Moonleaf Song",
 			"extend": [
 				100
 			],
@@ -4963,7 +4988,7 @@
 		{
 			"code": "LB1L",
 			"gid": "L2",
-			"name":"S2: Descent of the Petalsea 2",
+			"name":"S2: Petalsea Descent 2",
 			"extend": [
 				100
 			],
@@ -4973,7 +4998,7 @@
 		{
 			"code": "LB1M",
 			"gid": "L2",
-			"name":"S2: Moonlit Shadowforest Active 2",
+			"name":"S2: Lustrous Moonleaf 2",
 			"extend": [
 				100
 			],
@@ -4993,7 +5018,7 @@
 		{
 			"code": "LB1O",
 			"gid": "L2",
-			"name":"S2: Precision Will 2",
+			"name":"S3: Precision Will 2",
 			"extend": [
 				100
 			],
@@ -5003,7 +5028,7 @@
 		{
 			"code": "LB1P",
 			"gid": "L2",
-			"name":"S2: Lucent Strike 2",
+			"name":"S2: Lustrous Strike 2",
 			"extend": [
 				100
 			],
@@ -5023,7 +5048,7 @@
 		{
 			"code": "LB1R",
 			"gid": "L2",
-			"name":"S2: Moonlit Shadowforest Active",
+			"name":"S2: Lustrous Moonleaf",
 			"extend": [
 				100
 			],
@@ -5313,7 +5338,7 @@
 		{
 			"code": "LC18",
 			"gid": "L3",
-			"name":"S3: Shield of the Petalsea",
+			"name":"S3: Petalsea Shield",
 			"extend": [
 				100
 			],
@@ -5323,7 +5348,7 @@
 		{
 			"code": "LC19",
 			"gid": "L3",
-			"name":"S3: Moonlit Shadowforest Adept",
+			"name":"S3: Moonleaf Adept",
 			"extend": [
 				100
 			],
@@ -5333,7 +5358,7 @@
 		{
 			"code": "LC1A",
 			"gid": "L3",
-			"name":"S3: Wake of Destruction Photon",
+			"name":"S3: Lucent Domain",
 			"extend": [
 				100
 			],
@@ -5343,7 +5368,7 @@
 		{
 			"code": "LC1B",
 			"gid": "L3",
-			"name":"S3: Catastrophic Photon",
+			"name":"S3: Lucent Adversity",
 			"extend": [
 				100
 			],
@@ -5363,7 +5388,7 @@
 		{
 			"code": "LC1D",
 			"gid": "L3",
-			"name":"S3: Revenant's Descent",
+			"name":"S3: Spectre's Descent",
 			"extend": [
 				100
 			],
@@ -5373,7 +5398,7 @@
 		{
 			"code": "LC1E",
 			"gid": "L3",
-			"name":"S3: Boon of Madness",
+			"name":"S3: Favor of Madness",
 			"extend": [
 				100
 			],
@@ -5393,7 +5418,7 @@
 		{
 			"code": "LC1G",
 			"gid": "L3",
-			"name":"S3: Song of the Petalsea",
+			"name":"S3: Petalsea Song",
 			"extend": [
 				100
 			],
@@ -5403,7 +5428,7 @@
 		{
 			"code": "LC1H",
 			"gid": "L3",
-			"name":"S3: Lucentrush of the Petalsea 2",
+			"name":"S3: Luminous Petalsea 2",
 			"extend": [
 				100
 			],
@@ -5413,7 +5438,7 @@
 		{
 			"code": "LC1I",
 			"gid": "L3",
-			"name":"S3: Graceflow",
+			"name":"S3: Timeflow Grace",
 			"extend": [
 				100
 			],
@@ -5423,7 +5448,7 @@
 		{
 			"code": "LC1J",
 			"gid": "L3",
-			"name":"S3: Timeflow Vitality 2",
+			"name":"S2: Timeflow Vitality 2",
 			"extend": [
 				100
 			],
@@ -5433,7 +5458,7 @@
 		{
 			"code": "LC1K",
 			"gid": "L3",
-			"name":"S3: Lucent Grace 2",
+			"name":"S3: Luminous Grace 2",
 			"extend": [
 				100
 			],
@@ -5443,7 +5468,7 @@
 		{
 			"code": "LC1H",
 			"gid": "L3",
-			"name":"S3: Lucentrush of the Petalsea",
+			"name":"S3: Luminous Petalsea",
 			"extend": [
 				100
 			],
@@ -5703,7 +5728,7 @@
 		{
 			"code": "LD0O",
 			"gid": "L4",
-			"name":"S4: Divine Lucent Protection",
+			"name":"S4: Luminous Protection",
 			"extend": [
 				100
 			],
@@ -5713,7 +5738,7 @@
 		{
 			"code": "LD0P",
 			"gid": "L4",
-			"name":"S4: Steadfast Resolve",
+			"name":"S4: Steadfast Will",
 			"extend": [
 				100
 			],
@@ -5743,7 +5768,7 @@
         {
 			"code": "LD0S",
 			"gid": "L4",
-			"name":"S4: Rainbow Lucentbalance",
+			"name":"S4: Rainbow Balance",
 			"extend": [
 				100
 			],
@@ -5993,7 +6018,7 @@
         {
 			"code": "LF0C",
 			"gid": "L6",
-			"name":"S6: Guardian of the Machinasoul",
+			"name":"S6: Soul Protection",
 			"extend": [
 				100
 			],
@@ -6013,7 +6038,7 @@
         {
 			"code": "LF0E",
 			"gid": "L6",
-			"name":"S6: Superior Prowess",
+			"name":"S6: Skillful Adept",
 			"extend": [
 				100
 			],
@@ -6023,7 +6048,7 @@
         {
 			"code": "LF0F",
 			"gid": "L6",
-			"name":"S1: Shield of the Guardian",
+			"name":"S1: Guardian Shield",
 			"extend": [
 				100
 			],
@@ -6063,7 +6088,7 @@
         {
 			"code": "LF0J",
 			"gid": "L6",
-			"name":"S6: Reinforced Life Vessel",
+			"name":"S6: Fortified Life Vessel",
 			"extend": [
 				100
 			],
@@ -6073,7 +6098,7 @@
         {
 			"code": "LF0K",
 			"gid": "L6",
-			"name":"S6: Reinforced Lucent Vessel",
+			"name":"S6: Fortified Photon Vessel",
 			"extend": [
 				100
 			],
@@ -6083,7 +6108,7 @@
         {
 			"code": "LF0L",
 			"gid": "L6",
-			"name":"S6: Wake of Destruction Photon",
+			"name":"S6: Lucent Domain",
 			"extend": [
 				100
 			],
@@ -6113,7 +6138,7 @@
         {
 			"code": "LF0P",
 			"gid": "L6",
-			"name":"S6: Evasion Whistle",
+			"name":"S6: Dodging Whistle",
 			"extend": [
 				100
 			],
@@ -6143,7 +6168,7 @@
         {
 			"code": "LG0A",
 			"gid": "L7",
-			"name":"S7: Lucent Grace",
+			"name":"S7: Still Grace",
 			"extend": [
 				100
 			],
@@ -6183,7 +6208,7 @@
         {
 			"code": "LG0E",
 			"gid": "L7",
-			"name":"S7: Reinforced Life Vessel",
+			"name":"S7: Fortified Life Vessel",
 			"extend": [
 				100
 			],
@@ -6193,7 +6218,7 @@
         {
 			"code": "LG0F",
 			"gid": "L7",
-			"name":"S7: Reinforced Lucent Vessel",
+			"name":"S7: Fortified Photon Vessel",
 			"extend": [
 				100
 			],
@@ -6233,7 +6258,7 @@
         {
 			"code": "LG0J",
 			"gid": "L7",
-			"name":"S7: Attack Extension",
+			"name":"S7: Fortified Attack",
 			"extend": [
 				100
 			],
@@ -6243,7 +6268,7 @@
         {
 			"code": "LG0K",
 			"gid": "L7",
-			"name":"S7: Attack Extension 2",
+			"name":"S7: Fortified Attack 2",
 			"extend": [
 				100
 			],
@@ -6293,7 +6318,7 @@
         {
 			"code": "LH0B",
 			"gid": "L8",
-			"name":"S8: Medicated Fortification",
+			"name":"S8: Mighty Medication",
 			"extend": [
 				100
 			],
@@ -6333,7 +6358,7 @@
         {
 			"code": "LH0F",
 			"gid": "L8",
-			"name":"S8: Reinforced Life Vessel",
+			"name":"S8: Fortified Life Vessel",
 			"extend": [
 				100
 			],
@@ -6343,7 +6368,7 @@
         {
 			"code": "LH0G",
 			"gid": "L8",
-			"name":"S8: Reinforced Lucent Vessel",
+			"name":"S8: Fortified Photon Vessel",
 			"extend": [
 				100
 			],
@@ -6353,7 +6378,7 @@
         {
 			"code": "LH0H",
 			"gid": "L8",
-			"name":"S8: Reinforced Life Vessel 2",
+			"name":"S8: Fortified Life Vessel 2",
 			"extend": [
 				100
 			],
@@ -6363,7 +6388,7 @@
         {
 			"code": "LH0I",
 			"gid": "L8",
-			"name":"S8: Reinforced Lucent Vessel 2",
+			"name":"S8: Fortified Photon Vessel 2",
 			"extend": [
 				100
 			],
