@@ -238,7 +238,7 @@
             },
              {
                 "id": "Affix Augment (Grand T)",
-                "name": "Grand Castingnique",
+                "name": "Grand Casting",
                 "value": "B13d",
                 "extend": 100,
                 "effect": "TEC Pwr(+60),HP(+20),PP(+5)"
@@ -2062,7 +2062,7 @@
             "Noble Casting",
             "Elegant Casting",
             "Graceful Casting",
-            "Grand Castingnique",
+            "Grand Casting",
             "Alter Magia",
             "Flict Magia",
             "Sentence Tech",
