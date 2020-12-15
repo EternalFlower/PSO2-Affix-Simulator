@@ -1,5 +1,10 @@
 var patch_notes = 
   '<b><u>Changelog</b></u></center><br>' +
+  '<b>12/08/2020:</b>'+
+  '<ul>'+
+  '<li> - Update the affix list for both Global and JP</li>'+
+  '<li> - Replace all S-Class Ability/S-Grade Augments with placeholders. They do not affect the rates/stats and not easy to maintain in the sim.</li>'+
+  '</ul>'+
   '<b>09/16/2020:</b>'+
   '<ul>'+
   '<li> - Expose transfer rates so user can find the transfer rate without external sources</li>'+

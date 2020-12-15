@@ -4382,7 +4382,6 @@
             "effect": "Placeholder - S1",
             "noEx": true
         },
-        ,
         {
             "code": "LB00",
             "gid": "L2",
@@ -6927,25 +6926,25 @@
             "code": "UC01",
             "gid": "AC",
             "name": "Mark Joy",
-            "effect": "MEL Pwr(+40),<br>RNG Pwr(+40),<br>TEC Pwr(+40),<br>HP(+50)",
+            "effect": "MEL Pwr(+40),<br>RNG Pwr(+40),<br>TEC Pwr(+40),<br>HP(+50)"
         },
         {
             "code": "UC11",
             "gid": "AC",
             "name": "Mark Courage",
-            "effect": "MEL Pwr(+40),<br>RNG Pwr(+40),<br>TEC Pwr(+40),<br>PP(+5)",
+            "effect": "MEL Pwr(+40),<br>RNG Pwr(+40),<br>TEC Pwr(+40),<br>PP(+5)"
         },
         {
             "code": "UC21",
             "gid": "AC",
             "name": "Mark Anger",
-            "effect": "MEL Pwr(+50),<br>RNG Pwr(+50),<br>TEC Pwr(+50),<br>DEX(+40)",
+            "effect": "MEL Pwr(+50),<br>RNG Pwr(+50),<br>TEC Pwr(+50),<br>DEX(+40)"
         },
         {
             "code": "UC31",
             "gid": "AC",
             "name": "Mark Grief",
-            "effect": "MEL Def(+50),<br>RNG Def(+50),<br>TEC Def(+50),<br>HP(+80)",
+            "effect": "MEL Def(+50),<br>RNG Def(+50),<br>TEC Def(+50),<br>HP(+80)"
         },
         {
             "code": "ID01",
