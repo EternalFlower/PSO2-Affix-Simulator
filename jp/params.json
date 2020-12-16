@@ -1,7 +1,6 @@
 {
     "optionList": {
-        "support": [
-            {
+        "support": [{
                 "id": "Nothing",
                 "name": "None",
                 "value": "A01",
@@ -68,8 +67,7 @@
                 "boost": 65
             }
         ],
-        "additional": [
-            {
+        "additional": [{
                 "id": "Nothing",
                 "value": "B01"
             },
@@ -241,7 +239,7 @@
                 "extend": 100,
                 "effect": "T-ATK(+50),PP(+5)"
             },
-             {
+            {
                 "id": "Add Ability (Grand T)",
                 "name": "Grand Technique",
                 "value": "B13d",
@@ -424,8 +422,7 @@
                 "effect": "ALL(+10),<br>PP(+1)"
             }
         ],
-        "potential": [
-            {
+        "potential": [{
                 "id": "Nothing",
                 "name": "Nothing",
                 "value": "C01",
@@ -453,8 +450,7 @@
     },
     "excludePattern": {
         "addition": [
-            "J",
-            [
+            "J", [
                 "R",
                 "S"
             ],
@@ -470,8 +466,7 @@
         ],
         "select": [
             "J*",
-            "R*",
-            [
+            "R*", [
                 "S*",
                 "R*"
             ],
@@ -507,8 +502,7 @@
             ]
         ]
     },
-    "extendAbility": [
-        {
+    "extendAbility": [{
             "base": [
                 "AA01",
                 "AB01",
@@ -752,6 +746,22 @@
             "base": [
                 "XF01",
                 "TG3*"
+            ],
+            "ref": "$$",
+            "success": 10
+        },
+        {
+            "base": [
+                "XL01",
+                "TK0*"
+            ],
+            "ref": "$$",
+            "success": 100
+        },
+        {
+            "base": [
+                "XL01",
+                "TK1*"
             ],
             "ref": "$$",
             "success": 10
@@ -1593,52 +1603,52 @@
             "success": 90
         },
         {
-            "base":[
-            "LP05",
-            "LM05"
+            "base": [
+                "LP05",
+                "LM05"
             ],
             "ref": "LP06",
-            "success":50
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LS05",
                 "LM05"
             ],
-            "ref":"LS06",
-            "success":50
+            "ref": "LS06",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LT05",
                 "LM05"
             ],
-            "ref":"LT06",
-            "success":50
+            "ref": "LT06",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LP05",
                 "LR05"
             ],
-            "ref":"LP07",
-            "success":50
+            "ref": "LP07",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LS05",
                 "LR05"
             ],
-            "ref":"LS07",
-            "success":50
+            "ref": "LS07",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LT05",
                 "LR05"
             ],
-            "ref":"LT07",
-            "success":50
+            "ref": "LT07",
+            "success": 50
         },
         {
             "base": [
@@ -1754,8 +1764,7 @@
             "success": 100
         }
     ],
-    "extraSlot": [
-        {
+    "extraSlot": [{
             "false": 100,
             "true": 100
         },
@@ -2312,8 +2321,7 @@
             "Ripper/Dark Weak"
         ]
     },
-    "abilityList": [
-        {
+    "abilityList": [{
             "code": "AA01",
             "gid": "AA",
             "name": "Power I",
@@ -4421,7 +4429,7 @@
         {
             "code": "LE00",
             "gid": "L5",
-            "name":"S5: Placeholder",
+            "name": "S5: Placeholder",
             "extend": [
                 100
             ],
@@ -4431,7 +4439,7 @@
         {
             "code": "LF00",
             "gid": "L6",
-            "name":"S6: Placeholder",
+            "name": "S6: Placeholder",
             "extend": [
                 100
             ],
@@ -4441,7 +4449,7 @@
         {
             "code": "LG00",
             "gid": "L7",
-            "name":"S7: Placeholder",
+            "name": "S7: Placeholder",
             "extend": [
                 100
             ],
@@ -4451,7 +4459,7 @@
         {
             "code": "LH00",
             "gid": "L8",
-            "name":"S8: Placeholder",
+            "name": "S8: Placeholder",
             "extend": [
                 100
             ],
@@ -4469,7 +4477,7 @@
                 80
             ],
             "effect": "S-ATK(+10),<br>R-ATK(+10),<br>T-ATK(+10),<br>HP(+10)",
-            "tooltip":"Mutation I - Boosts the synthesis rate of Stat III"
+            "tooltip": "Mutation I - Boosts the synthesis rate of Stat III"
         },
         {
             "code": "OA02",
@@ -4487,7 +4495,7 @@
                 50
             ],
             "effect": "S-ATK(+15),<br>R-ATK(+15),<br>T-ATK(+15),<br>HP(+15)",
-            "tooltip":"Mutation I - Boosts the synthesis rate of Stat III/IV"
+            "tooltip": "Mutation I - Boosts the synthesis rate of Stat III/IV"
         },
         {
             "code": "RA11",
@@ -7569,6 +7577,12 @@
             "gid": "GB",
             "name": "Exceed Receptor",
             "effect": "Greatly increases affix rate of Exceed-type ability.<br>ALL(+10)"
+        },
+        {
+            "code": "XL01",
+            "gid": "GB",
+            "name": "Reverie Receptor",
+            "effect": "Boosts Reverie-type ability transfer rates.<br>ALL(+10)"
         },
         {
             "code": "ZA01",
