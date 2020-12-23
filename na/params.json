@@ -1,7 +1,6 @@
 {
     "optionList": {
-        "support": [
-            {
+        "support": [{
                 "id": "Nothing",
                 "name": "None",
                 "value": "A01",
@@ -62,8 +61,7 @@
                 "boost": 60
             }
         ],
-        "additional": [
-            {
+        "additional": [{
                 "id": "Nothing",
                 "value": "B01"
             },
@@ -153,7 +151,7 @@
             },
             {
                 "id": "Affix Augment (Grand PP)",
-                "name": "Grace Spirit",
+                "name": "Grand Spirit",
                 "value": "B10d",
                 "extend": 100,
                 "effect": "PP(+15)"
@@ -235,7 +233,7 @@
                 "extend": 100,
                 "effect": "TEC Pwr(+50),PP(+5)"
             },
-             {
+            {
                 "id": "Affix Augment (Grand T)",
                 "name": "Grand Casting",
                 "value": "B13d",
@@ -418,8 +416,7 @@
                 "effect": "ALL(+10),<br>PP(+1)"
             }
         ],
-        "potential": [
-            {
+        "potential": [{
                 "id": "Nothing",
                 "name": "Nothing",
                 "value": "C01",
@@ -447,8 +444,7 @@
     },
     "excludePattern": {
         "addition": [
-            "J",
-            [
+            "J", [
                 "R",
                 "S"
             ],
@@ -464,8 +460,7 @@
         ],
         "select": [
             "J*",
-            "R*",
-            [
+            "R*", [
                 "S*",
                 "R*"
             ],
@@ -501,8 +496,7 @@
             ]
         ]
     },
-    "extendAbility": [
-        {
+    "extendAbility": [{
             "base": [
                 "AA01",
                 "AB01",
@@ -1587,52 +1581,52 @@
             "success": 90
         },
         {
-            "base":[
-            "LP05",
-            "LM05"
+            "base": [
+                "LP05",
+                "LM05"
             ],
             "ref": "LP06",
-            "success":50
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LS05",
                 "LM05"
             ],
-            "ref":"LS06",
-            "success":50
+            "ref": "LS06",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LT05",
                 "LM05"
             ],
-            "ref":"LT06",
-            "success":50
+            "ref": "LT06",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LP05",
                 "LR05"
             ],
-            "ref":"LP07",
-            "success":50
+            "ref": "LP07",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LS05",
                 "LR05"
             ],
-            "ref":"LS07",
-            "success":50
+            "ref": "LS07",
+            "success": 50
         },
         {
-            "base":[
+            "base": [
                 "LT05",
                 "LR05"
             ],
-            "ref":"LT07",
-            "success":50
+            "ref": "LT07",
+            "success": 50
         },
         {
             "base": [
@@ -1748,8 +1742,7 @@
             "success": 100
         }
     ],
-    "extraSlot": [
-        {
+    "extraSlot": [{
             "false": 100,
             "true": 100
         },
@@ -2306,8 +2299,7 @@
             "Reaper: Weak to Dark"
         ]
     },
-    "abilityList": [
-        {
+    "abilityList": [{
             "code": "AA01",
             "gid": "AA",
             "name": "Might I",
@@ -4415,7 +4407,7 @@
         {
             "code": "LE00",
             "gid": "L5",
-            "name":"S5: Placeholder",
+            "name": "S5: Placeholder",
             "extend": [
                 100
             ],
@@ -4425,7 +4417,7 @@
         {
             "code": "LF00",
             "gid": "L6",
-            "name":"S6: Placeholder",
+            "name": "S6: Placeholder",
             "extend": [
                 100
             ],
@@ -4435,7 +4427,7 @@
         {
             "code": "LG00",
             "gid": "L7",
-            "name":"S7: Placeholder",
+            "name": "S7: Placeholder",
             "extend": [
                 100
             ],
@@ -4445,7 +4437,7 @@
         {
             "code": "LH00",
             "gid": "L8",
-            "name":"S8: Placeholder",
+            "name": "S8: Placeholder",
             "extend": [
                 100
             ],
@@ -4463,7 +4455,7 @@
                 80
             ],
             "effect": "MEL Pwr(+10),<br>RNG Pwr(+10),<br>TEC Pwr(+10),<br>HP(+10)",
-            "tooltip":"Mutation I - Boosts the synthesis rate of Stat III"
+            "tooltip": "Mutation I - Boosts the synthesis rate of Stat III"
         },
         {
             "code": "OA02",
@@ -4481,7 +4473,7 @@
                 50
             ],
             "effect": "MEL Pwr(+15),<br>RNG Pwr(+15),<br>TEC Pwr(+15),<br>HP(+15)",
-            "tooltip":"Mutation I - Boosts the synthesis rate of Stat III/IV"
+            "tooltip": "Mutation I - Boosts the synthesis rate of Stat III/IV"
         },
         {
             "code": "RA11",
