@@ -82,28 +82,8 @@ Ext.define("PSO2.GridGrouping", {
             return Locale.group11
         } else if (affixGroup.name == "YA") {
             return Locale.group12
-        } else if (affixGroup.name == "L1") {
+        } else if (affixGroup.name == "L") {
             return Locale.group13
-        } else if (affixGroup.name == "L2") {
-            return Locale.group14
-        } else if (affixGroup.name == "L3") {
-            return Locale.group15
-        } else if (affixGroup.name == "L4") {
-            return Locale.group16
-        } else if (affixGroup.name == "L5") {
-            return Locale.group17
-        } else if (affixGroup.name == "L6") {
-            return Locale.group18
-        } else if (affixGroup.name == "L7") {
-            return Locale.group19
-        } else if (affixGroup.name == "L8") {
-            return Locale.group20
-        } else if (affixGroup.name == "LSAF") {
-            return Locale.group21
-        } else if (affixGroup.name == "CC") {
-            return Locale.group22
-        } else if (affixGroup.name == "CA") {
-            return Locale.group23
         }
         return Locale.group0
     }
@@ -144,9 +124,8 @@ Ext.define("PSO2.SynthesisComponent", {
         } else {
             viewportData = []
         }
-		var appLocale = this.getLocale();
-		if(appLocale == "jp")
-		{
+        var appLocale = this.getLocale();
+        if (appLocale == "jp") {
             viewportData.push({
                 cls: "app-header",
                 region: "north",
@@ -163,26 +142,24 @@ Ext.define("PSO2.SynthesisComponent", {
                     ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"
                 ].join("")
             });
-		}
-		else
-		{
-			        viewportData.push({
-            cls: "app-header",
-            region: "north",
-            height: 35,
-            layout: "fit",
-            hidden: synComp.noDD,
-            html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
-                " (PSO2 NA)&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
-                ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
-                '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
-                ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>' +
-                ' (Updated ' + synComp.date + ')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord' +
-                ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>' +
-                ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"
-            ].join("")
-        });
-		}
+        } else {
+            viewportData.push({
+                cls: "app-header",
+                region: "north",
+                height: 35,
+                layout: "fit",
+                hidden: synComp.noDD,
+                html: ['<div class="x-top-title">', synComp.title + " ver " + synComp.version +
+                    " (PSO2 NA)&nbsp;", '<span class="x-top-author">', '<a href="http://rxio.blog.fc2.com/"' +
+                    ' style="text-decoration:none">Created by Pulsar@倉庫絆</a>&nbsp;&amp;&nbsp;',
+                    '<a target="_blank" href="http://pso2numao.web.fc2.com/dodo/" style="text-decoration:none">助右衛門@ship8</a>',
+                    ' | <a href="http://arks-layer.com/" style="text-decoration:none">English version maintained by Aida and Skylark_Tree</a>' +
+                    ' (Updated ' + synComp.date + ')<br>Message Aida Enna#0001 or Skylark_Tree#1658 on Discord' +
+                    ' or <a href="http://discord.gg/PSO2" style="text-decoration:none">join our Discord server</a>' +
+                    ' or <a href=https://github.com/JimmyS24/PSO2-Affix-Simulator/issues>github </a>to report bugs/issues/suggestions.', "</span>", "</div>"
+                ].join("")
+            });
+        }
         synComp.panelNames = ["Base"];
         for (var d = 1; d <= synComp.maxMaterial; d++) {
             synComp.panelNames.push("Fodder " + d)
@@ -263,8 +240,7 @@ Ext.define("PSO2.SynthesisComponent", {
                         }
                     ],
                 }],
-                columns: [
-                    {
+                columns: [{
                         dataIndex: "name",
                         header: Locale.ability,
                         width: 108,
@@ -272,7 +248,7 @@ Ext.define("PSO2.SynthesisComponent", {
                         filter: {
                             type: "string"
                         }
-                    }, 
+                    },
                     {
                         dataIndex: "effect",
                         header: "Effect",
@@ -319,10 +295,13 @@ Ext.define("PSO2.SynthesisComponent", {
                         dataIndex: "extend",
                         header: "Transfer Rate",
                         width: 108,
-                        renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
+                        renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                             var display = value.toString();
                             var require = ""
-                            if(record.get("require")){
+                            if (display.length == 0) {
+                                display = "N/A"
+                            }
+                            if (record.get("require")) {
                                 require = "<br>require: <br>" + synComp.ability.findAbilityName(record.get("require")).get("name")
                             }
                             return display + require
@@ -742,7 +721,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 text: "Changelog",
                 iconCls: "x-changelog-icon",
                 handler: function() {
-                    
+
                     Ext.create("widget.window", {
                         title: "Changelog",
                         modal: true,
@@ -799,13 +778,13 @@ Ext.define("PSO2.SynthesisComponent", {
             })
             buttons.push("->")
             var appLocale = this.getLocale();
-            if(appLocale == "na"){
+            if (appLocale == "na") {
                 appLocale = "jp";
-            } else if (appLocale == "jp"){
+            } else if (appLocale == "jp") {
                 appLocale = "na";
             }
-			buttons.push({
-				text: "Click a flag to switch between PSO2JP and PSO2NA (This setting will be saved) ->",
+            buttons.push({
+                text: "Click a flag to switch between PSO2JP and PSO2NA (This setting will be saved) ->",
             })
             buttons.push({
                 cls: "x-jp-flag",
@@ -814,14 +793,14 @@ Ext.define("PSO2.SynthesisComponent", {
                 handler: function() {
                     var site = location
                     var pathname = site.pathname.split('/');
-                    for(var i = 0; i < pathname.length; i++){
-                        if(pathname[i] == "na"){
+                    for (var i = 0; i < pathname.length; i++) {
+                        if (pathname[i] == "na") {
                             pathname[i] = "jp";
-                        } else if(pathname[i] == "jp"){
+                        } else if (pathname[i] == "jp") {
                             pathname[i] = "na";
                         }
                     }
-                    
+
                     site.pathname = pathname.join("/");
                 }
             })
@@ -832,21 +811,21 @@ Ext.define("PSO2.SynthesisComponent", {
                 handler: function() {
                     var site = location
                     var pathname = site.pathname.split('/');
-                    for(var i = 0; i < pathname.length; i++){
-                        if(pathname[i] == "na"){
+                    for (var i = 0; i < pathname.length; i++) {
+                        if (pathname[i] == "na") {
                             pathname[i] = "jp";
-                        } else if(pathname[i] == "jp"){
+                        } else if (pathname[i] == "jp") {
                             pathname[i] = "na";
                         }
                     }
-                    
+
                     site.pathname = pathname.join("/");
                 }
             })
         }
         return buttons
     },
-    getLocale: function(){
+    getLocale: function() {
         var pathname = location.pathname.split('/');
         pathname.pop();
         return pathname.pop();
@@ -1078,8 +1057,7 @@ Ext.define("PSO2.SynthesisComponent", {
             foddersGrid.push(synComp.createGridPanel(e, synComp.ability.createSlotStore(), bottomPanel, panelData ? panelData[e] : null))
         }
 
-        var synPanelItems = [
-            {
+        var synPanelItems = [{
                 layout: "column",
                 defaults: {
                     columnWidth: 1 / (synComp.maxMaterial + 1),
@@ -1090,7 +1068,7 @@ Ext.define("PSO2.SynthesisComponent", {
                     }
                 },
                 items: foddersGrid
-            }, 
+            },
             bottomPanel
         ];
 
@@ -1104,7 +1082,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 })
             )
         }*/
-        
+
         var synPanel = synComp.tabPanel.add({
             title: "Synthesis Panel",
             autoScroll: true,
@@ -1333,7 +1311,8 @@ Ext.define("PSO2.SynthesisComponent", {
     },
     createGridPanel: function(index, store, panel, codeString) {
         var synComp = this,
-            fodderPanel, resultPanel = panel.getResultPanel(), indexList = [];
+            fodderPanel, resultPanel = panel.getResultPanel(),
+            indexList = [];
         for (i = 0; i <= synComp.maxMaterial; i++) {
             if (i != index) {
                 indexList.push(i)
