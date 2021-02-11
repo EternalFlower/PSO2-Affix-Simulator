@@ -84,6 +84,10 @@ Ext.define("PSO2.GridGrouping", {
             return Locale.group12
         } else if (affixGroup.name == "L") {
             return Locale.group13
+        } else if (affixGroup.name == "CC") {
+            return Locale.group22
+        } else if (affixGroup.name == "CA") {
+            return Locale.group23
         }
         return Locale.group0
     }
