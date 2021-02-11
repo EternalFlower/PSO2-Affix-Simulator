@@ -90,7 +90,7 @@ Ext.define("PSO2.GridGrouping", {
 });
 Ext.define("PSO2.SynthesisComponent", {
     extend: "Ext.container.Container",
-    version: "1.93",
+    version: "1.94",
     date: document.lastModified,
     title: "PSO2 Affix Simulator",
     constCookieName: "pso2dodo",
