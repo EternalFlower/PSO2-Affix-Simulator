@@ -7411,7 +7411,7 @@
             "code": "VJ04",
             "gid": "CA",
             "name": "Glare Catalyst",
-			"extend": [
+            "extend": [
                 0,
                 10,
                 30
