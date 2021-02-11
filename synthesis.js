@@ -305,6 +305,9 @@ Ext.define("PSO2.SynthesisComponent", {
                             if (display.length == 0) {
                                 display = "N/A"
                             }
+                            if (record.get("code") == "VJ04") {
+                                display += "<br>Yes, Glare Catalyst<br>does not transfer"
+                            }
                             if (record.get("require")) {
                                 require = "<br>require: <br>" + synComp.ability.findAbilityName(record.get("require")).get("name")
                             }
@@ -725,7 +728,6 @@ Ext.define("PSO2.SynthesisComponent", {
                 text: "Changelog",
                 iconCls: "x-changelog-icon",
                 handler: function() {
-
                     Ext.create("widget.window", {
                         title: "Changelog",
                         modal: true,
@@ -788,6 +790,7 @@ Ext.define("PSO2.SynthesisComponent", {
                 appLocale = "na";
             }
             buttons.push({
+                xtype: 'tbtext',
                 text: "Click a flag to switch between PSO2JP and PSO2NA (This setting will be saved) ->",
             })
             buttons.push({
