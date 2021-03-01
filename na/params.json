@@ -746,6 +746,22 @@
         },
         {
             "base": [
+                "XL01",
+                "TK0*"
+            ],
+            "ref": "$$",
+            "success": 100
+        },
+        {
+            "base": [
+                "XL01",
+                "TK1*"
+            ],
+            "ref": "$$",
+            "success": 10
+        },
+        {
+            "base": [
                 "RP55",
                 "RC23",
                 "ROC2",
@@ -7471,12 +7487,12 @@
             "code": "XA01",
             "gid": "GB",
             "name": "Soul Receptor",
-            "effect": "Greatly increases Soul affix rate"
+            "effect": "Greatly increases Soul-type Augment transfer success rate."
         },
         {
             "code": "XB01",
             "gid": "GB",
-            "name": "Extreme Receptor",
+            "name": "Elegant Receptor",
             "extup": [
                 "AA",
                 "AB",
@@ -7488,31 +7504,31 @@
                 "EB"
             ],
             "rel": "extreme",
-            "effect": "Greatly increases Flict, Alter affix rate<br>ALL(+10)"
+            "effect": "Greatly increases transfer rate for Alter- and Flict-type Augments.<br>ALL(+10)"
         },
         {
             "code": "XC01",
             "gid": "GB",
             "name": "Gift Receptor",
-            "effect": "Allows transfer of Gift affixes"
+            "effect": "Enables inheritance of Gift-type Augments."
         },
         {
             "code": "XD01",
             "gid": "GB",
             "name": "Sentence Receptor",
-            "effect": "Boosts transfer of Sentence affixes<br>ALL(+10)"
+            "effect": "Greatly increases the Transfer rate of Sentence-type Augments.<br>ALL(+10)"
         },
         {
             "code": "XE01",
             "gid": "GB",
             "name": "Phrase Receptor",
-            "effect": "Boosts transfer of Phrase affixes<br>ALL(+10)"
+            "effect": "Greatly increases the Transfer rate of Phrase-type Augments.<br>ALL(+10)"
         },
         {
             "code": "XF01",
             "gid": "GB",
             "name": "Factor Receptor",
-            "effect": "Boosts Factor-type ability transfer rates.<br>ALL(+10)"
+            "effect": "Greatly increases Factor-type Augment transfer success rate.<br>ALL(+10)"
         },
         {
             "code": "XG01",
@@ -7530,31 +7546,37 @@
             "code": "XI30",
             "gid": "GB",
             "name": "Attack Receptor",
-            "effect": "Greatly increases affix rate of <br>Might, Precision, Casting, Deftness<br>ALL(+5)"
+            "effect": "Greatly increases the Transfer rate of<br>Attack-type Augments and Deftness.<br>ALL(+5)"
         },
         {
             "code": "XI31",
             "gid": "GB",
             "name": "Guard Receptor",
-            "effect": "Greatly increases affix rate of <br>Genius, Toughness, Reflex<br>ALL(+5)"
+            "effect": "Greatly increases the Transfer rate of<br>Toughness, Reflex, and Genius.<br>ALL(+5)"
         },
         {
             "code": "XI32",
             "gid": "GB",
             "name": "Photon Receptor",
-            "effect": "Greatly increases affix rate of <br>Stamina, Spirit<br>ALL(+5)"
+            "effect": "Greatly increases the Transfer rate of<br>Stamina and Spirit.<br>ALL(+5)"
         },
         {
             "code": "XJ01",
             "gid": "GB",
             "name": "Divine Receptor",
-            "effect": "Greatly increases affix rate of Divine-type ability.<br>ALL(+10)"
+            "effect": "Greatly increases the Transfer rate of Divine-type Augments.<br>ALL(+10)"
         },
         {
             "code": "XK01",
             "gid": "GB",
             "name": "Exceed Receptor",
-            "effect": "Greatly increases affix rate of Exceed-type ability.<br>ALL(+10)"
+            "effect": "Greatly increases the Transfer rate of Exceed Energy.<br>ALL(+10)"
+        },
+        {
+            "code": "XL01",
+            "gid": "GB",
+            "name": "Reverie Receptor",
+            "effect": "Boosts Reverie-type ability transfer rates.<br>ALL(+10)"
         },
         {
             "code": "ZA01",
