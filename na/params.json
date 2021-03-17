@@ -7427,6 +7427,11 @@
             "code": "VJ04",
             "gid": "CA",
             "name": "Glare Catalyst",
+            "extend": [
+                0,
+                10,
+                30
+            ],
             "effect": "HP(+10),<br>PP(+1)",
             "tooltip": "Made from: Berouge Glare, Fodrus Glare, Execour Glare and (Angele Glare or Duminus Glare)<br>Used for: Absolute Glare"
         },
