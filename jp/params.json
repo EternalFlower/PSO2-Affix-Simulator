@@ -59,12 +59,6 @@
                 "name": "+60%",
                 "value": "A10",
                 "boost": 60
-            },
-            {
-                "id": "Ability Success Rate +65%",
-                "name": "+65%",
-                "value": "A11",
-                "boost": 65
             }
         ],
         "additional": [{
@@ -762,6 +756,22 @@
             "base": [
                 "XL01",
                 "TK1*"
+            ],
+            "ref": "$$",
+            "success": 10
+        },
+        {
+            "base": [
+                "XM01",
+                "TN0*"
+            ],
+            "ref": "$$",
+            "success": 100
+        },
+        {
+            "base": [
+                "XM01",
+                "TN1*"
             ],
             "ref": "$$",
             "success": 10
@@ -7583,6 +7593,12 @@
             "gid": "GB",
             "name": "Reverie Receptor",
             "effect": "Boosts Reverie-type ability transfer rates.<br>ALL(+10)"
+        },
+        {
+            "code": "XM01",
+            "gid": "GB",
+            "name": "Glare Receptor",
+            "effect": "Boosts Glare-type ability transfer rates.<br>ALL(+10)"
         },
         {
             "code": "ZA01",

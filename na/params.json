@@ -762,6 +762,22 @@
         },
         {
             "base": [
+                "XM01",
+                "TN0*"
+            ],
+            "ref": "$$",
+            "success": 100
+        },
+        {
+            "base": [
+                "XM01",
+                "TN1*"
+            ],
+            "ref": "$$",
+            "success": 10
+        },
+        {
+            "base": [
                 "RP55",
                 "RC23",
                 "ROC2",
@@ -7577,6 +7593,12 @@
             "gid": "GB",
             "name": "Reverie Receptor",
             "effect": "Boosts Reverie-type ability transfer rates.<br>ALL(+10)"
+        },
+        {
+            "code": "XM01",
+            "gid": "GB",
+            "name": "Glare Receptor",
+            "effect": "Boosts Glare-type ability transfer rates.<br>ALL(+10)"
         },
         {
             "code": "ZA01",

@@ -1,5 +1,9 @@
 var patch_notes =
     '<b><u>Changelog</b></u></center><br>' +
+    '<b>05/12/2021:</b>' +
+    '<ul>' +
+    '<li> - Add Glare Receptor</li>' +
+    '</ul>' +
     '<b>02/11/2021:</b>' +
     '<ul>' +
     '<li> - Update some names for Global</li>' +
